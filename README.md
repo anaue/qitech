@@ -27,7 +27,7 @@ export QITECH_ENV=production
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let filePath = [[document file path]];
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -42,7 +42,7 @@ qitech.upload(filePath, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
 };
@@ -57,7 +57,7 @@ qitech.debt.get_signed(query, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
     "borrower": {
         "person_type": "natural"

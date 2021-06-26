@@ -3,7 +3,7 @@
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let filePath = [[document file path]];
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -18,7 +18,7 @@ qitech.upload(filePath, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
 };
@@ -33,7 +33,7 @@ qitech.debt.get_signed(query, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
     "borrower": {
         "person_type": "natural"
@@ -68,7 +68,7 @@ qitech.debt.post_simulation(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
     "borrower":{
        "address":{
@@ -216,7 +216,7 @@ qitech.debt.post(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
     "account_owner": {
         "address":{
@@ -275,7 +275,7 @@ qitech.account.post_account(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let query = {
 };
 let callback = (response,statusCode) => {
@@ -291,7 +291,7 @@ qitech.account.list_accounts(query, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
 	"account_manager":{
 		"address": {
@@ -421,7 +421,7 @@ qitech.account.post_escrow(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
 	"source_account":{
 		"account_branch": "0001",
@@ -456,7 +456,7 @@ qitech.transfer.post_transfer(data, callback, error);
 Needed for escrow accounts only
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
 	"operation_key_list": ["0e241203-8c6b-4e0a-ac42-e0d2a2fc2d37"],
 	"feedback": true
@@ -475,7 +475,7 @@ qitech.transfer.post_approval(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let callback = response => {
     console.log(response);
 };
@@ -490,7 +490,7 @@ qitech.transfer.list_pending(callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let transaction_key = "f17c219a-e11d-4b5c-b00a-8ee2135f581a";
 let query = {
     pdf: true
@@ -509,7 +509,7 @@ qitech.transfer.get_receipt(transaction_key, query, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
 	"person_type": "legal",
 	"name": "Padaria do Joao Ninguem",
@@ -543,7 +543,7 @@ qitech.scr.post(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let query = {};
 let callback = response => {
     console.log(response);
@@ -558,7 +558,7 @@ qitech.scr.list(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let scr_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let query = {};
 let callback = response => {
@@ -574,7 +574,7 @@ qitech.scr.get(scr_key, query, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
   "scr_key": "5b18208b-474b-4847-8004-60b117fad1e8",
   "requester_person_key": "1da2dbd0-af45-4b4d-b685-896e449fa216"
@@ -592,7 +592,7 @@ qitech.scr.delete(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
 	"report_start_date": "2019-01",
     "report_end_date": "2019-02",
@@ -611,7 +611,7 @@ qitech.scr.post_redo(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let data = {
     "occurrences": [
         {
@@ -669,7 +669,7 @@ qitech.multibank.post_instruction(data, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let filePath = [[document file path]];
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -685,7 +685,7 @@ qitech.multibank.post_instruction(filePath, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let person_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -700,7 +700,7 @@ qitech.multibank.get_cnab(person_key, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let bank_slip_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -715,7 +715,7 @@ qitech.multibank.get_bank_slip(bank_slip_key, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let person_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let query = {
 };
@@ -731,7 +731,7 @@ qitech.multibank.list_bank_slip(person_key, query, callback, error);
 ### POST - 2-way bank slip - generate PDF
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let bank_slip_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -745,7 +745,7 @@ qitech.multibank.post_2way_bank_slip(bank_slip_key, callback, error);
 ### GET - 2-way bank slip - get PDF
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let bank_slip_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -760,7 +760,7 @@ qitech.multibank.get_2way_bank_slip(bank_slip_key, callback, error);
 ### GET - little french report
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let requester_profile_code = "5b18208b-474b-4847-8004-60b117fad1e8";
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -775,7 +775,7 @@ qitech.multibank.get_little_french(requester_profile_code, callback, error);
 ### GET - duplicates balance report
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let query = {};
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -789,7 +789,7 @@ qitech.multibank.get_bank_slip_duplicates_balance(query, callback, error);
 ### GET - duplicates balance excel report
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let query = {};
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -804,7 +804,7 @@ qitech.multibank.get_bank_slip_duplicates_balance_exce(query, callback, error);
 
 
 ```
-const qitech = require('./index');
+const qitech = require('qitech-wrapper');
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
 };
