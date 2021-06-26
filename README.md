@@ -27,7 +27,7 @@ export QITECH_ENV=production
 
 
 ```
-const index = require('./index');
+const qitech = require('./index');
 let filePath = [[document file path]];
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
@@ -35,14 +35,14 @@ let callback = (response,statusCode) => {
 let error = error => {
     console.error('error',error);
 };
-index.upload(filePath, callback, error);
+qitech.upload(filePath, callback, error);
 ```
 
 ### GET - DEBT 
 
 
 ```
-const index = require('./index');
+const qitech = require('./index');
 let callback = (response,statusCode) => {
     console.log(statusCode, response);
 };
@@ -50,14 +50,14 @@ let error = error => {
     console.error('error',error);
 }
 query = {};
-index.debt.get_signed(query, callback, error);
+qitech.debt.get_signed(query, callback, error);
 ```
 
 ### POST - DEBT SIMULATION
 
 
 ```
-const index = require('./index');
+const qitech = require('./index');
 let data = {
     "borrower": {
         "person_type": "natural"
@@ -85,5 +85,5 @@ let callback = response => {
 let error = error => {
     console.error('error',error);
 }
-index.debt.post_simulation(data, callback, error);
+qitech.debt.post_simulation(data, callback, error);
 ```
