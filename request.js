@@ -5,7 +5,7 @@ const https = require('https');
 const md5 = require('md5');
 const qs = require('qs');
 
-const QITECH_PROD_ENDPOINT = '';
+const QITECH_PROD_ENDPOINT = "api-auth.qitech.app";
 const QITECH_STAG_ENDPOINT = 'api-auth.sandbox.qitech.app';
 let apiKey = process.env.QITECH_API_CLIENT_KEY;
 let privateKeyFile = process.env.QITECH_API_PRIVATE_KEY_PATH ;
@@ -108,8 +108,9 @@ var request = function (HTTPVerb, path, options, callback) {
     };
 
     req =  https.request(req_options, res => {
-        // console.log(`statusCode: ${res.statusCode}`);
-        // console.log("Content-Type", res.headers['content-type']);
+        console.log(`statusCode: ${res.statusCode}`);
+        console.log("Content-Type", res.headers['content-type']);
+
         let chunk = "";
         var responseContentType = null;
         res.on('data', d => {
@@ -118,9 +119,10 @@ var request = function (HTTPVerb, path, options, callback) {
         });
 
         res.on('end', ()=>{
+
             if(responseContentType == "application/json")
             {
-                jsonBody = JSON.parse(chunk.toString() );
+                jsonBody = JSON.parse(chunk.toString());
                 encoded_body = jsonBody.encoded_body;
                 decoded = jwt.decode(encoded_body);
                 callback(decoded, res.statusCode, res.headers);

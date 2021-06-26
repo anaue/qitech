@@ -1,13 +1,23 @@
 {
-  "name": "volpi",
+  "name": "qitech-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Unofficial wrapper for QI Tech API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Anauê Costa",
+    "email": "anaue.costa@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/anaue/qitech/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anaue/qitech.git"
+  },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
     "md5": "^2.3.0",
