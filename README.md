@@ -2,6 +2,12 @@
 
 NodeJs wrapper for QI Tech API.
 
+## Install
+
+```
+npm install qitech-wrapper --save
+```
+
 ## Configuration
 
 Use env vars to config the integration
@@ -13,7 +19,7 @@ export QITECH_API_PRIVATE_KEY_PATH=[[client private file path]]
 
 ## Production Enviroment 
 
-The sandbox environemt is default for any value for QITECH_ENV, except `production`
+The sandbox environment is default for any value for QITECH_ENV, except `production`
 
 ```
 ## production environment
