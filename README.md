@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/anaue/qitech.svg?branch=main)](https://travis-ci.com/anaue/qitech)
 # QI Tech NodeJs
 
 NodeJs wrapper for QI Tech API.
