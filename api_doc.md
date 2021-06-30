@@ -1,17 +1,11 @@
-
 ### POST - UPLOAD
-
 
 ```
 const qitech = require('qitech-wrapper');
 let filePath = [[document file path]];
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-};
-qitech.upload(filePath, callback, error);
+qitech.upload(filePath, [fileContent])
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - DEBT 
@@ -19,14 +13,10 @@ qitech.upload(filePath, callback, error);
 
 ```
 const qitech = require('qitech-wrapper');
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
 query = {};
-qitech.debt.get_signed(query, callback, error);
+qitech.debt.get(query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - DEBT SIMULATION
@@ -55,17 +45,12 @@ let data = {
         }
     }
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.debt.post_simulation(data, callback, error);
+qitech.debt_simulation.post(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - DEBT 
-
 
 ```
 const qitech = require('qitech-wrapper');
@@ -201,14 +186,10 @@ let data = {
     },
     "purchaser_document_number":"49194383000175"
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.debt.post(data, callback, error);
 
+qitech.debt.post(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -262,13 +243,10 @@ let data = {
         }
     }
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.account.post_account(data, callback, error);
+
+qitech.account.post_account(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - List ACCOUNT 
@@ -278,13 +256,9 @@ qitech.account.post_account(data, callback, error);
 const qitech = require('qitech-wrapper');
 let query = {
 };
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.account.list_accounts(query, callback, error);
+qitech.account.list_accounts(query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - ESCROW ACCOUNT
@@ -408,13 +382,10 @@ let data = {
         }
     }
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.account.post_escrow(data, callback, error);
+
+qitech.escrow.post(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - Wire Transfer
@@ -441,13 +412,10 @@ let data = {
 	"transaction_amount": 19000,
     "schedule_date": "2020-08-04"
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.transfer.post_transfer(data, callback, error);
+
+qitech.transfer.post_transfer(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -461,13 +429,10 @@ let data = {
 	"operation_key_list": ["0e241203-8c6b-4e0a-ac42-e0d2a2fc2d37"],
 	"feedback": true
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.transfer.post_approval(data, callback, error);
+
+qitech.transfer.post_approval(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -476,17 +441,14 @@ qitech.transfer.post_approval(data, callback, error);
 
 ```
 const qitech = require('qitech-wrapper');
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.transfer.list_pending(callback, error);
+
+qitech.transfer.list_pending)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
-### GET - get Transfer Receipt
+### GET - Get Transfer Receipt
 
 
 ```
@@ -495,13 +457,10 @@ let transaction_key = "f17c219a-e11d-4b5c-b00a-8ee2135f581a";
 let query = {
     pdf: true
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.transfer.get_receipt(transaction_key, query, callback, error);
+
+qitech.transfer.get_receipt(transaction_key, query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -530,13 +489,10 @@ let data = {
 	"report_end_date": "2021-03" ,
     "check_representatives": true
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.scr.post(data, callback, error);
+
+qitech.scr.post(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - List SCR
@@ -545,13 +501,10 @@ qitech.scr.post(data, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let query = {};
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.scr.list(data, callback, error);
+
+qitech.scr.list(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - SCR
@@ -561,13 +514,10 @@ qitech.scr.list(data, callback, error);
 const qitech = require('qitech-wrapper');
 let scr_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let query = {};
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.scr.get(scr_key, query, callback, error);
+
+qitech.scr.get(scr_key, query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### DELETE - SCR : Cancel ongoing SCR request
@@ -579,13 +529,10 @@ let data = {
   "scr_key": "5b18208b-474b-4847-8004-60b117fad1e8",
   "requester_person_key": "1da2dbd0-af45-4b4d-b685-896e449fa216"
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.scr.delete(data, callback, error);
+
+qitech.scr.delete(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - REDO SCR
@@ -598,13 +545,10 @@ let data = {
     "report_end_date": "2019-02",
     "origin_key": "bf6b5e8b-93df-4443-b1fc-d760db6ea4ff"
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.scr.post_redo(data, callback, error);
+
+qitech.scr.post_redo(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - multibank_instruction 
@@ -655,13 +599,10 @@ let data = {
         }
     ]
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.post_instruction(data, callback, error);
+
+qitech.multibank.post_instruction(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -670,14 +611,10 @@ qitech.multibank.post_instruction(data, callback, error);
 
 ```
 const qitech = require('qitech-wrapper');
-let filePath = [[document file path]];
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-};
-qitech.multibank.post_instruction(filePath, callback, error);
+let filePath = [[document file path]];;
+qitech.multibank.post_instruction(filePath)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -687,13 +624,9 @@ qitech.multibank.post_instruction(filePath, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let person_key = "5b18208b-474b-4847-8004-60b117fad1e8";
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.get_cnab(person_key, callback, error);
+qitech.multibank.get_cnab(person_key)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - Show bank slip
@@ -702,13 +635,9 @@ qitech.multibank.get_cnab(person_key, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let bank_slip_key = "5b18208b-474b-4847-8004-60b117fad1e8";
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.get_bank_slip(bank_slip_key, callback, error);
+qitech.multibank.get_bank_slip(bank_slip_key)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - List bank slips
@@ -719,13 +648,9 @@ const qitech = require('qitech-wrapper');
 let person_key = "5b18208b-474b-4847-8004-60b117fad1e8";
 let query = {
 };
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.list_bank_slip(person_key, query, callback, error);
+qitech.multibank.list_bank_slip(person_key, query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - 2-way bank slip - generate PDF
@@ -733,13 +658,9 @@ qitech.multibank.list_bank_slip(person_key, query, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let bank_slip_key = "5b18208b-474b-4847-8004-60b117fad1e8";
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.post_2way_bank_slip(bank_slip_key, callback, error);
+qitech.multibank.post_2way_bank_slip(bank_slip_key)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - 2-way bank slip - get PDF
@@ -747,13 +668,9 @@ qitech.multibank.post_2way_bank_slip(bank_slip_key, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let bank_slip_key = "5b18208b-474b-4847-8004-60b117fad1e8";
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.get_2way_bank_slip(bank_slip_key, callback, error);
+qitech.multibank.get_2way_bank_slip(bank_slip_key)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -762,13 +679,9 @@ qitech.multibank.get_2way_bank_slip(bank_slip_key, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let requester_profile_code = "5b18208b-474b-4847-8004-60b117fad1e8";
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.get_little_french(requester_profile_code, callback, error);
+qitech.multibank.get_little_french(requester_profile_code)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 
@@ -777,13 +690,9 @@ qitech.multibank.get_little_french(requester_profile_code, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let query = {};
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.get_bank_slip_duplicates_balance(query, callback, error);
+qitech.multibank.get_bank_slip_duplicates_balance(query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - duplicates balance excel report
@@ -791,13 +700,9 @@ qitech.multibank.get_bank_slip_duplicates_balance(query, callback, error);
 ```
 const qitech = require('qitech-wrapper');
 let query = {};
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.multibank.get_bank_slip_duplicates_balance_exce(query, callback, error);
+qitech.multibank.get_bank_slip_duplicates_balance_exce(query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - List Financial Institute 
@@ -805,15 +710,11 @@ qitech.multibank.get_bank_slip_duplicates_balance_exce(query, callback, error);
 
 ```
 const qitech = require('qitech-wrapper');
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
 query = {
     ispb_number: "00000000",
     compe_number: "001"
 };
-qitech.financial_institute(query, callback, error);
+qitech.financial_institute(query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```

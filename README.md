@@ -31,36 +31,25 @@ export QITECH_ENV=production
 
 ### POST - UPLOAD
 
-
 ```
 const qitech = require('qitech-wrapper');
 let filePath = [[document file path]];
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-};
-qitech.upload(filePath, callback, error);
+qitech.upload.post(filePath, [fileContent])
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### GET - DEBT 
 
-
 ```
 const qitech = require('qitech-wrapper');
-let callback = (response,statusCode) => {
-    console.log(statusCode, response);
-};
-let error = error => {
-    console.error('error',error);
-}
 query = {};
-qitech.debt.get_signed(query, callback, error);
+qitech.debt.get(query)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
 
 ### POST - DEBT SIMULATION
-
 
 ```
 const qitech = require('qitech-wrapper');
@@ -85,11 +74,49 @@ let data = {
         }
     }
 };
-let callback = response => {
-    console.log(response);
-};
-let error = error => {
-    console.error('error',error);
-}
-qitech.debt.post_simulation(data, callback, error);
+qitech.debt_simulation.post(data)
+    .then(response => console.log(response))
+    .catch(error => console.error(error));
 ```
+
+
+## Content
+
+### UPLOAD
+#### POST - UPLOAD
+    qitech-wrapper.upload.post(filePath, [fileContent], options)
+
+### Debt
+#### POST - Create Debt 
+    qitech-wrapper.debt.post(data, options)
+#### GET - Show Debt 
+    qitech-wrapper.debt.get(query, options)
+#### GET - List Debts 
+    qitech-wrapper.debt.list(query, options)
+
+
+### Signed Debt
+#### POST - Create Signed Debt 
+    qitech-wrapper.signed_debt.post(data, options)
+#### GET - Show Signed Debt 
+    qitech-wrapper.signed_debt.get(query, options)
+#### GET - List Signed Debts 
+    qitech-wrapper.signed_debt.list(query, options)
+
+### Debt Simulation
+#### POST - Debt Simulation
+    qitech-wrapper.debt_simulation.post(data, options)
+
+### Account 
+#### POST - Create Account 
+    qitech-wrapper.account.post(data, options)
+#### GET - List Accounts 
+    qitech-wrapper.account.list(query, options)
+
+### Escrow Account 
+#### POST - Create Escrow account
+    qitech-wrapper.escrow.post(data, options)
+
+### Financial Institute
+#### GET - List Financial Institutes
+    qitech-wrapper.financial_institute.list(query, options)
