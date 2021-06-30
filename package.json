@@ -1,6 +1,6 @@
 {
   "name": "qitech-wrapper",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Unofficial wrapper for QI Tech API",
   "main": "qitech-wrapper.js",
   "scripts": {
