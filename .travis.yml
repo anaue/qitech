@@ -1,3 +1,13 @@
 language: node_js
 node_js:
-  - 15
+- 15
+deploy:
+  provider: npm
+  email: anaue.costa@gmail.com
+  api_key:
+    secure: SmwAlcu1Pm/yEkqqS3QOkkd44ghtk1c2/82QUUjNjyztCv38+yiX3EUIsdeeviPp3FezOZrtPNkYSmGv77weh76LFJac39CVi78CMZj8ahY4ddCImTN68LZS4H4SGXR6N5NrMyB00BiU/VAkYVfDM3JoSOtLXTfqdoEcmwIQvzTKuu9+xX1AdWwdBqzz0M7r4yzb5Eon6IPoUSJ9S6u2oEbDGwkZqq9Rfh/0+42EUooSCaCwcVHuEybiwuvJnfm3a6LVVAZyYbbyCFLzDeH4d34tLRUjY3PuduJGqeTykkMxWOnb+97PO85JPnzI3tLyYHWEESZvM+/7QA0IkrS1m6gOxu9fxLx9eyEcGuNXT/UyT3JwuRCfoZL2PeBMJ1GtbeJoK6VsPjacG3O6ZGV4zrPpdRn2V7YNCtQrH+yWDZ/akRvMqE746khS7+hH49DvZD1ayXecOeCIa1Gc3LdgLMpbpiK/AL+IwNXU+nmjVQp+i5QDilgV25IxIrzUTG0/jojczeZcb+DrrmN7EWCn4xzvwwtUQOihTxJuPoQeGwpOIvbVtad0so36O7ZXD9QTEYIEHQBJOK0ic/mzk3FuY9FJmKTDwiyZSPYb5qb7T5c8XpayU5x8+6S4q33ThUeeBYedC8V+ZDAODHfRu6NgDoGhcSnvcOdpjXgPTSaKocg=
+  on:
+    tags: true
+    repo: anaue/qitech
+    branch: main
+  skip_cleanup: 'true'
