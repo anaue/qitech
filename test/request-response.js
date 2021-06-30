@@ -2649,7 +2649,7 @@ module.exports = {
         }
     },
     transfer:{
-        post_transfer:{
+        post:{
             request:{
                 "source_account":{
                     "account_branch": "0001",
@@ -2837,6 +2837,7 @@ module.exports = {
             }
         },
         get_receipt:{
+            request: "transaction_key",
             query: {
                 pdf: true
             },
