@@ -12,8 +12,5 @@ module.exports = {
     bank_slip_pdf: require('./lib/bank-slip-pdf'),
     multibank: require('./lib/multibank'),
     transfer: require('./lib/wire-transfer'),
-    financial_institute: require('./lib/financial-institute'),
-    printMsg : function() {
-        console.log("This is a message from the demo package");
-    }
+    financial_institute: require('./lib/financial-institute')
 };
