@@ -30,7 +30,7 @@ export QITECH_ENV=production
 
 ## Example
 
-All API calls returns a Promisse
+API calls return a Promisse and optionally accept http options
 
 ### GET - DEBT 
 
@@ -38,15 +38,15 @@ All API calls returns a Promisse
 const qitech_wrapper = require('qitech-wrapper');
 let debt_key = [DEBT_KEY];
 qitech_wrapper.debt.get(debt_key)
-  .then(function (response) {
+   .then(response => {
     // handle success
-    console.log(response);
+    console.log(response.data);
   })
-  .catch(function (error) {
+  .catch(error => {
     // handle error
-    console.error(error);
+    console.error(error.data);
   })
-  .then(function () {
+  .then(() => {
     // always executed
   });
 ```
@@ -77,15 +77,15 @@ let data = {
     }
 };
 qitech_wrapper.debt_simulation.post(data)
-  .then(function (response) {
+  .then(response => {
     // handle success
-    console.log(response);
+    console.log(response.data);
   })
-  .catch(function (error) {
+  .catch(error => {
     // handle error
-    console.error(error);
+    console.error(error.data);
   })
-  .then(function () {
+  .then(() => {
     // always executed
   });
 ```
@@ -94,10 +94,11 @@ qitech_wrapper.debt_simulation.post(data)
 
 ```
 const qitech_wrapper = require('qitech-wrapper');
-let filePath = [[document file path]];
-qitech_wrapper.upload.post(filePath, [fileContent])
-    .then(response => console.log(response))
-    .catch(error => console.error(error));
+let filePath = [path to file, using fs.readFileSync()];
+let fileContent = [alternatively, pass the content file];
+qitech_wrapper.upload.post(filePath, fileContent, options)
+    .then(response => console.log(response.data))
+    .catch(error => console.error(error.data));
 ```
 
 
@@ -105,7 +106,7 @@ qitech_wrapper.upload.post(filePath, [fileContent])
 
 ### UPLOAD
 #### POST - UPLOAD
-    qitech_wrapper.upload.post(filePath, [fileContent], options);
+    qitech_wrapper.upload.post(filePath, fileContent, options);
 
 ### Debt
 #### POST - Create Debt 
@@ -136,10 +137,6 @@ qitech_wrapper.upload.post(filePath, [fileContent])
 ### Escrow Account 
 #### POST - Create Escrow account
     qitech_wrapper.escrow.post(data, options);
-
-### Financial Institute
-#### GET - List Financial Institutes
-    qitech_wrapper.financial_institute.list(query, options);
 
 ### SCR
 #### POST - Request SCR Consultation

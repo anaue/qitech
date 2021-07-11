@@ -20,7 +20,7 @@ module.exports = {
     },
     debt:{
         post: {
-            request:{
+            company_request:{
                 "borrower":{
                    "address":{
                       "city":"Teresina",
@@ -151,6 +151,110 @@ module.exports = {
                    ]
                 },
                 "purchaser_document_number":"49194383000175"
+            },
+            person_request: {
+                "borrower":{
+                    "person_type": "natural",
+                    "name": "Patrícia Tereza Bernardes",
+                    "mother_name": "Maria Mariane",
+                    "birth_date": "1990-05-06",
+                    "profession": "Deputada",
+                    "nationality": "Brasileira",
+                    "marital_status": "married",
+                    "is_pep": true,
+                    "property_system": "total_communion_of_goods",
+                    "individual_document_number": "34651104630",
+                    "document_identification_number": "232479719",
+                    "email": "patricia.tereza@yopmail.com",
+                    "phone": {
+                        "country_code": "055",
+                        "area_code": "11",
+                        "number": "9128281359"
+                    },
+                    "address": {
+                        "street": "Passagem Mariana",
+                        "state": "PA",
+                        "city": "Ananindeua",
+                        "neighborhood": "Águas Lindas",
+                        "number": "660",
+                        "postal_code": "67118003",
+                        "complement": "complemento"
+                    },
+                    "spouse": "Objetos PF",
+                    "wedding_certificate": "DOCUMENT_KEY",
+                    "document_identification": "DOCUMENT_KEY",
+                    "proof_of_residence": "DOCUMENT_KEY"
+                },
+                 "guarantors":[
+                    {
+                       "person_type":"natural",
+                       "name":"Patrícia Tereza Bernardes",
+                       "mother_name":"Maria Mariane",
+                       "birth_date":"1990-05-06",
+                       "profession":"Deputada",
+                       "nationality":"Brasileira",
+                       "marital_status":"married",
+                       "is_pep":true,
+                       "property_system":"total_communion_of_goods",
+                       "individual_document_number":"34651104630",
+                       "document_identification_number":"232479719",
+                       "email":"patricia.tereza@yopmail.com",
+                       "phone":{
+                          "country_code":"055",
+                          "area_code":"11",
+                          "number":"9128281359"
+                       },
+                       "address":{
+                          "street":"Passagem Mariana",
+                          "state":"PA",
+                          "city":"Ananindeua",
+                          "neighborhood":"Águas Lindas",
+                          "number":"660",
+                          "postal_code":"67118003",
+                          "complement":"complemento"
+                       },
+                       "spouse":null,
+                       "wedding_certificate":"69906ede-49c0-4021-981d-44f1136b1b53",
+                       "document_identification":"2db378a2-3a62-4689-a273-a70c7cdb205c",
+                       "proof_of_residence":"d3810134-ee8c-4a6b-ac1a-631fa751524c"
+                    }
+                 ],
+                 "disbursement_bank_accounts":[
+                    {
+                       "bank_code":"341",
+                       "branch_number":"7071",
+                       "account_number":"15570",
+                       "account_digit":"4",
+                       "document_number":"94632180173",
+                       "name":"Pedro Felipe Henrique Alves",
+                       "percentage_receivable":100
+                    }
+                 ],
+                 "financial":{
+                    "amount":10000000,
+                    "annual_interest_rate":2.32,
+                    "cdi_percentage":100,
+                    "credit_operation_type":"ccb",
+                    "disbursement_date":"2019-07-25",
+                    "issue_date":"2019-07-25",
+                    "fine_configuration":{
+                       "contract_fine_rate":0.02,
+                       "interest_base":"calendar_days",
+                       "monthly_rate":0.01
+                    },
+                    "interest_grace_period":0,
+                    "interest_type":"cdi_plus",
+                    "number_of_installments":10,
+                    "principal_grace_period":0,
+                    "rebates":[
+                       {
+                          "fee_type":"tac",
+                          "amount_type":"absolute",
+                          "amount":500
+                       }
+                    ]
+                 },
+                 "purchaser_document_number":"49194383000175"
             },
             simplied_request:{
                 "borrower":{ 
@@ -1003,59 +1107,6 @@ module.exports = {
     escrow:{
         post: {
             company_request:{
-                "account_manager":{
-                    "address": {
-                        "city": "São Paulo",
-                        "complement": "7 andar",
-                        "neighborhood": "Jardim Paulistano",
-                        "number": "2391",
-                        "postal_code": "01452960",
-                        "state": "SP",
-                        "street": "Av. Brigadeiro Faria Lima"
-                    },
-                    "cnae_code": "6499-9/99",
-                    "company_document_number": "09456933000162",
-                    "company_representatives": [
-                        {
-                            "address": {
-                                "city": "Ananindeua",
-                                "complement": "complemento",
-                                "neighborhood": "Águas Lindas",
-                                "number": "660",
-                                "postal_code": "67118003",
-                                "state": "PA",
-                                "street": "Passagem Mariana"
-                            },
-                            "birth_date": "1990-05-06",
-                            "document_identification": "3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
-                            "email":"aurora.nogueira@yopmail.com",
-                            "individual_document_number":"08141163701",
-                            "is_pep": false,
-                            "mother_name": "Maria Mariane",
-                            "name":"Aurora Simone Catarina Nogueira",
-                            "nationality": "Brasileira",
-                            "person_type": "natural",
-                            "phone": {
-                                "area_code": "11",
-                                "country_code": "055",
-                                "number": "9128281359"
-                            },
-                            "proof_of_residence": "51a26c92-27b8-4b3e-a560-467873e997a6"
-                        }
-                    ],
-                    "company_statute": "226382f3-2fed-4ada-b51a-2c9ff2cb561c",
-                    "directors_election_minute": "f260d6f8-1ed3-4039-9cfa-8aa6c056c700",
-                    "email": "kaiqueegiovannacontabilme@yopmail.com",
-                    "foundation_date": "2014-08-21",
-                    "name": "Kaique e Giovanna Contábil ME",
-                    "person_type": "legal",
-                    "phone": {
-                        "area_code": "11",
-                        "country_code": "55",
-                        "number": "999999999"
-                    },
-                    "trading_name": "Kaique e Giovanna Contábil ME"
-                },
                 "account_owner": {
                     "address": {
                         "city": "São Paulo",
@@ -1135,6 +1186,59 @@ module.exports = {
                     },
                     "trading_name": "Alice e Isis Advocacia"
                 },
+                "account_manager":{
+                    "address": {
+                        "city": "São Paulo",
+                        "complement": "7 andar",
+                        "neighborhood": "Jardim Paulistano",
+                        "number": "2391",
+                        "postal_code": "01452960",
+                        "state": "SP",
+                        "street": "Av. Brigadeiro Faria Lima"
+                    },
+                    "cnae_code": "6499-9/99",
+                    "company_document_number": "09456933000162",
+                    "company_representatives": [
+                        {
+                            "address": {
+                                "city": "Ananindeua",
+                                "complement": "complemento",
+                                "neighborhood": "Águas Lindas",
+                                "number": "660",
+                                "postal_code": "67118003",
+                                "state": "PA",
+                                "street": "Passagem Mariana"
+                            },
+                            "birth_date": "1990-05-06",
+                            "document_identification": "3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
+                            "email":"aurora.nogueira@yopmail.com",
+                            "individual_document_number":"08141163701",
+                            "is_pep": false,
+                            "mother_name": "Maria Mariane",
+                            "name":"Aurora Simone Catarina Nogueira",
+                            "nationality": "Brasileira",
+                            "person_type": "natural",
+                            "phone": {
+                                "area_code": "11",
+                                "country_code": "055",
+                                "number": "9128281359"
+                            },
+                            "proof_of_residence": "51a26c92-27b8-4b3e-a560-467873e997a6"
+                        }
+                    ],
+                    "company_statute": "226382f3-2fed-4ada-b51a-2c9ff2cb561c",
+                    "directors_election_minute": "f260d6f8-1ed3-4039-9cfa-8aa6c056c700",
+                    "email": "kaiqueegiovannacontabilme@yopmail.com",
+                    "foundation_date": "2014-08-21",
+                    "name": "Kaique e Giovanna Contábil ME",
+                    "person_type": "legal",
+                    "phone": {
+                        "area_code": "11",
+                        "country_code": "55",
+                        "number": "999999999"
+                    },
+                    "trading_name": "Kaique e Giovanna Contábil ME"
+                },
                 "allowed_user":{
                     "email": "renato.pinto@yopmail.com",
                     "individual_document_number": "13708610440",
@@ -1183,6 +1287,32 @@ module.exports = {
                 }
             },
             personal_request:{
+                "account_owner": {
+                    "address": {
+                        "city": "Ananindeua",
+                        "complement": "complemento",
+                        "neighborhood": "Águas Lindas",
+                        "number": "660",
+                        "postal_code": "67118003",
+                        "state": "PA",
+                        "street": "Passagem Mariana"
+                    },
+                    "birth_date": "1990-05-06",
+                    "document_identification": "3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
+                    "email": "caio.dias@yopmail.com",
+                    "individual_document_number": "85324558400",
+                    "is_pep": false,
+                    "mother_name": "Maria Mariane",
+                    "name": "Caio Bruno Dias",
+                    "nationality": "Brasileira",
+                    "person_type": "natural",
+                    "phone": {
+                        "country_code": "055",
+                        "area_code": "11",
+                        "number": "9128281359"
+                    },
+                    "proof_of_residence": "51a26c92-27b8-4b3e-a560-467873e997a6"
+                },
                 "account_manager":{
                     "address": {
                         "city": "São Paulo",
@@ -1235,32 +1365,6 @@ module.exports = {
                         "number": "999999999"
                     },
                     "trading_name": "Kaique e Giovanna Contábil ME"
-                },
-                "account_owner": {
-                    "address": {
-                        "city": "Ananindeua",
-                        "complement": "complemento",
-                        "neighborhood": "Águas Lindas",
-                        "number": "660",
-                        "postal_code": "67118003",
-                        "state": "PA",
-                        "street": "Passagem Mariana"
-                    },
-                    "birth_date": "1990-05-06",
-                    "document_identification": "3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
-                    "email": "caio.dias@yopmail.com",
-                    "individual_document_number": "85324558400",
-                    "is_pep": false,
-                    "mother_name": "Maria Mariane",
-                    "name": "Caio Bruno Dias",
-                    "nationality": "Brasileira",
-                    "person_type": "natural",
-                    "phone": {
-                        "country_code": "055",
-                        "area_code": "11",
-                        "number": "9128281359"
-                    },
-                    "proof_of_residence": "51a26c92-27b8-4b3e-a560-467873e997a6"
                 },
                 "destination_list":[
                     {

@@ -11,11 +11,26 @@ describe('POST Ordinary Debt', function () {
       .post(qitech.debt.RESOURCES_PATH)
       .reply(201, {});
   });
-  it('creates Ordinary Debt', () => {
+  it('creates Company Ordinary Debt', () => {
     let options = {
       bodyDecoder : decoder
     };
-    let data = mockedData.request;
+    let data = mockedData.company_request;
+
+    return qitech.debt.post(data, options).then(response => {
+      expect(typeof response).to.equal('object');
+      expect(response.data).not.to.equal(null);
+      expect(response.data.webhook_type).to.equal(mockedData.status_201.webhook_type);
+      expect(response.data.key).to.equal(mockedData.status_201.key);
+      expect(response.data.status).to.equal(mockedData.status_201.status);
+      expect(response.data.event_datetime).to.equal(mockedData.status_201.event_datetime);
+    });
+  });
+  it('creates Person Ordinary Debt', () => {
+    let options = {
+      bodyDecoder : decoder
+    };
+    let data = mockedData.person_request;
 
     return qitech.debt.post(data, options).then(response => {
       expect(typeof response).to.equal('object');

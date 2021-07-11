@@ -90,7 +90,7 @@ var request = function (httpVerb, urlPath, options) {
     }
     if(options['body'])
     {
-        let actualBodyContent = encoder(options['body']);
+        actualBodyContent = encoder(options['body']);
         let body = {
             "encoded_body": actualBodyContent
         };
@@ -102,12 +102,16 @@ var request = function (httpVerb, urlPath, options) {
         requestOptions.headers = Object.assign(requestOptions.headers, options.headers);
     }
     axios.interceptors.response.use(function (response) {
-        if(response.headers['content-type']=="application/json")
+        if(response && response.headers['content-type']=="application/json")
         {
             response.data = decoder(response.data);
         }
         return response;
         }, function (error) {
+            if(error && error.response && error.response.headers['content-type']=="application/json")
+            {
+                error.data = decoder(error.response.data);
+            }
             return Promise.reject(error);
         }
     );

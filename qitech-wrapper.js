@@ -1,16 +1,17 @@
+
 module.exports = {
-    request: require('./lib/request'),
-    upload: require('./lib/upload'),
-    debt: require('./lib/debt'),
-    signed_debt: require('./lib/signed-debt'),
-    debt_simulation: require('./lib/debt-simulation'),
-    account: require('./lib/account'),
-    escrow: require('./lib/escrow'),
-    scr: require('./lib/scr'),
-    bank_slip: require('./lib/bank-slip'),
-    bank_slip_duplicate_balance: require('./lib/bank-slip-duplicate-balance'),
-    bank_slip_pdf: require('./lib/bank-slip-pdf'),
-    multibank: require('./lib/multibank'),
-    transfer: require('./lib/wire-transfer'),
-    financial_institute: require('./lib/financial-institute')
+    request: require('./src/request'),
+    upload: require('./src/upload'),
+    debt: require('./src/debt'),
+    signed_debt: require('./src/signed-debt'),
+    debt_simulation: require('./src/debt-simulation'),
+    account: require('./src/account'),
+    escrow: require('./src/escrow'),
+    scr: require('./src/scr'),
+    bank_slip: require('./src/bank-slip'),
+    bank_slip_duplicate_balance: require('./src/bank-slip-duplicate-balance'),
+    bank_slip_pdf: require('./src/bank-slip-pdf'),
+    multibank: require('./src/multibank'),
+    transfer: require('./src/wire-transfer'),
+    financial_institute: require('./src/financial-institute')
 };
