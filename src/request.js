@@ -9,11 +9,23 @@ const QITECH_STAG_ENDPOINT = 'api-auth.sandbox.qitech.app';
 const environment = process.env.QITECH_ENV ;
 const endpoint = (environment == "production")? QITECH_PROD_ENDPOINT : QITECH_STAG_ENDPOINT;
 const apiKey = process.env.QITECH_API_CLIENT_KEY || "QITECH_API_CLIENT_KEY";
-let privateKey = null, privateKeyPath = null;
-if(process.env.QITECH_API_PRIVATE_KEY_PATH)
+let privateKey = null, publicKey = null;
+
+if(process.env.QITECH_API_PRIVATE_KEY)
 {
-    privateKeyPath = process.env.QITECH_API_PRIVATE_KEY_PATH;
-    privateKey = fs.readFileSync(privateKeyPath);
+    privateKey = process.env.QITECH_API_PRIVATE_KEY;
+    if (fs.existsSync(privateKey)) {
+        privateKey = fs.readFileSync(privateKey);
+    }
+    // else QITECH_API_PRIVATE_KEY is the key itself
+}
+if(process.env.QITECH_API_QI_PUBLIC_KEY)
+{
+    publicKey = process.env.QITECH_API_QI_PUBLIC_KEY;
+    if (fs.existsSync(publicKey)) {
+        publicKey = fs.readFileSync(publicKey);
+    }
+    // else QITECH_API_QI_PUBLIC_KEY is the key itself
 }
 
 const getAuthorization = function (httpVerb, relativeURL, body, encoder) {
@@ -60,8 +72,11 @@ const bodyEncoder = function(body)
 
 const bodyDecoder = function(jsonBody)
 {
+    const jwtOptions = { 
+        algorithm: 'ES512' 
+    };
     let encoded_body = jsonBody.encoded_body;
-    return jwt.decode(encoded_body);
+    return jwt.verify(encoded_body, publicKey, jwtOptions);
 };
 
 var request = function (httpVerb, urlPath, options) {

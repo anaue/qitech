@@ -9,13 +9,22 @@ NodeJs wrapper for QI Tech API.
 npm install qitech-wrapper --save
 ```
 
+
 ## Lib Configuration
 
-Use env vars to config the integration
+You have two ways to do the configuration:
 
+1 - Or you can call `qitech_wrapper.setup` method
 ```
-export QITECH_API_CLIENT_KEY=[[QI Tech API Client_Key]]
-export QITECH_API_PRIVATE_KEY_PATH=[[client private file path]]
+let qitech_wrapper = require('qitech-wrapper');
+qitech_wrapper.setup("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
+```
+
+2 - Or you can define env vars directly.
+```
+export QITECH_API_CLIENT_KEY="QI Tech API Client_Key"
+export QITECH_API_PRIVATE_KEY="client private file path or USER PRIVATE KEY"
+export QITECH_API_QI_PUBLIC_KEY="QITECH public file path or QI TECH PUBLIC KEY"
 ```
 
 ## Production Enviroment 

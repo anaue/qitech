@@ -1,5 +1,11 @@
+const defineEnv = function(clientKey, privateKey, publicKey){
+    process.env.QITECH_API_CLIENT_KEY = clientKey;
+    process.env.QITECH_API_PRIVATE_KEY = privateKey;
+    process.env.QITECH_API_QI_PUBLIC_KEY = publicKey;
+};
 
 module.exports = {
+    setup: defineEnv,
     request: require('./src/request'),
     upload: require('./src/upload'),
     debt: require('./src/debt'),
