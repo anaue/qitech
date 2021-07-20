@@ -8,25 +8,7 @@ const QITECH_PROD_ENDPOINT = "api-auth.qitech.app";
 const QITECH_STAG_ENDPOINT = 'api-auth.sandbox.qitech.app';
 const environment = process.env.QITECH_ENV ;
 const endpoint = (environment == "production")? QITECH_PROD_ENDPOINT : QITECH_STAG_ENDPOINT;
-const apiKey = process.env.QITECH_API_CLIENT_KEY || "QITECH_API_CLIENT_KEY";
-let privateKey = null, publicKey = null;
-
-if(process.env.QITECH_API_PRIVATE_KEY)
-{
-    privateKey = process.env.QITECH_API_PRIVATE_KEY;
-    if (fs.existsSync(privateKey)) {
-        privateKey = fs.readFileSync(privateKey);
-    }
-    // else QITECH_API_PRIVATE_KEY is the key itself
-}
-if(process.env.QITECH_API_QI_PUBLIC_KEY)
-{
-    publicKey = process.env.QITECH_API_QI_PUBLIC_KEY;
-    if (fs.existsSync(publicKey)) {
-        publicKey = fs.readFileSync(publicKey);
-    }
-    // else QITECH_API_QI_PUBLIC_KEY is the key itself
-}
+let privateKey, publicKey, apiKey;
 
 const getAuthorization = function (httpVerb, relativeURL, body, encoder) {
     var currentDate = new Date().toUTCString();
@@ -72,6 +54,10 @@ const bodyEncoder = function(body)
 
 const bodyDecoder = function(jsonBody)
 {
+    if(jsonBody.encoded_body == undefined)
+    {
+        return jsonBody;
+    }
     const jwtOptions = { 
         algorithm: 'ES512' 
     };
@@ -79,7 +65,27 @@ const bodyDecoder = function(jsonBody)
     return jwt.verify(encoded_body, publicKey, jwtOptions);
 };
 
+const setup = function(){
+    apiKey = process.env.QITECH_API_CLIENT_KEY || "QITECH_API_CLIENT_KEY";
+    if(process.env.QITECH_API_PRIVATE_KEY)
+    {
+        privateKey = process.env.QITECH_API_PRIVATE_KEY;
+        if (fs.existsSync(privateKey)) {
+            privateKey = fs.readFileSync(privateKey);
+        }
+        // else QITECH_API_PRIVATE_KEY is the key itself
+    }
+    if(process.env.QITECH_API_QI_PUBLIC_KEY)
+    {
+        publicKey = process.env.QITECH_API_QI_PUBLIC_KEY;
+        if (fs.existsSync(publicKey)) {
+            publicKey = fs.readFileSync(publicKey);
+        }
+        // else QITECH_API_QI_PUBLIC_KEY is the key itself
+    }    
+}
 var request = function (httpVerb, urlPath, options) {
+    setup()
     options = options || {};
 
     let encoder = options['bodyEncoder'] ? options['bodyEncoder'] : bodyEncoder,
