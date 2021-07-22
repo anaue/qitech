@@ -6,7 +6,6 @@ class BankSlipDuplicateBalance {
         this.RESOURCES_PATH = "/bank_slip/duplicates_balance";
         this.RESOURCES_EXCEL_PATH = "/bank_slip/duplicates_balance_excel";
     }
-
     get(_query, _options) {
         let pathURL = this.RESOURCES_PATH;
         let query = _query || {};

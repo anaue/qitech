@@ -16,8 +16,8 @@ You have two ways to do the configuration:
 
 1 - Or you can call `qitech_wrapper.setup` method
 ```
-let qitech_wrapper = require('qitech-wrapper');
-qitech_wrapper.setup("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
+const QITtech = require('qitech-wrapper');
+let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
 ```
 
 2 - Or you can define env vars directly.
@@ -44,9 +44,11 @@ API calls return a Promisse and optionally accept http options
 ### GET - DEBT 
 
 ```
-const qitech_wrapper = require('qitech-wrapper');
+const QITtech = require('qitech-wrapper');
+let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
 let debt_key = [DEBT_KEY];
-qitech_wrapper().debt.get(debt_key)
+
+qitech_wrapper.debt.get(debt_key)
    .then(response => {
     // handle success
     console.log(response.data);
@@ -63,7 +65,8 @@ qitech_wrapper().debt.get(debt_key)
 ### POST - DEBT SIMULATION
 
 ```
-const qitech_wrapper = require('qitech-wrapper');
+const QITtech = require('qitech-wrapper');
+let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
 let data = {
     "borrower": {
         "person_type": "natural"
@@ -85,7 +88,7 @@ let data = {
         }
     }
 };
-qitech_wrapper().debt_simulation.post(data)
+qitech_wrapper.debt_simulation.post(data)
   .then(response => {
     // handle success
     console.log(response.data);
@@ -102,10 +105,14 @@ qitech_wrapper().debt_simulation.post(data)
 ### POST - UPLOAD
 
 ```
-const qitech_wrapper = require('qitech-wrapper');
+const QITtech = require('qitech-wrapper');
+let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
 let filePath = [path to file, using fs.readFileSync()];
 let fileContent = [alternatively, pass the content file];
-qitech_wrapper().upload.post(filePath).then(response => console.log(response.data)).catch(error => console.error(error.data));
+
+qitech_wrapper.upload.post(filePath)
+    .then(response => console.log(response.data))
+    .catch(error => console.error(error.data));
 ```
 
 

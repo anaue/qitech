@@ -33,9 +33,9 @@ function bodyDecoder(jsonBody, publicKey) {
 class Request {
     constructor(_opts) {
         let opts = _opts || {};
-        this.clientKey = opts.clientKey || "clientKey";
-        this.privateKey = opts.privateKey || "privateKey";
-        this.publicKey = opts.publicKey || "publicKey";
+        this.clientKey = opts.clientKey || process.env.QITECH_API_CLIENT_KEY || "clientKey";
+        this.privateKey = opts.privateKey || process.env.QITECH_API_PRIVATE_KEY || "privateKey";
+        this.publicKey = opts.publicKey || process.env.QITECH_API_QI_PUBLIC_KEY ||  "publicKey";
         this.environment = opts.environment || process.env.QITECH_ENV || "staging";
         this.endpoint = (this.environment === QITECH_ENV_PROD) ? QITECH_PROD_ENDPOINT : QITECH_STAG_ENDPOINT;
     }
