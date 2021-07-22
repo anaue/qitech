@@ -11,7 +11,11 @@ class QiTech {
         this.setupRequest();
     }
     setupRequest() {
-        this.request = new Request(this.clientKey, this.privateKey, this.publicKey);
+        this.request = new Request({
+            clientKey: this.clientKey,
+            privateKey: this.privateKey,
+            publicKey: this.publicKey
+        });
     }
     upload() {
         var Upload = require("./src/upload");
