@@ -1,44 +1,40 @@
-const request = require('./request');
-const util = require('util');
+"use strict";
 
-const resourceURL = "/bank_slip/%s";
-const resourcesURL = "/bank_slip/person/%s";
-const resourcesReportURL = "/bank_slip/little_french/%s";
+const util = require("util");
 
-var get_bank_slip = function(bank_slip_key, options){
-    let pathURL = util.format(resourceURL, bank_slip_key);
-    options = options || {};
-    options = Object.assign(options,{
-        "query": {}
-    });
-    return request('GET', pathURL, options);
-};
-
-var list_bank_slip = function(person_key, query, options){
-    let pathURL = util.format(resourcesURL, person_key);
-    query = query || {};
-    options = options || {};
-    options = Object.assign(options,{
-        "query": query
-    });
-    return request('GET', pathURL, options);
-};
-
-var get_little_french = function(requester_profile_code, query, options){
-    let pathURL =  util.format(resourcesReportURL,requester_profile_code);
-    query = query || {};
-    options = options || {};
-    options = Object.assign(options,{
-        "query": query
-    });
-    return request('GET', pathURL, options);
+class BankSlip {
+    constructor(request) {
+        this.request = request;
+        this.RESOURCES_PATH = "/bank_slip/person/%s";
+        this.RESOURCE_PATH = "/bank_slip/%s";
+        this.RESOURCES_REPORT_PATH = "/bank_slip/little_french/%s";
+    }
+    get(bankSlipKey, _options) {
+        let pathURL = util.format(this.RESOURCE_PATH, bankSlipKey);
+        let options = _options || {};
+        options = Object.assign(options, {
+            "query": {}
+        });
+        return this.request.request("GET", pathURL, options);
+    }
+    list(personKey, _query, _options) {
+        let pathURL = util.format(this.RESOURCES_PATH, personKey);
+        let query = _query || {};
+        let options = _options || {};
+        options = Object.assign(options, {
+            "query": query
+        });
+        return this.request.request("GET", pathURL, options);
+    }
+    report(requesterProfileCode, _query, _options) {
+        let pathURL =  util.format(this.RESOURCES_REPORT_PATH, requesterProfileCode);
+        let query = _query || {};
+        let options = _options || {};
+        options = Object.assign(options, {
+            "query": query
+        });
+        return this.request.request("GET", pathURL, options);
+    }
 }
 
-module.exports = {
-    RESOURCE_PATH: resourceURL,
-    RESOURCES_PATH: resourcesURL,
-    RESOURCES_REPORT_PATH: resourcesReportURL,
-    get: get_bank_slip,
-    list: list_bank_slip,
-    report: get_little_french
-};
+module.exports = BankSlip;

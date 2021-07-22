@@ -4,7 +4,9 @@
   "description": "Unofficial wrapper for QI Tech API",
   "main": "qitech-wrapper.js",
   "scripts": {
-    "test": "mocha"
+    "prepublishOnly": "",
+    "test": "grunt test",
+    "build": "NODE_ENV=production grunt build"
   },
   "author": {
     "name": "Anauê Costa",
@@ -26,8 +28,20 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^7.31.0",
+    "grunt": "^1.4.1",
+    "grunt-cli": "^1.4.3",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-eslint": "^23.0.0",
+    "grunt-mocha-test": "^0.13.3",
+    "grunt-webpack": "^4.0.3",
+    "load-grunt-tasks": "^5.1.0",
     "mocha": "^9.0.1",
-    "nock": "^13.1.0"
+    "nock": "^13.1.0",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
   },
   "publishConfig": {
     "access": "public"

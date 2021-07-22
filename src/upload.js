@@ -1,36 +1,34 @@
-const request = require('./request');
-const fs = require("fs"); 
+"use strict";
 
-const resourcesURL = "/upload";
+const fs = require("fs");
 
-var _get_filename =(filePath) =>{
-    let split_name = [];
-    if(filePath.indexOf("/"))
-    {
-        split_name =filePath.split("/");
+class Upload {
+    constructor(request) {
+        this.request = request;
+        this.RESOURCES_PATH = "/upload";
     }
-    else if(filePath.indexOf("\\"))
-    {
-        split_name = filePath.split("\\");
+    _getFilename(filePath) {
+        let splitName = [];
+        if (filePath.indexOf("/")) {
+            splitName = filePath.split("/");
+        } else if (filePath.indexOf("\\")) {
+            splitName = filePath.split("\\");
+        }
+        return splitName[splitName.length - 1];
     }
-    return split_name[split_name.length-1];
-};
-
-var post_upload = (filePath, fileContent, options) => {
-    fileContent = fileContent || fs.readFileSync(filePath);
-    options = options || {};
-    options = Object.assign(options,{
-        "multipart": [
-            {
-                "content": fileContent,
-                "name" :  _get_filename(filePath)
-            }
-        ],
-    });
-    return request('POST', resourcesURL, options);
+    post(filePath, _fileContent, _options) {
+        let fileContent = _fileContent || fs.readFileSync(filePath);
+        let options = _options || {};
+        options = Object.assign(options, {
+            "multipart": [
+                {
+                    "content": fileContent,
+                    "name": this._getFilename(filePath)
+                }
+            ]
+        });
+        return this.request.request("POST", this.RESOURCES_PATH, options);
+    }
 }
 
-module.exports = {
-    RESOURCES_PATH: resourcesURL,
-    post:post_upload
-};
+module.exports = Upload;

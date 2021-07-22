@@ -1,22 +1,22 @@
-const request = require('./request');
-const util = require('util');
+"use strict";
 
-const resourceURL = "/bank_slip/2-way/%s";
+const util = require("util");
 
-var post_2way_bank_slip = function(bank_slip_key, options){
-    let pathURL = util.format(resourceURL, bank_slip_key);
-    options = options || {};
-    return request('POST', pathURL, options);
+class BankSlipPdf {
+    constructor(request) {
+        this.request = request;
+        this.RESOURCE_PATH = "/bank_slip/2-way/%s";
+    }
+    post(bankSlipKey, _options) {
+        let pathURL = util.format(this.RESOURCE_PATH, bankSlipKey);
+        let options = _options || {};
+        return this.request.request("POST", pathURL, options);
+    }
+    list(bankSlipKey, _options) {
+        let pathURL = util.format(this.RESOURCE_PATH, bankSlipKey);
+        let options = _options || {};
+        return this.request.request("GET", pathURL, options);
+    }
 }
 
-var get_2way_bank_slip = function(bank_slip_key, options){
-    let pathURL = util.format(resourceURL, bank_slip_key);
-    options = options || {};
-    return request('GET', pathURL, options);
-}
-
-module.exports = {
-    RESOURCE_PATH: resourceURL,
-    post: post_2way_bank_slip,
-    list: get_2way_bank_slip,
-};
+module.exports = BankSlipPdf;

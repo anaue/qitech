@@ -1,25 +1,24 @@
-const request = require('./request');
+"use strict";
 
-const resourcesURL = "/debt_simulation";
+class DebtSimulation {
+    constructor(request) {
+        this.request = request;
+        this.RESOURCES_PATH = "/debt_simulation";
+    }
+    post(data, _options) {
+        let options = _options || {};
+        options = Object.assign(options, {
+            "body": data
+        });
+        return this.request.request("POST", this.RESOURCES_PATH, options);
+    }
+    postBatch(data, _options) {
+        let options = _options || {};
+        options = Object.assign(options, {
+            "body": data
+        });
+        return this.request.request("POST", this.RESOURCES_PATH, options);
+    }
+}
 
-var post_debt_simulation = function(data, options){
-    options = options || {};
-    options = Object.assign(options,{
-        "body": data
-    });
-    return request('POST', resourcesURL, options);
-};
-
-var post_batch_debt_simulation = function(data, options){
-    options = options || {};
-    options = Object.assign(options,{
-        "body": data
-    });
-    return request('POST', resourcesURL, options);
-};
-
-module.exports = {
-    RESOURCES_PATH: resourcesURL,
-    post : post_debt_simulation,
-    post_batch : post_batch_debt_simulation
-};
+module.exports = DebtSimulation;

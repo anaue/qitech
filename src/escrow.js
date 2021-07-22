@@ -1,16 +1,17 @@
-const request = require('./request');
+"use strict";
 
-let resourcesURL = "/escrow";
-
-var post_escrow = function(data, options){
-    options = options || {};
-    options = Object.assign(options,{
-        "body": data
-    });
-    return request('POST', resourcesURL, options);
-};
-
-module.exports = {
-    RESOURCES_PATH: resourcesURL,
-    post: post_escrow
+class Escrow {
+    constructor(request) {
+        this.request = request;
+        this.RESOURCES_PATH = "/escrow";
+    }
+    post(data, _options) {
+        let options = _options || {};
+        options = Object.assign(options, {
+            "body": data
+        });
+        return this.request.request("POST", this.RESOURCES_PATH, options);
+    }
 }
+
+module.exports = Escrow;

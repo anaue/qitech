@@ -1,159 +1,159 @@
-const fs = require("fs"); 
+"use strict";
 
+const fs = require("fs");
 const excelSampleFilePath = "./test/sample/excelsample.xlsx";
 const excelSampleFile = fs.readFileSync(excelSampleFilePath);
 const pdfSampleFilePath = "./test/sample/pdfsample.pdf";
 const pdfSampleFile = fs.readFileSync(pdfSampleFilePath);
 const txtSampleFilePath = "./test/sample/sample.txt";
-const txtSampleFile = fs.readFileSync(txtSampleFilePath);
 
 module.exports = {
     upload:
     {
         post: {
             request: pdfSampleFilePath,
-            status_201:{
-                document_key: '58c26f84-87ef-4bc6-bbeb-e0c544848fd5',
-                document_md5: '109d9e33d1c1cbb7f3ce048efdc78117'
+            status_201: {
+                document_key: "58c26f84-87ef-4bc6-bbeb-e0c544848fd5",
+                document_md5: "109d9e33d1c1cbb7f3ce048efdc78117"
             }
         }
     },
-    debt:{
+    debt: {
         post: {
-            company_request:{
-                "borrower":{
-                   "address":{
-                      "city":"Teresina",
-                      "complement":"complemento",
-                      "neighborhood":"Gurupi",
-                      "number":"6080",
-                      "postal_code":"64091210",
-                      "state":"PI",
-                      "street":"Br 343"
-                   },
-                   "cnae_code":"6499-9/99",
-                   "company_document_number":"89940878025962",
-                   "company_representatives":[
-                      {
-                         "address":{
-                            "city":"Recife",
-                            "complement":null,
-                            "neighborhood":"Fundão",
-                            "number":"137",
-                            "postal_code":"52221110",
-                            "state":"PE",
-                            "street":"Rua Camapuã"
-                         },
-                         "birth_date":"1972-02-02",
-                         "document_identification_number":"339122924",
-                         "email":"pedro.alves@yopmail.com",
-                         "individual_document_number":"94632180173",
-                         "is_pep":false,
-                         "marital_status":"single",
-                         "mother_name":"Sueli Isadora Alves",
-                         "name":"Pedro Felipe Henrique Alves",
-                         "nationality":"Brasileira",
-                         "person_type":"natural",
-                         "phone":{
-                            "area_code":"88",
-                            "country_code":"055",
-                            "number":"995924634"
-                         },
-                         "profession":"Empresário",
-                         "property_system":null,
-                         "spouse":null,
-                         "wedding_certificate":null,
-                         "document_identification":"2db378a2-3a62-4689-a273-a70c7cdb205c",
-                         "proof_of_residence":"d3810134-ee8c-4a6b-ac1a-631fa751524c"
-                      }
-                   ],
-                   "company_statute":"3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
-                   "company_type":"ltda",
-                   "directors_election_minute":"3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
-                   "email":"parmalat@yopmail.com",
-                   "foundation_date":"2012-01-01",
-                   "name":"Parmalat",
-                   "person_type":"legal",
-                   "phone":{
-                      "area_code":"11",
-                      "country_code":"055",
-                      "number":"999999999"
-                   },
-                   "trading_name":"Parmalat"
+            company_request: {
+                "borrower": {
+                    "address": {
+                        "city": "Teresina",
+                        "complement": "complemento",
+                        "neighborhood": "Gurupi",
+                        "number": "6080",
+                        "postal_code": "64091210",
+                        "state": "PI",
+                        "street": "Br 343"
+                    },
+                    "cnae_code": "6499-9/99",
+                    "company_document_number": "89940878025962",
+                    "company_representatives": [
+                        {
+                            "address": {
+                                "city": "Recife",
+                                "complement": null,
+                                "neighborhood": "Fundão",
+                                "number": "137",
+                                "postal_code": "52221110",
+                                "state": "PE",
+                                "street": "Rua Camapuã"
+                            },
+                            "birth_date": "1972-02-02",
+                            "document_identification_number": "339122924",
+                            "email": "pedro.alves@yopmail.com",
+                            "individual_document_number": "94632180173",
+                            "is_pep": false,
+                            "marital_status": "single",
+                            "mother_name": "Sueli Isadora Alves",
+                            "name": "Pedro Felipe Henrique Alves",
+                            "nationality": "Brasileira",
+                            "person_type": "natural",
+                            "phone": {
+                                "area_code": "88",
+                                "country_code": "055",
+                                "number": "995924634"
+                            },
+                            "profession": "Empresário",
+                            "property_system": null,
+                            "spouse": null,
+                            "wedding_certificate": null,
+                            "document_identification": "2db378a2-3a62-4689-a273-a70c7cdb205c",
+                            "proof_of_residence": "d3810134-ee8c-4a6b-ac1a-631fa751524c"
+                        }
+                    ],
+                    "company_statute": "3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
+                    "company_type": "ltda",
+                    "directors_election_minute": "3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
+                    "email": "parmalat@yopmail.com",
+                    "foundation_date": "2012-01-01",
+                    "name": "Parmalat",
+                    "person_type": "legal",
+                    "phone": {
+                        "area_code": "11",
+                        "country_code": "055",
+                        "number": "999999999"
+                    },
+                    "trading_name": "Parmalat"
                 },
-                "guarantors":[
-                   {
-                      "person_type":"natural",
-                      "name":"Patrícia Tereza Bernardes",
-                      "mother_name":"Maria Mariane",
-                      "birth_date":"1990-05-06",
-                      "profession":"Deputada",
-                      "nationality":"Brasileira",
-                      "marital_status":"married",
-                      "is_pep":true,
-                      "property_system":"total_communion_of_goods",
-                      "individual_document_number":"34651104630",
-                      "document_identification_number":"232479719",
-                      "email":"patricia.tereza@yopmail.com",
-                      "phone":{
-                         "country_code":"055",
-                         "area_code":"11",
-                         "number":"9128281359"
-                      },
-                      "address":{
-                         "street":"Passagem Mariana",
-                         "state":"PA",
-                         "city":"Ananindeua",
-                         "neighborhood":"Águas Lindas",
-                         "number":"660",
-                         "postal_code":"67118003",
-                         "complement":"complemento"
-                      },
-                      "spouse":null,
-                      "wedding_certificate":"69906ede-49c0-4021-981d-44f1136b1b53",
-                      "document_identification":"2db378a2-3a62-4689-a273-a70c7cdb205c",
-                      "proof_of_residence":"d3810134-ee8c-4a6b-ac1a-631fa751524c"
-                   }
+                "guarantors": [
+                    {
+                        "person_type": "natural",
+                        "name": "Patrícia Tereza Bernardes",
+                        "mother_name": "Maria Mariane",
+                        "birth_date": "1990-05-06",
+                        "profession": "Deputada",
+                        "nationality": "Brasileira",
+                        "marital_status": "married",
+                        "is_pep": true,
+                        "property_system": "total_communion_of_goods",
+                        "individual_document_number": "34651104630",
+                        "document_identification_number": "232479719",
+                        "email": "patricia.tereza@yopmail.com",
+                        "phone": {
+                            "country_code": "055",
+                            "area_code": "11",
+                            "number": "9128281359"
+                        },
+                        "address": {
+                            "street": "Passagem Mariana",
+                            "state": "PA",
+                            "city": "Ananindeua",
+                            "neighborhood": "Águas Lindas",
+                            "number": "660",
+                            "postal_code": "67118003",
+                            "complement": "complemento"
+                        },
+                        "spouse": null,
+                        "wedding_certificate": "69906ede-49c0-4021-981d-44f1136b1b53",
+                        "document_identification": "2db378a2-3a62-4689-a273-a70c7cdb205c",
+                        "proof_of_residence": "d3810134-ee8c-4a6b-ac1a-631fa751524c"
+                    }
                 ],
-                "disbursement_bank_accounts":[
-                   {
-                      "bank_code":"341",
-                      "branch_number":"7071",
-                      "account_number":"15570",
-                      "account_digit":"4",
-                      "document_number":"94632180173",
-                      "name":"Pedro Felipe Henrique Alves",
-                      "percentage_receivable":100
-                   }
+                "disbursement_bank_accounts": [
+                    {
+                        "bank_code": "341",
+                        "branch_number": "7071",
+                        "account_number": "15570",
+                        "account_digit": "4",
+                        "document_number": "94632180173",
+                        "name": "Pedro Felipe Henrique Alves",
+                        "percentage_receivable": 100
+                    }
                 ],
-                "financial":{
-                   "amount":10000000,
-                   "annual_interest_rate":2.32,
-                   "cdi_percentage":100,
-                   "credit_operation_type":"ccb",
-                   "disbursement_date":"2019-07-25",
-                   "issue_date":"2019-07-25",
-                   "fine_configuration":{
-                      "contract_fine_rate":0.02,
-                      "interest_base":"calendar_days",
-                      "monthly_rate":0.01
-                   },
-                   "interest_grace_period":0,
-                   "interest_type":"cdi_plus",
-                   "number_of_installments":10,
-                   "principal_grace_period":0,
-                   "rebates":[
-                      {
-                         "fee_type":"tac",
-                         "amount_type":"absolute",
-                         "amount":500
-                      }
-                   ]
+                "financial": {
+                    "amount": 10000000,
+                    "annual_interest_rate": 2.32,
+                    "cdi_percentage": 100,
+                    "credit_operation_type": "ccb",
+                    "disbursement_date": "2019-07-25",
+                    "issue_date": "2019-07-25",
+                    "fine_configuration": {
+                        "contract_fine_rate": 0.02,
+                        "interest_base": "calendar_days",
+                        "monthly_rate": 0.01
+                    },
+                    "interest_grace_period": 0,
+                    "interest_type": "cdi_plus",
+                    "number_of_installments": 10,
+                    "principal_grace_period": 0,
+                    "rebates": [
+                        {
+                            "fee_type": "tac",
+                            "amount_type": "absolute",
+                            "amount": 500
+                        }
+                    ]
                 },
-                "purchaser_document_number":"49194383000175"
+                "purchaser_document_number": "49194383000175"
             },
             person_request: {
-                "borrower":{
+                "borrower": {
                     "person_type": "natural",
                     "name": "Patrícia Tereza Bernardes",
                     "mother_name": "Maria Mariane",
@@ -185,136 +185,136 @@ module.exports = {
                     "document_identification": "DOCUMENT_KEY",
                     "proof_of_residence": "DOCUMENT_KEY"
                 },
-                 "guarantors":[
+                "guarantors": [
                     {
-                       "person_type":"natural",
-                       "name":"Patrícia Tereza Bernardes",
-                       "mother_name":"Maria Mariane",
-                       "birth_date":"1990-05-06",
-                       "profession":"Deputada",
-                       "nationality":"Brasileira",
-                       "marital_status":"married",
-                       "is_pep":true,
-                       "property_system":"total_communion_of_goods",
-                       "individual_document_number":"34651104630",
-                       "document_identification_number":"232479719",
-                       "email":"patricia.tereza@yopmail.com",
-                       "phone":{
-                          "country_code":"055",
-                          "area_code":"11",
-                          "number":"9128281359"
-                       },
-                       "address":{
-                          "street":"Passagem Mariana",
-                          "state":"PA",
-                          "city":"Ananindeua",
-                          "neighborhood":"Águas Lindas",
-                          "number":"660",
-                          "postal_code":"67118003",
-                          "complement":"complemento"
-                       },
-                       "spouse":null,
-                       "wedding_certificate":"69906ede-49c0-4021-981d-44f1136b1b53",
-                       "document_identification":"2db378a2-3a62-4689-a273-a70c7cdb205c",
-                       "proof_of_residence":"d3810134-ee8c-4a6b-ac1a-631fa751524c"
+                        "person_type": "natural",
+                        "name": "Patrícia Tereza Bernardes",
+                        "mother_name": "Maria Mariane",
+                        "birth_date": "1990-05-06",
+                        "profession": "Deputada",
+                        "nationality": "Brasileira",
+                        "marital_status": "married",
+                        "is_pep": true,
+                        "property_system": "total_communion_of_goods",
+                        "individual_document_number": "34651104630",
+                        "document_identification_number": "232479719",
+                        "email": "patricia.tereza@yopmail.com",
+                        "phone": {
+                            "country_code": "055",
+                            "area_code": "11",
+                            "number": "9128281359"
+                        },
+                        "address": {
+                            "street": "Passagem Mariana",
+                            "state": "PA",
+                            "city": "Ananindeua",
+                            "neighborhood": "Águas Lindas",
+                            "number": "660",
+                            "postal_code": "67118003",
+                            "complement": "complemento"
+                        },
+                        "spouse": null,
+                        "wedding_certificate": "69906ede-49c0-4021-981d-44f1136b1b53",
+                        "document_identification": "2db378a2-3a62-4689-a273-a70c7cdb205c",
+                        "proof_of_residence": "d3810134-ee8c-4a6b-ac1a-631fa751524c"
                     }
-                 ],
-                 "disbursement_bank_accounts":[
+                ],
+                "disbursement_bank_accounts": [
                     {
-                       "bank_code":"341",
-                       "branch_number":"7071",
-                       "account_number":"15570",
-                       "account_digit":"4",
-                       "document_number":"94632180173",
-                       "name":"Pedro Felipe Henrique Alves",
-                       "percentage_receivable":100
+                        "bank_code": "341",
+                        "branch_number": "7071",
+                        "account_number": "15570",
+                        "account_digit": "4",
+                        "document_number": "94632180173",
+                        "name": "Pedro Felipe Henrique Alves",
+                        "percentage_receivable": 100
                     }
-                 ],
-                 "financial":{
-                    "amount":10000000,
-                    "annual_interest_rate":2.32,
-                    "cdi_percentage":100,
-                    "credit_operation_type":"ccb",
-                    "disbursement_date":"2019-07-25",
-                    "issue_date":"2019-07-25",
-                    "fine_configuration":{
-                       "contract_fine_rate":0.02,
-                       "interest_base":"calendar_days",
-                       "monthly_rate":0.01
+                ],
+                "financial": {
+                    "amount": 10000000,
+                    "annual_interest_rate": 2.32,
+                    "cdi_percentage": 100,
+                    "credit_operation_type": "ccb",
+                    "disbursement_date": "2019-07-25",
+                    "issue_date": "2019-07-25",
+                    "fine_configuration": {
+                        "contract_fine_rate": 0.02,
+                        "interest_base": "calendar_days",
+                        "monthly_rate": 0.01
                     },
-                    "interest_grace_period":0,
-                    "interest_type":"cdi_plus",
-                    "number_of_installments":10,
-                    "principal_grace_period":0,
-                    "rebates":[
-                       {
-                          "fee_type":"tac",
-                          "amount_type":"absolute",
-                          "amount":500
-                       }
+                    "interest_grace_period": 0,
+                    "interest_type": "cdi_plus",
+                    "number_of_installments": 10,
+                    "principal_grace_period": 0,
+                    "rebates": [
+                        {
+                            "fee_type": "tac",
+                            "amount_type": "absolute",
+                            "amount": 500
+                        }
                     ]
-                 },
-                 "purchaser_document_number":"49194383000175"
+                },
+                "purchaser_document_number": "49194383000175"
             },
-            simplied_request:{
-                "borrower":{ 
-                   "person_type": "natural",
-                   "name": "John David",
-                   "individual_document_number": "63180382058"
+            simplied_request: {
+                "borrower": {
+                    "person_type": "natural",
+                    "name": "John David",
+                    "individual_document_number": "63180382058"
                 },
-                "disbursement_bank_accounts":[
-                 { 
-                   "account_digit":"1",
-                   "account_number":"00001",
-                   "bank_code":"329",
-                   "branch_number":"0001"
-                }
+                "disbursement_bank_accounts": [
+                    {
+                        "account_digit": "1",
+                        "account_number": "00001",
+                        "bank_code": "329",
+                        "branch_number": "0001"
+                    }
                 ],
-                "guarantors":[
-                   {
-                      "person_type":"natural",
-                      "name":"Patrícia Tereza Bernardes",
-                      "individual_document_number":"34651104630",
-                   }
+                "guarantors": [
+                    {
+                        "person_type": "natural",
+                        "name": "Patrícia Tereza Bernardes",
+                        "individual_document_number": "34651104630"
+                    }
                 ],
-                "financial":{ 
-                   "amount":1001.99,
-                   "annual_interest_rate":3.33,
-                   "credit_operation_type":"ccb",
-                   "disbursement_date":"2020-03-26",
-                   "fine_configuration":{ 
-                      "contract_fine_rate":0.11,
-                      "interest_base":"workdays",
-                      "monthly_rate":0.01
-                   },
-                   "interest_grace_period":0,
-                   "interest_type":"pre_sac",
-                   "number_of_installments":10,
-                   "principal_grace_period":0,
-                   "rebate":100
+                "financial": {
+                    "amount": 1001.99,
+                    "annual_interest_rate": 3.33,
+                    "credit_operation_type": "ccb",
+                    "disbursement_date": "2020-03-26",
+                    "fine_configuration": {
+                        "contract_fine_rate": 0.11,
+                        "interest_base": "workdays",
+                        "monthly_rate": 0.01
+                    },
+                    "interest_grace_period": 0,
+                    "interest_type": "pre_sac",
+                    "number_of_installments": 10,
+                    "principal_grace_period": 0,
+                    "rebate": 100
                 },
-                 "additional_data":{
-                     "contract":{
-                         "negotiable_key": "a0d89be6-6a76-4112-b0fa-631049361368",
-                         "non_negotiable_key": "6401288e-d5ac-4b62-af80-0d69cef430de",
-                         "contract_number": "9876543340/NYR",
-                         "signed":true
-                     }
-                 },
+                "additional_data": {
+                    "contract": {
+                        "negotiable_key": "a0d89be6-6a76-4112-b0fa-631049361368",
+                        "non_negotiable_key": "6401288e-d5ac-4b62-af80-0d69cef430de",
+                        "contract_number": "9876543340/NYR",
+                        "signed": true
+                    }
+                },
                 "simplified": true
             },
-            status_201:{
+            status_201: {
                 "webhook_type": "debt",
                 "key": "DEBT_KEY",
                 "status": "waiting_compliance",
                 "event_datetime": "EVENT_DATE_TIME"
             }
         },
-        get:{
-            query:{
-                'key':'debt_key'
+        get: {
+            query: {
+                "key": "debtKey"
             },
-            status_200:{
+            status_200: {
                 "data": {
                     "borrower": {
                         "document_number": "68394265057",
@@ -343,59 +343,59 @@ module.exports = {
                         }
                     ]
                 },
-                "operation_key": 'DEBT_KEY',
+                "operation_key": "DEBT_KEY",
                 "status": "opened",
                 "webhook_type": "debt"
             }
         },
-        list:{
-            status_200:{
-                "data":[
-                   {
-                      "borrower":{
-                         "document_number":"68394265057",
-                         "name":"Xuxa Meneguel"
-                      },
-                      "contract_fee_amount":5.56,
-                      "installments":[
-                         {
-                            "bank_slip_key":null,
-                            "calendar_days":57,
-                            "due_date":"2020-09-30",
-                            "due_principal":-0.00217819,
-                            "fine_amount":null,
-                            "has_interest":true,
-                            "installment_key":"28eb5907-ed25-4a86-bb9d-b6dc944f13df",
-                            "installment_number":1,
-                            "installment_status":"opened",
-                            "installment_type":"principal",
-                            "paid_amount":0.0,
-                            "post_fixed_amount":0.0,
-                            "pre_fixed_amount":268.75782181,
-                            "principal_amortization_amount":1111.9,
-                            "tax_amount":0.0,
-                            "total_amount":1380.66,
-                            "workdays":40
-                         }
-                      ],
-                      "operation_key": 'DEBT_KEY',
-                      "status": "opened"
-                   }
+        list: {
+            status_200: {
+                "data": [
+                    {
+                        "borrower": {
+                            "document_number": "68394265057",
+                            "name": "Xuxa Meneguel"
+                        },
+                        "contract_fee_amount": 5.56,
+                        "installments": [
+                            {
+                                "bank_slip_key": null,
+                                "calendar_days": 57,
+                                "due_date": "2020-09-30",
+                                "due_principal": -0.00217819,
+                                "fine_amount": null,
+                                "has_interest": true,
+                                "installment_key": "28eb5907-ed25-4a86-bb9d-b6dc944f13df",
+                                "installment_number": 1,
+                                "installment_status": "opened",
+                                "installment_type": "principal",
+                                "paid_amount": 0.0,
+                                "post_fixed_amount": 0.0,
+                                "pre_fixed_amount": 268.75782181,
+                                "principal_amortization_amount": 1111.9,
+                                "tax_amount": 0.0,
+                                "total_amount": 1380.66,
+                                "workdays": 40
+                            }
+                        ],
+                        "operation_key": "DEBT_KEY",
+                        "status": "opened"
+                    }
                 ],
-                "pagination":{
-                   "current_page":1,
-                   "next_page":null,
-                   "rows_per_page":100,
-                   "total_pages":1,
-                   "total_rows":55
+                "pagination": {
+                    "current_page": 1,
+                    "next_page": null,
+                    "rows_per_page": 100,
+                    "total_pages": 1,
+                    "total_rows": 55
                 }
             }
         }
     },
-    debt_simulation:{
+    debt_simulation: {
         post:
         {
-            request:{
+            request: {
                 "borrower": {
                     "person_type": "natural"
                 },
@@ -416,7 +416,7 @@ module.exports = {
                     }
                 }
             },
-            status_201:{
+            status_201: {
                 "data": {
                     "assignment_amount": 5025.0,
                     "cet": 0.099606,
@@ -478,9 +478,9 @@ module.exports = {
                 "type": "debt"
             }
         },
-        post_batch:
+        postBatch:
         {
-            request:{
+            request: {
                 "complex_operation": true,
                 "operation_batch": [
                     {
@@ -527,7 +527,7 @@ module.exports = {
                     }
                 ]
             },
-            status_200:[
+            status_200: [
                 {
                     "data": {
                         "assignment_amount": 123456.0,
@@ -653,198 +653,198 @@ module.exports = {
             ]
         }
     },
-    signed_debt:{
-        post:{
-            request:{
-                "borrower":{
-                   "address":{
-                      "city":"Teresina",
-                      "complement":"complemento",
-                      "neighborhood":"Gurupi",
-                      "number":"6080",
-                      "postal_code":"64091210",
-                      "state":"PI",
-                      "street":"Br 343"
-                   },
-                   "cnae_code":"6499-9/99",
-                   "company_document_number":"89940878025962",
-                   "company_representatives":[
-                      {
-                         "address":{
-                            "city":"Recife",
-                            "complement":null,
-                            "neighborhood":"Fundão",
-                            "number":"137",
-                            "postal_code":"52221110",
-                            "state":"PE",
-                            "street":"Rua Camapuã"
-                         },
-                         "birth_date":"1972-02-02",
-                         "document_identification_number":"339122924",
-                         "email":"pedro.alves@yopmail.com",
-                         "individual_document_number":"94632180173",
-                         "is_pep":false,
-                         "marital_status":"single",
-                         "mother_name":"Sueli Isadora Alves",
-                         "name":"Pedro Felipe Henrique Alves",
-                         "nationality":"Brasileira",
-                         "person_type":"natural",
-                         "phone":{
-                            "area_code":"88",
-                            "country_code":"055",
-                            "number":"995924634"
-                         },
-                         "profession":"Empresário",
-                         "property_system":null,
-                         "spouse": null,
-                         "wedding_certificate": null,
-                         "document_identification":"2db378a2-3a62-4689-a273-a70c7cdb205c",
-                         "proof_of_residence":"d3810134-ee8c-4a6b-ac1a-631fa751524c"
-                      }
-                   ],
-                   "company_statute":"3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
-                   "company_type":"ltda",
-                   "directors_election_minute":"3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
-                   "email":"parmalat@yopmail.com",
-                   "foundation_date":"2012-01-01",
-                   "name":"Parmalat",
-                   "person_type":"legal",
-                   "phone":{
-                      "area_code":"11",
-                      "country_code":"055",
-                      "number":"999999999"
-                   },
-                   "trading_name":"Parmalat"
+    signed_debt: {
+        post: {
+            request: {
+                "borrower": {
+                    "address": {
+                        "city": "Teresina",
+                        "complement": "complemento",
+                        "neighborhood": "Gurupi",
+                        "number": "6080",
+                        "postal_code": "64091210",
+                        "state": "PI",
+                        "street": "Br 343"
+                    },
+                    "cnae_code": "6499-9/99",
+                    "company_document_number": "89940878025962",
+                    "company_representatives": [
+                        {
+                            "address": {
+                                "city": "Recife",
+                                "complement": null,
+                                "neighborhood": "Fundão",
+                                "number": "137",
+                                "postal_code": "52221110",
+                                "state": "PE",
+                                "street": "Rua Camapuã"
+                            },
+                            "birth_date": "1972-02-02",
+                            "document_identification_number": "339122924",
+                            "email": "pedro.alves@yopmail.com",
+                            "individual_document_number": "94632180173",
+                            "is_pep": false,
+                            "marital_status": "single",
+                            "mother_name": "Sueli Isadora Alves",
+                            "name": "Pedro Felipe Henrique Alves",
+                            "nationality": "Brasileira",
+                            "person_type": "natural",
+                            "phone": {
+                                "area_code": "88",
+                                "country_code": "055",
+                                "number": "995924634"
+                            },
+                            "profession": "Empresário",
+                            "property_system": null,
+                            "spouse": null,
+                            "wedding_certificate": null,
+                            "document_identification": "2db378a2-3a62-4689-a273-a70c7cdb205c",
+                            "proof_of_residence": "d3810134-ee8c-4a6b-ac1a-631fa751524c"
+                        }
+                    ],
+                    "company_statute": "3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
+                    "company_type": "ltda",
+                    "directors_election_minute": "3fbf62a1-9dd1-4b2b-9d69-6c57c8dc3278",
+                    "email": "parmalat@yopmail.com",
+                    "foundation_date": "2012-01-01",
+                    "name": "Parmalat",
+                    "person_type": "legal",
+                    "phone": {
+                        "area_code": "11",
+                        "country_code": "055",
+                        "number": "999999999"
+                    },
+                    "trading_name": "Parmalat"
                 },
-                "guarantors":[
-                   {
-                      "person_type":"natural",
-                      "name":"Patrícia Tereza Bernardes",
-                      "mother_name":"Maria Mariane",
-                      "birth_date":"1990-05-06",
-                      "profession":"Deputada",
-                      "nationality":"Brasileira",
-                      "marital_status":"married",
-                      "is_pep":true,
-                      "property_system":"total_communion_of_goods",
-                      "individual_document_number":"34651104630",
-                      "document_identification_number":"232479719",
-                      "email":"patricia.tereza@yopmail.com",
-                      "phone":{
-                         "country_code":"055",
-                         "area_code":"11",
-                         "number":"9128281359"
-                      },
-                      "address":{
-                         "street":"Passagem Mariana",
-                         "state":"PA",
-                         "city":"Ananindeua",
-                         "neighborhood":"Águas Lindas",
-                         "number":"660",
-                         "postal_code":"67118003",
-                         "complement":"complemento"
-                      },
-                      "spouse": null,
-                      "wedding_certificate":"69906ede-49c0-4021-981d-44f1136b1b53",
-                      "document_identification":"2db378a2-3a62-4689-a273-a70c7cdb205c",
-                      "proof_of_residence":"d3810134-ee8c-4a6b-ac1a-631fa751524c"
-                   }
-                ],
-                "disbursement_bank_accounts":[
+                "guarantors": [
                     {
-                       "bank_code":"341",
-                       "branch_number":"7071",
-                       "account_number":"15570",
-                       "account_digit":"4",
-                       "document_number": "94632180173",
-                       "name": "Pedro Felipe Henrique Alves",
-                       "percentage_receivable": 100
+                        "person_type": "natural",
+                        "name": "Patrícia Tereza Bernardes",
+                        "mother_name": "Maria Mariane",
+                        "birth_date": "1990-05-06",
+                        "profession": "Deputada",
+                        "nationality": "Brasileira",
+                        "marital_status": "married",
+                        "is_pep": true,
+                        "property_system": "total_communion_of_goods",
+                        "individual_document_number": "34651104630",
+                        "document_identification_number": "232479719",
+                        "email": "patricia.tereza@yopmail.com",
+                        "phone": {
+                            "country_code": "055",
+                            "area_code": "11",
+                            "number": "9128281359"
+                        },
+                        "address": {
+                            "street": "Passagem Mariana",
+                            "state": "PA",
+                            "city": "Ananindeua",
+                            "neighborhood": "Águas Lindas",
+                            "number": "660",
+                            "postal_code": "67118003",
+                            "complement": "complemento"
+                        },
+                        "spouse": null,
+                        "wedding_certificate": "69906ede-49c0-4021-981d-44f1136b1b53",
+                        "document_identification": "2db378a2-3a62-4689-a273-a70c7cdb205c",
+                        "proof_of_residence": "d3810134-ee8c-4a6b-ac1a-631fa751524c"
                     }
                 ],
-                "financial":{
-                   "amount":10000000,
-                   "annual_interest_rate":2.32,
-                   "cdi_percentage":100,
-                   "credit_operation_type": "ccb",
-                   "disbursement_date":"2019-07-25",
-                   "issue_date":"2019-07-25",
-                   "fine_configuration":{
-                      "contract_fine_rate":0.02,
-                      "interest_base":"calendar_days",
-                      "monthly_rate":0.01
-                   },
-                   "interest_grace_period":0,
-                   "interest_type":"cdi_plus",
-                   "number_of_installments":10,
-                   "principal_grace_period":0,
-                   "rebate":10000
+                "disbursement_bank_accounts": [
+                    {
+                        "bank_code": "341",
+                        "branch_number": "7071",
+                        "account_number": "15570",
+                        "account_digit": "4",
+                        "document_number": "94632180173",
+                        "name": "Pedro Felipe Henrique Alves",
+                        "percentage_receivable": 100
+                    }
+                ],
+                "financial": {
+                    "amount": 10000000,
+                    "annual_interest_rate": 2.32,
+                    "cdi_percentage": 100,
+                    "credit_operation_type": "ccb",
+                    "disbursement_date": "2019-07-25",
+                    "issue_date": "2019-07-25",
+                    "fine_configuration": {
+                        "contract_fine_rate": 0.02,
+                        "interest_base": "calendar_days",
+                        "monthly_rate": 0.01
+                    },
+                    "interest_grace_period": 0,
+                    "interest_type": "cdi_plus",
+                    "number_of_installments": 10,
+                    "principal_grace_period": 0,
+                    "rebate": 10000
                 },
-               "additional_data":{
-                    "contract":{
+                "additional_data": {
+                    "contract": {
                         "negotiable_key": "a0d89be6-6a76-4112-b0fa-631049361368",
                         "non_negotiable_key": "6401288e-d5ac-4b62-af80-0d69cef430de",
                         "contract_number": "1234556/NYR",
-                        "signed":true
+                        "signed": true
                     }
                 }
             },
-            status_201:{
-                "contract":{
+            status_201: {
+                "contract": {
                     "negotiable_key": "a0d89be6-6a76-4112-b0fa-631049361368",
                     "non_negotiable_key": "6401288e-d5ac-4b62-af80-0d69cef430de",
                     "contract_number": "9876543340/NYR",
-                    "signed":true
+                    "signed": true
                 }
             }
         },
-        list:{
-            status_200:{
-                "data":[
-                   {
-                      "borrower":{
-                         "document_number":"68394265057",
-                         "name":"Xuxa Meneguel"
-                      },
-                      "contract_fee_amount":5.56,
-                      "installments":[
-                         {
-                            "bank_slip_key":null,
-                            "calendar_days":57,
-                            "due_date":"2020-09-30",
-                            "due_principal":-0.00217819,
-                            "fine_amount":null,
-                            "has_interest":true,
-                            "installment_key":"28eb5907-ed25-4a86-bb9d-b6dc944f13df",
-                            "installment_number":1,
-                            "installment_status":"opened",
-                            "installment_type":"principal",
-                            "paid_amount":0.0,
-                            "post_fixed_amount":0.0,
-                            "pre_fixed_amount":268.75782181,
-                            "principal_amortization_amount":1111.9,
-                            "tax_amount":0.0,
-                            "total_amount":1380.66,
-                            "workdays":40
-                         }
-                      ],
-                      "operation_key": 'DEBT_KEY',
-                      "status": "opened"
-                   }
+        list: {
+            status_200: {
+                "data": [
+                    {
+                        "borrower": {
+                            "document_number": "68394265057",
+                            "name": "Xuxa Meneguel"
+                        },
+                        "contract_fee_amount": 5.56,
+                        "installments": [
+                            {
+                                "bank_slip_key": null,
+                                "calendar_days": 57,
+                                "due_date": "2020-09-30",
+                                "due_principal": -0.00217819,
+                                "fine_amount": null,
+                                "has_interest": true,
+                                "installment_key": "28eb5907-ed25-4a86-bb9d-b6dc944f13df",
+                                "installment_number": 1,
+                                "installment_status": "opened",
+                                "installment_type": "principal",
+                                "paid_amount": 0.0,
+                                "post_fixed_amount": 0.0,
+                                "pre_fixed_amount": 268.75782181,
+                                "principal_amortization_amount": 1111.9,
+                                "tax_amount": 0.0,
+                                "total_amount": 1380.66,
+                                "workdays": 40
+                            }
+                        ],
+                        "operation_key": "DEBT_KEY",
+                        "status": "opened"
+                    }
                 ],
-                "pagination":{
-                   "current_page":1,
-                   "next_page":null,
-                   "rows_per_page":100,
-                   "total_pages":1,
-                   "total_rows":55
+                "pagination": {
+                    "current_page": 1,
+                    "next_page": null,
+                    "rows_per_page": 100,
+                    "total_pages": 1,
+                    "total_rows": 55
                 }
             }
         },
-        get:{
-            query:{
-                'key':'debt_key'
+        get: {
+            query: {
+                "key": "debtKey"
             },
-            status_200:{
+            status_200: {
                 "data": {
                     "borrower": {
                         "document_number": "68394265057",
@@ -873,15 +873,15 @@ module.exports = {
                         }
                     ]
                 },
-                "operation_key": 'DEBT_KEY',
+                "operation_key": "DEBT_KEY",
                 "status": "opened",
                 "webhook_type": "debt"
             }
         }
     },
-    account:{
+    account: {
         post: {
-            company_request:{
+            company_request: {
                 "account_owner": {
                     "address": {
                         "city": "Limeira",
@@ -907,7 +907,7 @@ module.exports = {
                     },
                     "trading_name": "Kaique e Giovanna Contábil ME"
                 },
-                "allowed_user":{
+                "allowed_user": {
                     "email": "priscila.barros@yopmail.com",
                     "individual_document_number": "38689533370",
                     "name": "Priscila Rayssa Barros",
@@ -918,92 +918,92 @@ module.exports = {
                         "number": "988235181"
                     }
                 },
-                "automatic_transfer_config":{
+                "automatic_transfer_config": {
                     "transfer_cronstring": "*/5 * * * *",
                     "rule": "split_equal",
-                    "rule_configuration":{
-                        "destinations":[
+                    "rule_configuration": {
+                        "destinations": [
                             {
-                            "account_branch": "0000",
-                            "account_number": "00000",
-                            "account_digit": "0",
-                            "document_number": "12345678901",
-                            "name": "John Sample",
-                            "financial_institutions_code_number": "258",
-                            "financial_institutions_ispb": "00000"
+                                "account_branch": "0000",
+                                "account_number": "00000",
+                                "account_digit": "0",
+                                "document_number": "12345678901",
+                                "name": "John Sample",
+                                "financial_institutions_code_number": "258",
+                                "financial_institutions_ispb": "00000"
                             }
                         ]
                     }
                 }
             },
-            personal_request:{
+            personal_request: {
                 "account_owner": {
-                    "address":{
-                        "city":"Ananindeua",
-                        "complement":"complemento",
-                        "neighborhood":"Águas Lindas",
-                        "number":"660",
-                        "postal_code":"67118003",
-                        "state":"PA",
-                        "street":"Passagem Mariana"
+                    "address": {
+                        "city": "Ananindeua",
+                        "complement": "complemento",
+                        "neighborhood": "Águas Lindas",
+                        "number": "660",
+                        "postal_code": "67118003",
+                        "state": "PA",
+                        "street": "Passagem Mariana"
                     },
-                    "birth_date":"1990-05-06",
-                    "document_identification":"3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
-                    "email":"aurora.nogueira@yopmail.com",
-                    "individual_document_number":"08141163701",
-                    "is_pep":false,
-                    "mother_name":"Maria Mariane",
-                    "name":"Aurora Simone Catarina Nogueira",
-                    "nationality":"Brasileira",
-                    "person_type":"natural",
-                    "phone":{
-                        "area_code":"11",
-                        "country_code":"055",
-                        "number":"9128281359"
+                    "birth_date": "1990-05-06",
+                    "document_identification": "3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
+                    "email": "aurora.nogueira@yopmail.com",
+                    "individual_document_number": "08141163701",
+                    "is_pep": false,
+                    "mother_name": "Maria Mariane",
+                    "name": "Aurora Simone Catarina Nogueira",
+                    "nationality": "Brasileira",
+                    "person_type": "natural",
+                    "phone": {
+                        "area_code": "11",
+                        "country_code": "055",
+                        "number": "9128281359"
                     },
-                    "proof_of_residence":"51a26c92-27b8-4b3e-a560-467873e997a6"
+                    "proof_of_residence": "51a26c92-27b8-4b3e-a560-467873e997a6"
                 },
-                "automatic_transfer_config":{
+                "automatic_transfer_config": {
                     "transfer_cronstring": "*/5 * * * *",
                     "rule": "split_equal",
-                    "rule_configuration":{
-                        "destinations":[
+                    "rule_configuration": {
+                        "destinations": [
                             {
-                            "account_branch": "0000",
-                            "account_number": "00000",
-                            "account_digit": "0",
-                            "document_number": "12345678901",
-                            "name": "John Sample",
-                            "financial_institutions_code_number": "258",
-                            "financial_institutions_ispb": "00000"
+                                "account_branch": "0000",
+                                "account_number": "00000",
+                                "account_digit": "0",
+                                "document_number": "12345678901",
+                                "name": "John Sample",
+                                "financial_institutions_code_number": "258",
+                                "financial_institutions_ispb": "00000"
                             }
                         ]
                     }
                 }
             },
-            simplied_company_request:{
+            simplied_company_request: {
                 "account_owner": {
                     "company_document_number": "01871112000180",
                     "name": "Kaique e Giovanna Contábil ME",
                     "person_type": "legal"
                 },
-                "allowed_user":{
+                "allowed_user": {
                     "email": "priscila.barros@yopmail.com",
                     "individual_document_number": "38689533370",
                     "name": "Priscila Rayssa Barros",
                     "person_type": "natural"
                 },
-               "simplified": true
+                "simplified": true
             },
-            simplied_personal_request:{
+            simplied_personal_request: {
                 "account_owner": {
-                    "individual_document_number":"08141163701",
-                    "name":"Aurora Simone Catarina Nogueira",
-                    "person_type":"natural",
+                    "individual_document_number": "08141163701",
+                    "name": "Aurora Simone Catarina Nogueira",
+                    "person_type": "natural"
                 },
-               "simplified": true
+                "simplified": true
             },
-            company_status_201:{
+            company_status_201: {
                 "data": {
                     "account_info": {
                         "account_branch": "0001",
@@ -1026,7 +1026,7 @@ module.exports = {
                 "status": "waiting_user_acceptance",
                 "webhook_type": "account"
             },
-            personal_status_201:{
+            personal_status_201: {
                 "data": {
                     "account_info": {
                         "account_branch": "0001",
@@ -1046,8 +1046,8 @@ module.exports = {
                 "webhook_type": "account"
             }
         },
-        list:{
-            status_200:{
+        list: {
+            status_200: {
                 "data": [
                     {
                         "account_branch": "0001",
@@ -1056,7 +1056,7 @@ module.exports = {
                         "account_documents": [],
                         "account_events": [
                             {
-                                "created_at": "2020-07-29T15:11:52",
+                                "created_at": "2020-07-29T15: 11:52",
                                 "new_account_status": {
                                     "created_at": "2019-10-03T20:05:44",
                                     "enumerator": "opened",
@@ -1074,14 +1074,14 @@ module.exports = {
                             "translation_path": "account.AccountStatus.opened"
                         },
                         "account_type": {
-                            "created_at": "2019-04-02T19:10:09",
+                            "created_at": "2019-04-02T19: 10:09",
                             "enumerator": "escrow",
                             "translation_path": "account.AccountType.escrow"
                         },
                         "balance": 0.0,
                         "blocked_balance": 0.0,
                         "blocked_balance_events": [],
-                        "created_at": "2020-07-29T15:11:52",
+                        "created_at": "2020-07-29T15: 11:52",
                         "destinations": [],
                         "fee": 10.0,
                         "is_system_account": false,
@@ -1092,7 +1092,7 @@ module.exports = {
                         "requester_name": "Jennifer Aniston",
                         "transactional_limit": null,
                         "webhook_enabled": false
-                    }    
+                    }
                 ],
                 "pagination": {
                     "current_page": 1,
@@ -1104,9 +1104,9 @@ module.exports = {
             }
         }
     },
-    escrow:{
+    escrow: {
         post: {
-            company_request:{
+            company_request: {
                 "account_owner": {
                     "address": {
                         "city": "São Paulo",
@@ -1186,7 +1186,7 @@ module.exports = {
                     },
                     "trading_name": "Alice e Isis Advocacia"
                 },
-                "account_manager":{
+                "account_manager": {
                     "address": {
                         "city": "São Paulo",
                         "complement": "7 andar",
@@ -1211,11 +1211,11 @@ module.exports = {
                             },
                             "birth_date": "1990-05-06",
                             "document_identification": "3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
-                            "email":"aurora.nogueira@yopmail.com",
-                            "individual_document_number":"08141163701",
+                            "email": "aurora.nogueira@yopmail.com",
+                            "individual_document_number": "08141163701",
                             "is_pep": false,
                             "mother_name": "Maria Mariane",
-                            "name":"Aurora Simone Catarina Nogueira",
+                            "name": "Aurora Simone Catarina Nogueira",
                             "nationality": "Brasileira",
                             "person_type": "natural",
                             "phone": {
@@ -1239,7 +1239,7 @@ module.exports = {
                     },
                     "trading_name": "Kaique e Giovanna Contábil ME"
                 },
-                "allowed_user":{
+                "allowed_user": {
                     "email": "renato.pinto@yopmail.com",
                     "individual_document_number": "13708610440",
                     "name": "Renato Noah Pinto",
@@ -1250,7 +1250,7 @@ module.exports = {
                         "number": "9128281359"
                     }
                 },
-                "destination_list":[
+                "destination_list": [
                     {
                         "account_branch": "0001",
                         "account_digit": "2",
@@ -1268,25 +1268,25 @@ module.exports = {
                         "name": "Farias Advogados"
                     }
                 ],
-                "automatic_transfer_config":{
+                "automatic_transfer_config": {
                     "transfer_cronstring": "*/5 * * * *",
                     "rule": "split_equal",
-                    "rule_configuration":{
-                        "destinations":[
+                    "rule_configuration": {
+                        "destinations": [
                             {
-                            "account_branch": "0000",
-                            "account_number": "00000",
-                            "account_digit": "0",
-                            "document_number": "12345678901",
-                            "name": "John Sample",
-                            "financial_institutions_code_number": "258",
-                            "financial_institutions_ispb": "00000"
+                                "account_branch": "0000",
+                                "account_number": "00000",
+                                "account_digit": "0",
+                                "document_number": "12345678901",
+                                "name": "John Sample",
+                                "financial_institutions_code_number": "258",
+                                "financial_institutions_ispb": "00000"
                             }
                         ]
                     }
                 }
             },
-            personal_request:{
+            personal_request: {
                 "account_owner": {
                     "address": {
                         "city": "Ananindeua",
@@ -1313,7 +1313,7 @@ module.exports = {
                     },
                     "proof_of_residence": "51a26c92-27b8-4b3e-a560-467873e997a6"
                 },
-                "account_manager":{
+                "account_manager": {
                     "address": {
                         "city": "São Paulo",
                         "complement": "7 andar",
@@ -1338,11 +1338,11 @@ module.exports = {
                             },
                             "birth_date": "1990-05-06",
                             "document_identification": "3c98fc2e-41cf-4cc8-852d-7ce6801327ee",
-                            "email":"aurora.nogueira@yopmail.com",
-                            "individual_document_number":"08141163701",
-                            "is_pep":false,
-                            "mother_name":"Maria Mariane",
-                            "name":"Aurora Simone Catarina Nogueira",
+                            "email": "aurora.nogueira@yopmail.com",
+                            "individual_document_number": "08141163701",
+                            "is_pep": false,
+                            "mother_name": "Maria Mariane",
+                            "name": "Aurora Simone Catarina Nogueira",
                             "nationality": "Brasileira",
                             "person_type": "natural",
                             "phone": {
@@ -1366,7 +1366,7 @@ module.exports = {
                     },
                     "trading_name": "Kaique e Giovanna Contábil ME"
                 },
-                "destination_list":[
+                "destination_list": [
                     {
                         "account_branch": "0001",
                         "account_digit": "2",
@@ -1384,33 +1384,33 @@ module.exports = {
                         "name": "Juan Anthony Farias"
                     }
                 ],
-                "automatic_transfer_config":{
+                "automatic_transfer_config": {
                     "transfer_cronstring": "*/5 * * * *",
                     "rule": "split_equal",
-                    "rule_configuration":{
-                        "destinations":[
+                    "rule_configuration": {
+                        "destinations": [
                             {
-                            "account_branch": "0000",
-                            "account_number": "00000",
-                            "account_digit": "0",
-                            "document_number": "12345678901",
-                            "name": "John Sample",
-                            "financial_institutions_code_number": "258",
-                            "financial_institutions_ispb": "00000"
+                                "account_branch": "0000",
+                                "account_number": "00000",
+                                "account_digit": "0",
+                                "document_number": "12345678901",
+                                "name": "John Sample",
+                                "financial_institutions_code_number": "258",
+                                "financial_institutions_ispb": "00000"
                             }
                         ]
                     }
                 }
             },
-            simplied_company_request:{
-                "simplified":true,
-                "account_manager":{
+            simplied_company_request: {
+                "simplified": true,
+                "account_manager": {
                     "company_document_number": "95933731000104",
                     "company_representatives": [
                         {
-                            "email":"account.manager@yopmail.com",
-                            "individual_document_number":"91875761390",
-                            "name":"Nuno Yuzo Sakaguti Reis",
+                            "email": "account.manager@yopmail.com",
+                            "individual_document_number": "91875761390",
+                            "name": "Nuno Yuzo Sakaguti Reis",
                             "person_type": "natural"
                         }
                     ],
@@ -1432,13 +1432,13 @@ module.exports = {
                     "name": "Exelcior Advocacia ME 5",
                     "person_type": "legal"
                 },
-                "allowed_user":{
+                "allowed_user": {
                     "email": "account.owner.user@yopmail.com",
                     "individual_document_number": "56000564430",
                     "name": "Dennis Dejay",
                     "person_type": "natural"
                 },
-                "destination_list":[
+                "destination_list": [
                     {
                         "account_branch": "0001",
                         "account_digit": "2",
@@ -1449,14 +1449,14 @@ module.exports = {
                     }
                 ]
             },
-            simplied_personal_request:{
-                "account_manager":{
+            simplied_personal_request: {
+                "account_manager": {
                     "company_document_number": "58434704000152",
                     "company_representatives": [
                         {
-                            "email":"account.manager@yopmail.com",
-                            "individual_document_number":"37951518484",
-                            "name":"Johnny Bravo",
+                            "email": "account.manager@yopmail.com",
+                            "individual_document_number": "37951518484",
+                            "name": "Johnny Bravo",
                             "person_type": "natural"
                         }
                     ],
@@ -1470,13 +1470,13 @@ module.exports = {
                     "name": "Ferdinand Georg Frobenius",
                     "person_type": "natural"
                 },
-                "allowed_user":{
+                "allowed_user": {
                     "email": "priscila.barros@yopmail.com",
                     "individual_document_number": "38689533370",
                     "name": "Priscila Rayssa Barros",
                     "person_type": "natural"
                 },
-                "destination_list":[
+                "destination_list": [
                     {
                         "account_branch": "0001",
                         "account_digit": "5",
@@ -1487,9 +1487,9 @@ module.exports = {
                         "ted_account_type": "checking_account"
                     }
                 ],
-               "simplified": true
+                "simplified": true
             },
-            company_status_201:{
+            company_status_201: {
                 "data": {
                     "account_info": {
                         "account_branch": "0001",
@@ -1552,12 +1552,12 @@ module.exports = {
                         "name": "Renato Noah Pinto"
                     }
                 },
-                "event_datetime": "2019-11-07 18:15:07",
+                "event_datetime": "2019-11-07 18: 15:07",
                 "key": "61341599-790b-4236-b42f-060634eba88f",
                 "status": "waiting_administrator_approval",
                 "webhook_type": "escrow"
             },
-            personal_status_201:{
+            personal_status_201: {
                 "data": {
                     "account_info": {
                         "account_branch": "0001",
@@ -1606,15 +1606,15 @@ module.exports = {
                         }
                     ]
                 },
-                "event_datetime": "2019-11-07 18:19:07",
+                "event_datetime": "2019-11-07 18: 19:07",
                 "key": "6e033025-c779-4432-9854-30457cba5ad2",
                 "status": "waiting_administrator_approval",
                 "webhook_type": "escrow"
             }
         }
     },
-    financial_institute:{
-        list:{
+    financial_institute: {
+        list: {
             pagining_status_200: {
                 "data": [
                     {
@@ -1662,15 +1662,15 @@ module.exports = {
                     "str_start_date": "2019-03-14"
                 }
             }
-        }    
+        }
     },
-    bank_slip:{
+    bank_slip: {
         get: {
-            request:{},
-            status_200:{
+            request: {},
+            status_200: {
                 "amount": 3.0,
                 "asset_type": {
-                    "created_at": "2019-02-01T16:44:11",
+                    "created_at": "2019-02-01T16:44: 11",
                     "enumerator": "invoice",
                     "translation_path": "bank_slip.AssetType.invoice"
                 },
@@ -1738,7 +1738,7 @@ module.exports = {
                         "occurrence_key": "c3ab3e01-f198-4e7e-9e01-7a8091b8bd72",
                         "occurrence_reasons": [],
                         "occurrence_type": {
-                            "created_at": "2019-02-01T16:44:14",
+                            "created_at": "2019-02-01T16:44: 14",
                             "enumerator": "registration",
                             "translation_path": "bank_slip.OccurrenceType.registration"
                         },
@@ -1774,7 +1774,7 @@ module.exports = {
                                     "remitter_key": "b91195e3-0cf4-4fed-90cf-7f5bef29c2f0",
                                     "requester_profile_code": null,
                                     "type": {
-                                        "created_at": "2019-02-01T16:44:17",
+                                        "created_at": "2019-02-01T16:44: 17",
                                         "enumerator": "api_instruction",
                                         "translation_path": "bank_slip.CNABFileType.api_instruction"
                                     },
@@ -1784,7 +1784,7 @@ module.exports = {
                                 "cnab_file_occurrence_order": 1,
                                 "created_at": "2020-05-15T21:00:25",
                                 "new_status": {
-                                    "created_at": "2019-02-01T16:44:15",
+                                    "created_at": "2019-02-01T16:44: 15",
                                     "enumerator": "waiting_submission",
                                     "translation_path": "bank_slip.RegistrationInstitutionOccurrenceStatus.waiting_submission"
                                 },
@@ -1792,7 +1792,7 @@ module.exports = {
                             }
                         ],
                         "registration_institution_occurrence_status": {
-                            "created_at": "2019-02-01T16:44:15",
+                            "created_at": "2019-02-01T16:44: 15",
                             "enumerator": "waiting_submission",
                             "translation_path": "bank_slip.RegistrationInstitutionOccurrenceStatus.waiting_submission"
                         },
@@ -1809,7 +1809,7 @@ module.exports = {
                                     "remitter_key": "b91195e3-0cf4-4fed-90cf-7f5bef29c2f0",
                                     "requester_profile_code": null,
                                     "type": {
-                                        "created_at": "2019-02-01T16:44:17",
+                                        "created_at": "2019-02-01T16:44: 17",
                                         "enumerator": "api_instruction",
                                         "translation_path": "bank_slip.CNABFileType.api_instruction"
                                     },
@@ -1819,7 +1819,7 @@ module.exports = {
                                 "cnab_file_occurrence_order": 1,
                                 "created_at": "2020-05-15T21:00:25",
                                 "new_status": {
-                                    "created_at": "2019-02-01T16:44:16",
+                                    "created_at": "2019-02-01T16:44: 16",
                                     "enumerator": "accepted",
                                     "translation_path": "bank_slip.RequesterOccurrenceStatus.accepted"
                                 },
@@ -1827,7 +1827,7 @@ module.exports = {
                             }
                         ],
                         "requester_occurrence_status": {
-                            "created_at": "2019-02-01T16:44:16",
+                            "created_at": "2019-02-01T16:44: 16",
                             "enumerator": "accepted",
                             "translation_path": "bank_slip.RequesterOccurrenceStatus.accepted"
                         }
@@ -1855,7 +1855,7 @@ module.exports = {
                 "payer_postal_code": "00000000",
                 "payment_date": null,
                 "printing_policy": {
-                    "created_at": "2019-02-01T16:44:10",
+                    "created_at": "2019-02-01T16:44: 10",
                     "enumerator": "no_printing",
                     "translation_path": "bank_slip.PrintingPolicy.no_printing"
                 },
@@ -1866,7 +1866,7 @@ module.exports = {
                 },
                 "rebate_amount": null,
                 "registration_institution": {
-                    "created_at": "2020-03-26T19:36:16",
+                    "created_at": "2020-03-26T19:36: 16",
                     "enumerator": "qi_scd",
                     "febraban_code": "329",
                     "remittance_sequence": 72,
@@ -1878,13 +1878,13 @@ module.exports = {
             }
         },
         list: {
-            request:{},
-            status_200:{
+            request: {},
+            status_200: {
                 "data": [
                     {
                         "amount": 3,
                         "asset_type": {
-                            "created_at": "2019-02-01T16:44:11",
+                            "created_at": "2019-02-01T16:44: 11",
                             "enumerator": "invoice",
                             "translation_path": "bank_slip.AssetType.invoice"
                         },
@@ -1952,7 +1952,7 @@ module.exports = {
                                 "occurrence_key": "c3ab3e01-f198-4e7e-9e01-7a8091b8bd72",
                                 "occurrence_reasons": [],
                                 "occurrence_type": {
-                                    "created_at": "2019-02-01T16:44:14",
+                                    "created_at": "2019-02-01T16:44: 14",
                                     "enumerator": "registration",
                                     "translation_path": "bank_slip.OccurrenceType.registration"
                                 },
@@ -1988,7 +1988,7 @@ module.exports = {
                                             "remitter_key": "b91195e3-0cf4-4fed-90cf-7f5bef29c2f0",
                                             "requester_profile_code": null,
                                             "type": {
-                                                "created_at": "2019-02-01T16:44:17",
+                                                "created_at": "2019-02-01T16:44: 17",
                                                 "enumerator": "api_instruction",
                                                 "translation_path": "bank_slip.CNABFileType.api_instruction"
                                             },
@@ -1998,7 +1998,7 @@ module.exports = {
                                         "cnab_file_occurrence_order": 1,
                                         "created_at": "2020-05-15T21:00:25",
                                         "new_status": {
-                                            "created_at": "2019-02-01T16:44:15",
+                                            "created_at": "2019-02-01T16:44: 15",
                                             "enumerator": "waiting_submission",
                                             "translation_path": "bank_slip.RegistrationInstitutionOccurrenceStatus.waiting_submission"
                                         },
@@ -2006,7 +2006,7 @@ module.exports = {
                                     }
                                 ],
                                 "registration_institution_occurrence_status": {
-                                    "created_at": "2019-02-01T16:44:15",
+                                    "created_at": "2019-02-01T16:44: 15",
                                     "enumerator": "waiting_submission",
                                     "translation_path": "bank_slip.RegistrationInstitutionOccurrenceStatus.waiting_submission"
                                 },
@@ -2023,7 +2023,7 @@ module.exports = {
                                             "remitter_key": "b91195e3-0cf4-4fed-90cf-7f5bef29c2f0",
                                             "requester_profile_code": null,
                                             "type": {
-                                                "created_at": "2019-02-01T16:44:17",
+                                                "created_at": "2019-02-01T16:44: 17",
                                                 "enumerator": "api_instruction",
                                                 "translation_path": "bank_slip.CNABFileType.api_instruction"
                                             },
@@ -2033,7 +2033,7 @@ module.exports = {
                                         "cnab_file_occurrence_order": 1,
                                         "created_at": "2020-05-15T21:00:25",
                                         "new_status": {
-                                            "created_at": "2019-02-01T16:44:16",
+                                            "created_at": "2019-02-01T16:44: 16",
                                             "enumerator": "accepted",
                                             "translation_path": "bank_slip.RequesterOccurrenceStatus.accepted"
                                         },
@@ -2041,7 +2041,7 @@ module.exports = {
                                     }
                                 ],
                                 "requester_occurrence_status": {
-                                    "created_at": "2019-02-01T16:44:16",
+                                    "created_at": "2019-02-01T16:44: 16",
                                     "enumerator": "accepted",
                                     "translation_path": "bank_slip.RequesterOccurrenceStatus.accepted"
                                 }
@@ -2069,7 +2069,7 @@ module.exports = {
                         "payer_postal_code": "00000000",
                         "payment_date": null,
                         "printing_policy": {
-                            "created_at": "2019-02-01T16:44:10",
+                            "created_at": "2019-02-01T16:44: 10",
                             "enumerator": "no_printing",
                             "translation_path": "bank_slip.PrintingPolicy.no_printing"
                         },
@@ -2080,7 +2080,7 @@ module.exports = {
                         },
                         "rebate_amount": null,
                         "registration_institution": {
-                            "created_at": "2020-03-26T19:36:16",
+                            "created_at": "2020-03-26T19:36: 16",
                             "enumerator": "qi_scd",
                             "febraban_code": "329",
                             "remittance_sequence": 72,
@@ -2113,17 +2113,17 @@ module.exports = {
             }
         },
         report: {
-            request:{},
+            request: {},
             status_200: excelSampleFile
         }
     },
-    bank_slip_pdf:{
+    bank_slip_pdf: {
         post: {
-            request:{},
-            status_201:{
+            request: {},
+            status_201: {
                 "amount": 3.0,
                 "asset_type": {
-                    "created_at": "2019-02-01T16:44:11",
+                    "created_at": "2019-02-01T16:44: 11",
                     "enumerator": "invoice",
                     "translation_path": "bank_slip.AssetType.invoice"
                 },
@@ -2198,7 +2198,7 @@ module.exports = {
                         "occurrence_key": "c3ab3e01-f198-4e7e-9e01-7a8091b8bd72",
                         "occurrence_reasons": [],
                         "occurrence_type": {
-                            "created_at": "2019-02-01T16:44:14",
+                            "created_at": "2019-02-01T16:44: 14",
                             "enumerator": "registration",
                             "translation_path": "bank_slip.OccurrenceType.registration"
                         },
@@ -2234,7 +2234,7 @@ module.exports = {
                                     "remitter_key": "b91195e3-0cf4-4fed-90cf-7f5bef29c2f0",
                                     "requester_profile_code": null,
                                     "type": {
-                                        "created_at": "2019-02-01T16:44:17",
+                                        "created_at": "2019-02-01T16:44: 17",
                                         "enumerator": "api_instruction",
                                         "translation_path": "bank_slip.CNABFileType.api_instruction"
                                     },
@@ -2244,7 +2244,7 @@ module.exports = {
                                 "cnab_file_occurrence_order": 1,
                                 "created_at": "2020-05-15T21:00:25",
                                 "new_status": {
-                                    "created_at": "2019-02-01T16:44:15",
+                                    "created_at": "2019-02-01T16:44: 15",
                                     "enumerator": "waiting_submission",
                                     "translation_path": "bank_slip.RegistrationInstitutionOccurrenceStatus.waiting_submission"
                                 },
@@ -2252,7 +2252,7 @@ module.exports = {
                             }
                         ],
                         "registration_institution_occurrence_status": {
-                            "created_at": "2019-02-01T16:44:15",
+                            "created_at": "2019-02-01T16:44: 15",
                             "enumerator": "waiting_submission",
                             "translation_path": "bank_slip.RegistrationInstitutionOccurrenceStatus.waiting_submission"
                         },
@@ -2269,7 +2269,7 @@ module.exports = {
                                     "remitter_key": "b91195e3-0cf4-4fed-90cf-7f5bef29c2f0",
                                     "requester_profile_code": null,
                                     "type": {
-                                        "created_at": "2019-02-01T16:44:17",
+                                        "created_at": "2019-02-01T16:44: 17",
                                         "enumerator": "api_instruction",
                                         "translation_path": "bank_slip.CNABFileType.api_instruction"
                                     },
@@ -2279,7 +2279,7 @@ module.exports = {
                                 "cnab_file_occurrence_order": 1,
                                 "created_at": "2020-05-15T21:00:25",
                                 "new_status": {
-                                    "created_at": "2019-02-01T16:44:16",
+                                    "created_at": "2019-02-01T16:44: 16",
                                     "enumerator": "accepted",
                                     "translation_path": "bank_slip.RequesterOccurrenceStatus.accepted"
                                 },
@@ -2287,7 +2287,7 @@ module.exports = {
                             }
                         ],
                         "requester_occurrence_status": {
-                            "created_at": "2019-02-01T16:44:16",
+                            "created_at": "2019-02-01T16:44: 16",
                             "enumerator": "accepted",
                             "translation_path": "bank_slip.RequesterOccurrenceStatus.accepted"
                         }
@@ -2315,7 +2315,7 @@ module.exports = {
                 "payer_postal_code": "00000000",
                 "payment_date": null,
                 "printing_policy": {
-                    "created_at": "2019-02-01T16:44:10",
+                    "created_at": "2019-02-01T16:44: 10",
                     "enumerator": "no_printing",
                     "translation_path": "bank_slip.PrintingPolicy.no_printing"
                 },
@@ -2326,7 +2326,7 @@ module.exports = {
                 },
                 "rebate_amount": null,
                 "registration_institution": {
-                    "created_at": "2020-03-26T19:36:16",
+                    "created_at": "2020-03-26T19:36: 16",
                     "enumerator": "qi_scd",
                     "febraban_code": "329",
                     "remittance_sequence": 72,
@@ -2337,8 +2337,8 @@ module.exports = {
                 "requester_registration_date": "2020-05-15"
             }
         },
-        list:{
-            status_200:[
+        list: {
+            status_200: [
                 {
                     "barcode": "32998827300000003000001010000000000200670490",
                     "created_at": "2020-05-19T18:46:41",
@@ -2348,10 +2348,10 @@ module.exports = {
             ]
         }
     },
-    bank_slip_duplicate_balance:{
+    bank_slip_duplicate_balance: {
         get: {
-            request:{},
-            status_200:{
+            request: {},
+            status_200: {
                 "expire_after_90_days": 0,
                 "expire_between_31_and_60_days": 0,
                 "expire_between_61_and_90_days": 0,
@@ -2367,13 +2367,13 @@ module.exports = {
                 "unpaid": 0
             }
         },
-        get_excel:{
-            request:{},
+        getExcel: {
+            request: {},
             status_200: excelSampleFile
         }
     },
-    multibank:{
-        list_cnab: {
+    multibank: {
+        listCnab: {
             status_200: {
                 "data": [
                     {
@@ -2390,7 +2390,7 @@ module.exports = {
                             "created_at": "2019-03-12T12:59:32",
                             "enumerator": "requester_discharge",
                             "translation_path": "bank_slip.CNABFileType.requester_discharge"
-                            },
+                        },
                         "url": "https://linkparadownload.com/CNAB.RET",
                         "version": "11"
                     }
@@ -2404,7 +2404,7 @@ module.exports = {
                 }
             }
         },
-        upload_cnab:{
+        uploadCnab: {
             request: txtSampleFilePath,
             status_201: {
                 "cnab_file": {
@@ -2496,12 +2496,12 @@ module.exports = {
                         "requester_key": "64d3bafa-2205-43ca-b6a7-2827aefe3ebc",
                         "requester_profile": 19,
                         "requester_profile_code": "237-19-0001-0001273",
-                        "requester_registration_date": "2020-05-18 00:00:00",
+                        "requester_registration_date": "2020-05-18 00:00:00"
                     }
                 ]
             }
         },
-        post_instruction:{
+        postInstruction: {
             request: {
                 "occurrences": [
                     {
@@ -2529,7 +2529,7 @@ module.exports = {
                     }
                 ]
             },
-            status_201:{
+            status_201: {
                 "bank_slips": [
                     {
                         "amount": "1000",
@@ -2572,20 +2572,20 @@ module.exports = {
                     "write_off": 0
                 },
                 "semantic_errors": []
-            } 
+            }
         }
     },
-    scr:{
+    scr: {
         post: {
-            personal_request:{
+            personal_request: {
                 "person_type": "natural",
                 "name": "Joao Ninguem",
                 "document_number": "41184562067",
                 "email": "joao.ninguem@yopmail.com",
                 "report_start_date": "2019-02",
-                "report_end_date": "2020-03" 
+                "report_end_date": "2020-03"
             },
-            company_request:{
+            company_request: {
                 "person_type": "legal",
                 "name": "Padaria do Joao Ninguem",
                 "document_number": "05305188000108",
@@ -2602,19 +2602,19 @@ module.exports = {
                     }
                 ],
                 "report_start_date": "2019-02",
-                "report_end_date": "2020-03" ,
+                "report_end_date": "2020-03",
                 "check_representatives": true
             },
-            status_200:{
+            status_200: {
                 "webhook_type": "scr",
                 "key": "OPERATION_KEY",
                 "status": "pending_signature",
                 "event_datetime": "EVENT_DATE_TIME"
             }
         },
-        get:{
+        get: {
             request: "SCR_KEY",
-            status_200:{
+            status_200: {
                 "consent_term": null,
                 "consulted_at": null,
                 "created_at": "2020-04-24",
@@ -2640,8 +2640,8 @@ module.exports = {
                 "subject_person_type": "legal"
             }
         },
-        list:{
-            query:{
+        list: {
+            query: {
                 origin_key: "3c061264-923b-451b-a02d-20e342f4b709",
                 subject_person_type: "legal",
                 subject_document_number: "05305188000108",
@@ -2651,9 +2651,9 @@ module.exports = {
                 consulted_at_end_date: "2020-05-03",
                 scr_status: "pending_signature",
                 page: 1,
-                page_size: 500,
+                page_size: 500
             },
-            status_200:{
+            status_200: {
                 "data": [
                     {
                         "consent_term": null,
@@ -2690,12 +2690,12 @@ module.exports = {
                 }
             }
         },
-        delete:{
-            request:{
+        delete: {
+            request: {
                 "scr_key": "SCR_KEY",
                 "requester_person_key": "1da2dbd0-af45-4b4d-b685-896e449fa216"
-              },
-            status_200:{
+            },
+            status_200: {
                 "consent_term": null,
                 "consulted_at": null,
                 "created_at": "2020-04-24",
@@ -2720,48 +2720,48 @@ module.exports = {
                 "subject_name": "Padaria do Joao Ninguem",
                 "subject_person_type": "legal"
             },
-            status_400:{},
-            status_404:{}
+            status_400: {},
+            status_404: {}
         },
-        post_redo:{
+        postRedo: {
             request: {
                 "report_start_date": "2019-01",
                 "report_end_date": "2019-02",
                 "origin_key": "bf6b5e8b-93df-4443-b1fc-d760db6ea4ff"
             },
-            status_200:{
-                "consent_term": "https://urldasassinaturas.com/assinaturas.zip",    
-                "consulted_at": "2020-05-08",    
-                "created_at": "2020-05-08",   
-                "origin_key": "OPERATION_KEY",  
-                "report_end_date": "2020-03",  
-                "report_start_date": "2019-02",    
-                "result_document": "https://urldodocumento.com/documento_consulta.pdf",   
-                "scr_key": "SCR_KEY",  
-                "scr_status": "consulted",  
+            status_200: {
+                "consent_term": "https://urldasassinaturas.com/assinaturas.zip",
+                "consulted_at": "2020-05-08",
+                "created_at": "2020-05-08",
+                "origin_key": "OPERATION_KEY",
+                "report_end_date": "2020-03",
+                "report_start_date": "2019-02",
+                "result_document": "https://urldodocumento.com/documento_consulta.pdf",
+                "scr_key": "SCR_KEY",
+                "scr_status": "consulted",
                 "signers": [
-                     {
-                      "document_number": "41184562067",      
-                      "email": "joao.ninguem@yopmail.com",      
-                      "name": "Joao Ninguem",
-                     }
+                    {
+                        "document_number": "41184562067",
+                        "email": "joao.ninguem@yopmail.com",
+                        "name": "Joao Ninguem"
+                    }
                 ],
-                "subject_document_number": "41184562067",   
+                "subject_document_number": "41184562067",
                 "subject_name": "Joao Ninguem",
-                "subject_person_type": "natural",
+                "subject_person_type": "natural"
             }
         }
     },
-    transfer:{
-        post:{
-            request:{
-                "source_account":{
+    transfer: {
+        post: {
+            request: {
+                "source_account": {
                     "account_branch": "0001",
                     "account_digit": "3",
                     "account_number": "24339",
                     "owner_document_number": "32402502000135"
                 },
-                "target_account":{
+                "target_account": {
                     "account_branch": "0001",
                     "account_digit": "6",
                     "account_number": "78340",
@@ -2773,7 +2773,7 @@ module.exports = {
                 "transaction_amount": 19000,
                 "schedule_date": "2020-08-04"
             },
-            ordinary_account_status_200:{
+            ordinary_account_status_200: {
                 "data": {
                     "source_account": {
                         "account_branch": "0001",
@@ -2797,7 +2797,7 @@ module.exports = {
                 "status": "success",
                 "webhook_type": "wire_transfer"
             },
-            escrow_account_status_200:{
+            escrow_account_status_200: {
                 "data": {
                     "requester_document_number": "32402502000135",
                     "source_account": {
@@ -2822,81 +2822,81 @@ module.exports = {
                 "webhook_type": "wire_transfer"
             }
         },
-        post_approval:{
-            request:{
+        postApproval: {
+            request: {
                 "operation_key_list": ["0e241203-8c6b-4e0a-ac42-e0d2a2fc2d37"],
                 "feedback": true
             },
-            status_200:{
-                "data":{
-                   "error_list":[],
-                   "successful_feedback_list":[
-                      {
-                         "account_key":"003307e9-d4fd-487d-a07b-84ceab4ad4a9",
-                         "approval_feedback":true,
-                         "movement_amount":10,
-                         "movement_data":{
-                            "agent_person_key":"0bb61530-7f2e-4fe8-819d-8dcfde478a4c",
-                            "origin_key":"027944cc-4e15-451e-8a58-330f41ef0f9d",
-                            "origin_type":"movement_request",
-                            "schedule_date":"2020-08-06",
-                            "source_account_key":"003307e9-d4fd-487d-a07b-84ceab4ad4a9",
-                            "source_subtype":"outgoing_funds_transfer",
-                            "target_account_key":"003307e9-d4fd-487d-a07b-84ceab4ad4a9",
-                            "transaction_amount":10
-                         },
-                         "movement_date":"2020-08-06",
-                         "movement_info":null,
-                         "movement_request_key":"027944cc-4e15-451e-8a58-330f41ef0f9d",
-                         "movement_status":"approved",
-                         "movement_type":"transaction_schedule",
-                         "requester_key":"ba99b7f1-3db6-4a63-a386-ba2c7f31e784"
-                      },
-                      {
-                         "account_key":"003307e9-d4fd-487d-a07b-84ceab4ad4a9",
-                         "approval_feedback":true,
-                         "movement_amount":10,
-                         "movement_data":{
-                            "agent_key":"0bb61530-7f2e-4fe8-819d-8dcfde478a4c",
-                            "agent_person_key":"0bb61530-7f2e-4fe8-819d-8dcfde478a4c",
-                            "observation":"QI TED",
-                            "schedule_date":"2020-08-06",
-                            "source_account_key":"003307e9-d4fd-487d-a07b-84ceab4ad4a9",
-                            "target_data":{
-                               "account":{
-                                  "account":"30409",
-                                  "account_digit":"6",
-                                  "branch":"0001",
-                                  "branch_digit":null,
-                                  "target_account_type":"checking_account"
-                               },
-                               "bank_code":"123",
-                               "bank_ispb":"11236120",
-                               "person":{
-                                  "document_number":"03030230074",
-                                  "name":"João Ninguem",
-                                  "person_type":"natural"
-                               }
+            status_200: {
+                "data": {
+                    "error_list": [],
+                    "successful_feedback_list": [
+                        {
+                            "account_key": "003307e9-d4fd-487d-a07b-84ceab4ad4a9",
+                            "approval_feedback": true,
+                            "movement_amount": 10,
+                            "movement_data": {
+                                "agent_person_key": "0bb61530-7f2e-4fe8-819d-8dcfde478a4c",
+                                "origin_key": "027944cc-4e15-451e-8a58-330f41ef0f9d",
+                                "origin_type": "movement_request",
+                                "schedule_date": "2020-08-06",
+                                "source_account_key": "003307e9-d4fd-487d-a07b-84ceab4ad4a9",
+                                "source_subtype": "outgoing_funds_transfer",
+                                "target_account_key": "003307e9-d4fd-487d-a07b-84ceab4ad4a9",
+                                "transaction_amount": 10
                             },
-                            "transaction_amount":10
-                         },
-                         "movement_date":"2020-08-06",
-                         "movement_info":null,
-                         "movement_request_key":"bddcf1ca-181a-49a8-a493-452ebd422814",
-                         "movement_status":"approved",
-                         "movement_type":"transaction_schedule",
-                         "requester_key":"ba99b7f1-3db6-4a63-a386-ba2c7f31e784"
-                      }
-                   ]
+                            "movement_date": "2020-08-06",
+                            "movement_info": null,
+                            "movement_request_key": "027944cc-4e15-451e-8a58-330f41ef0f9d",
+                            "movement_status": "approved",
+                            "movement_type": "transaction_schedule",
+                            "requester_key": "ba99b7f1-3db6-4a63-a386-ba2c7f31e784"
+                        },
+                        {
+                            "account_key": "003307e9-d4fd-487d-a07b-84ceab4ad4a9",
+                            "approval_feedback": true,
+                            "movement_amount": 10,
+                            "movement_data": {
+                                "agent_key": "0bb61530-7f2e-4fe8-819d-8dcfde478a4c",
+                                "agent_person_key": "0bb61530-7f2e-4fe8-819d-8dcfde478a4c",
+                                "observation": "QI TED",
+                                "schedule_date": "2020-08-06",
+                                "source_account_key": "003307e9-d4fd-487d-a07b-84ceab4ad4a9",
+                                "target_data": {
+                                    "account": {
+                                        "account": "30409",
+                                        "account_digit": "6",
+                                        "branch": "0001",
+                                        "branch_digit": null,
+                                        "target_account_type": "checking_account"
+                                    },
+                                    "bank_code": "123",
+                                    "bank_ispb": "11236120",
+                                    "person": {
+                                        "document_number": "03030230074",
+                                        "name": "João Ninguem",
+                                        "person_type": "natural"
+                                    }
+                                },
+                                "transaction_amount": 10
+                            },
+                            "movement_date": "2020-08-06",
+                            "movement_info": null,
+                            "movement_request_key": "bddcf1ca-181a-49a8-a493-452ebd422814",
+                            "movement_status": "approved",
+                            "movement_type": "transaction_schedule",
+                            "requester_key": "ba99b7f1-3db6-4a63-a386-ba2c7f31e784"
+                        }
+                    ]
                 },
-                "event_datetime":"2019-11-28 18:24:26",
-                "key":"OPERATION_KEY",
-                "status":true,
-                "webhook_type":"wire_transfer_approval"
-             }
+                "event_datetime": "2019-11-28 18:24:26",
+                "key": "OPERATION_KEY",
+                "status": true,
+                "webhook_type": "wire_transfer_approval"
+            }
         },
-        list_pending:{
-            status_200:{
+        listPending: {
+            status_200: {
                 "data": {
                     "movement_request_list": [
                         {
@@ -2940,12 +2940,12 @@ module.exports = {
                 "webhook_type": "pending_movement"
             }
         },
-        get_receipt:{
+        getReceipt: {
             request: "transaction_key",
             query: {
                 pdf: true
             },
-            status_200:{
+            status_200: {
                 "origin_key": "f17c219a-e11d-4b5c-b00a-8ee2135f581a",
                 "pdf_encoded_string": pdfSampleFile.toString(),
                 "source_account": {
@@ -2979,4 +2979,4 @@ module.exports = {
             }
         }
     }
-}
+};
