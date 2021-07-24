@@ -55,7 +55,7 @@ let debtKey = [DEBT_KEY];
 async function getDebtSimulation(debtKey) {
     try {
         const response = await qitech_wrapper.debt.get(debtKey);
-        console.log(response.data.data);
+        console.log(response.decoded.data);
       } catch (error) {
         console.error(error);
       }
@@ -97,11 +97,11 @@ let data = {
 qitech_wrapper.debt_simulation.post(data)
   .then(response => {
     // handle success
-    console.log(response.data);
+    console.log(response.decoded);
   })
   .catch(error => {
     // handle error
-    console.error(error.data);
+    console.error(error.decoded);
   })
   .then(() => {
     // always executed

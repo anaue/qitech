@@ -21,12 +21,12 @@ describe("POST Ordinary Account Wire Transfers", () => {
         let data = mockedData.request;
         return qitech().transfer.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.ordinary_account_status_200.webhook_type);
-            expect(response.data.key).to.equal(mockedData.ordinary_account_status_200.key);
-            expect(response.data.status).to.equal(mockedData.ordinary_account_status_200.status);
-            expect(response.data.event_datetime).to.equal(mockedData.ordinary_account_status_200.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.ordinary_account_status_200.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.ordinary_account_status_200.key);
+            expect(response.decoded.status).to.equal(mockedData.ordinary_account_status_200.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.ordinary_account_status_200.event_datetime);
         });
     });
     it("creates Escrow Account Wire Transfer", () => {
@@ -37,12 +37,12 @@ describe("POST Ordinary Account Wire Transfers", () => {
         let data = mockedData.request;
         return qitech().transfer.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.escrow_account_status_200.webhook_type);
-            expect(response.data.key).to.equal(mockedData.escrow_account_status_200.key);
-            expect(response.data.status).to.equal(mockedData.escrow_account_status_200.status);
-            expect(response.data.event_datetime).to.equal(mockedData.escrow_account_status_200.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.escrow_account_status_200.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.escrow_account_status_200.key);
+            expect(response.decoded.status).to.equal(mockedData.escrow_account_status_200.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.escrow_account_status_200.event_datetime);
         });
     });
 });
@@ -62,11 +62,11 @@ describe("POST Wire Transfers Approval", () => {
         let data = mockedData.request;
         return qitech().transfer.postApproval(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_200.key);
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_200.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_200.key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
         });
     });
 });
@@ -89,11 +89,11 @@ describe("GET a Transaction Receipt", () => {
         let query = mockedData.query;
         return qitech().transfer.getReceipt(transactionKey, query, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.operation_key).to.equal(mockedData.status_200.operation_key);
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.operation_key).to.equal(mockedData.status_200.operation_key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
         });
     });
 });
@@ -112,10 +112,10 @@ describe("List Pending Movements", () => {
         };
         return qitech().transfer.listPending(options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data.data).not.to.equal(null);
-            expect(typeof response.data.data.movement_request_list).to.equal("object");
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(typeof response.decoded.data.movement_request_list).to.equal("object");
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
         });
     });
 });

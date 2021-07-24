@@ -119,12 +119,12 @@ class Request {
         }
         axios.interceptors.response.use(function success(response) {
             if (response && response.headers["content-type"] === "application/json") {
-                response.data = decoder(response.data, publicKey);
+                response.decoded = decoder(response.data, publicKey);
             }
             return response;
         }, function fail(error) {
             if (error && error.response && error.response.headers["content-type"] === "application/json") {
-                error.data = decoder(error.response.data, publicKey);
+                error.decoded = decoder(error.response.data, publicKey);
             }
             return Promise.reject(error);
         });

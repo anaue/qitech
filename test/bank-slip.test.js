@@ -21,14 +21,14 @@ describe("Bank Slip", () => {
         };
         return qitech().bank_slip.get(bankSlipKey, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.document_number).to.equal(mockedData.status_200.document_number);
-            expect(response.data.automatic_bankruptcy_protest).to.equal(mockedData.status_200.automatic_bankruptcy_protest);
-            expect(response.data.automatic_protest).to.equal(mockedData.status_200.automatic_protest);
-            expect(response.data.automatic_write_off).to.equal(mockedData.status_200.automatic_write_off);
-            expect(response.data.bank_slip_file).to.equal(mockedData.status_200.bank_slip_file);
-            expect(response.data.requester_profile).to.equal(mockedData.status_200.requester_profile);
-            expect(response.data.amount).to.equal(mockedData.status_200.amount);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.document_number).to.equal(mockedData.status_200.document_number);
+            expect(response.decoded.automatic_bankruptcy_protest).to.equal(mockedData.status_200.automatic_bankruptcy_protest);
+            expect(response.decoded.automatic_protest).to.equal(mockedData.status_200.automatic_protest);
+            expect(response.decoded.automatic_write_off).to.equal(mockedData.status_200.automatic_write_off);
+            expect(response.decoded.bank_slip_file).to.equal(mockedData.status_200.bank_slip_file);
+            expect(response.decoded.requester_profile).to.equal(mockedData.status_200.requester_profile);
+            expect(response.decoded.amount).to.equal(mockedData.status_200.amount);
         });
     });
 });
@@ -49,14 +49,14 @@ describe("List Bank Slips", () => {
         let query = mockedData.request;
         return qitech().bank_slip.list(personKey, query, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.document_number).to.equal(mockedData.status_200.document_number);
-            expect(response.data.automatic_bankruptcy_protest).to.equal(mockedData.status_200.automatic_bankruptcy_protest);
-            expect(response.data.automatic_protest).to.equal(mockedData.status_200.automatic_protest);
-            expect(response.data.automatic_write_off).to.equal(mockedData.status_200.automatic_write_off);
-            expect(response.data.bank_slip_file).to.equal(mockedData.status_200.bank_slip_file);
-            expect(response.data.requester_profile).to.equal(mockedData.status_200.requester_profile);
-            expect(response.data.amount).to.equal(mockedData.status_200.amount);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.document_number).to.equal(mockedData.status_200.document_number);
+            expect(response.decoded.automatic_bankruptcy_protest).to.equal(mockedData.status_200.automatic_bankruptcy_protest);
+            expect(response.decoded.automatic_protest).to.equal(mockedData.status_200.automatic_protest);
+            expect(response.decoded.automatic_write_off).to.equal(mockedData.status_200.automatic_write_off);
+            expect(response.decoded.bank_slip_file).to.equal(mockedData.status_200.bank_slip_file);
+            expect(response.decoded.requester_profile).to.equal(mockedData.status_200.requester_profile);
+            expect(response.decoded.amount).to.equal(mockedData.status_200.amount);
         });
     });
 });
@@ -77,8 +77,8 @@ describe("Bank Slips Report", () => {
         let query = mockedData.request;
         return qitech().bank_slip.report(requesterProfileCode, query, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(typeof response.data).to.equal("object");
-            expect(response.data).not.to.equal(null);
+            expect(typeof response.decoded).to.equal("object");
+            expect(response.decoded).not.to.equal(null);
         });
     });
 });

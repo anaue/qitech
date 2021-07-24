@@ -20,11 +20,11 @@ describe("POST Ordinary Debt", () => {
         let data = mockedData.company_request;
         return qitech().debt.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_201.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_201.key);
-            expect(response.data.status).to.equal(mockedData.status_201.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_201.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_201.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.status_201.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_201.event_datetime);
         });
     });
     it("creates Person Ordinary Debt", () => {
@@ -34,11 +34,11 @@ describe("POST Ordinary Debt", () => {
         let data = mockedData.person_request;
         return qitech().debt.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_201.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_201.key);
-            expect(response.data.status).to.equal(mockedData.status_201.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_201.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_201.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.status_201.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_201.event_datetime);
         });
     });
     it("creates Simplified Debt", () => {
@@ -48,11 +48,11 @@ describe("POST Ordinary Debt", () => {
         let data = mockedData.simplied_request;
         return qitech().debt.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_201.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_201.key);
-            expect(response.data.status).to.equal(mockedData.status_201.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_201.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_201.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.status_201.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_201.event_datetime);
         });
     });
 });
@@ -72,11 +72,11 @@ describe("GET Debt", () => {
         let debtKey = "debtKey";
         return qitech().debt.get(debtKey, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.operation_key).to.equal(mockedData.status_200.operation_key);
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.operation_key).to.equal(mockedData.status_200.operation_key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
         });
     });
 });
@@ -95,12 +95,12 @@ describe("List Debt", () => {
         let query = {};
         return qitech().debt.list(query, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.pagination).not.to.equal(null);
-            expect(response.data.data[0].contract_fee_amount).to.equal(mockedData.status_200.data[0].contract_fee_amount);
-            expect(response.data.data[0].operation_key).to.equal(mockedData.status_200.data[0].operation_key);
-            expect(response.data.data[0].status).to.equal(mockedData.status_200.data[0].status);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.pagination).not.to.equal(null);
+            expect(response.decoded.data[0].contract_fee_amount).to.equal(mockedData.status_200.data[0].contract_fee_amount);
+            expect(response.decoded.data[0].operation_key).to.equal(mockedData.status_200.data[0].operation_key);
+            expect(response.decoded.data[0].status).to.equal(mockedData.status_200.data[0].status);
         });
     });
 });

@@ -21,9 +21,9 @@ describe("List MultiBank CNAB", () => {
         };
         return qitech().multibank.listCnab(personKey, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).to.equal(mockedData.status_200.data);
-            expect(response.data.pagination).to.equal(mockedData.status_200.pagination);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).to.equal(mockedData.status_200.data);
+            expect(response.decoded.pagination).to.equal(mockedData.status_200.pagination);
         });
     });
 });
@@ -42,18 +42,18 @@ describe("POST Upload MultiBank CNAB", () => {
         };
         return qitech().multibank.uploadCnab(filePath, null, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(typeof response.data.cnab_file).to.equal("object");
-            expect(response.data.cnab_file.cnab_key).to.equal(mockedData.status_201.cnab_file.cnab_key);
-            expect(response.data.cnab_file.company_code).to.equal(mockedData.status_201.cnab_file.company_code);
-            expect(response.data.cnab_file.created_at).to.equal(mockedData.status_201.cnab_file.created_at);
-            expect(response.data.cnab_file.remitter_key).to.equal(mockedData.status_201.cnab_file.remitter_key);
-            expect(response.data.cnab_file.requester_profile_code).to.equal(mockedData.status_201.cnab_file.requester_profile_code);
-            expect(response.data.cnab_file.type).to.equal(mockedData.status_201.cnab_file.type);
-            expect(typeof response.data.file_info).to.equal("object");
-            expect(response.data.file_info.beneficiary_code).to.equal(mockedData.status_201.file_info.beneficiary_code);
-            expect(response.data.file_info.beneficiary_name).to.equal(mockedData.status_201.file_info.beneficiary_name);
-            expect(typeof response.data.occurrence_list).to.equal("object");
+            expect(response.decoded).not.to.equal(null);
+            expect(typeof response.decoded.cnab_file).to.equal("object");
+            expect(response.decoded.cnab_file.cnab_key).to.equal(mockedData.status_201.cnab_file.cnab_key);
+            expect(response.decoded.cnab_file.company_code).to.equal(mockedData.status_201.cnab_file.company_code);
+            expect(response.decoded.cnab_file.created_at).to.equal(mockedData.status_201.cnab_file.created_at);
+            expect(response.decoded.cnab_file.remitter_key).to.equal(mockedData.status_201.cnab_file.remitter_key);
+            expect(response.decoded.cnab_file.requester_profile_code).to.equal(mockedData.status_201.cnab_file.requester_profile_code);
+            expect(response.decoded.cnab_file.type).to.equal(mockedData.status_201.cnab_file.type);
+            expect(typeof response.decoded.file_info).to.equal("object");
+            expect(response.decoded.file_info.beneficiary_code).to.equal(mockedData.status_201.file_info.beneficiary_code);
+            expect(response.decoded.file_info.beneficiary_name).to.equal(mockedData.status_201.file_info.beneficiary_name);
+            expect(typeof response.decoded.occurrence_list).to.equal("object");
         });
     });
 });
@@ -72,11 +72,11 @@ describe("POST MultiBank Instruction", () => {
         let data = mockedData.request;
         return qitech().multibank.postInstruction(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.bank_slips).to.equal(mockedData.status_201.bank_slips);
-            expect(response.data.file_info).to.equal(mockedData.status_201.file_info);
-            expect(response.data.occurrence_stats).to.equal(mockedData.status_201.occurrence_stats);
-            expect(response.data.semantic_errors).to.equal(mockedData.status_201.semantic_errors);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.bank_slips).to.equal(mockedData.status_201.bank_slips);
+            expect(response.decoded.file_info).to.equal(mockedData.status_201.file_info);
+            expect(response.decoded.occurrence_stats).to.equal(mockedData.status_201.occurrence_stats);
+            expect(response.decoded.semantic_errors).to.equal(mockedData.status_201.semantic_errors);
         });
     });
 });

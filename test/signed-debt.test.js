@@ -19,12 +19,12 @@ describe("POST Signed Debt", () => {
         let data = mockedReqRes.signed_debt.post.request;
         return qitech().signed_debt.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.contract).not.to.equal(null);
-            expect(response.data.contract.negotiable_key).to.equal(mockedReqRes.signed_debt.post.status_201.contract.negotiable_key);
-            expect(response.data.contract.non_negotiable_key).to.equal(mockedReqRes.signed_debt.post.status_201.contract.non_negotiable_key);
-            expect(response.data.contract.contract_number).to.equal(mockedReqRes.signed_debt.post.status_201.contract.contract_number);
-            expect(response.data.contract.signed).to.equal(mockedReqRes.signed_debt.post.status_201.contract.signed);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.contract).not.to.equal(null);
+            expect(response.decoded.contract.negotiable_key).to.equal(mockedReqRes.signed_debt.post.status_201.contract.negotiable_key);
+            expect(response.decoded.contract.non_negotiable_key).to.equal(mockedReqRes.signed_debt.post.status_201.contract.non_negotiable_key);
+            expect(response.decoded.contract.contract_number).to.equal(mockedReqRes.signed_debt.post.status_201.contract.contract_number);
+            expect(response.decoded.contract.signed).to.equal(mockedReqRes.signed_debt.post.status_201.contract.signed);
         });
     });
 });
@@ -44,11 +44,11 @@ describe("GET Signed Debt", () => {
         let debtKey = "debtKey";
         return qitech().signed_debt.get(debtKey, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.operation_key).to.equal(mockedReqRes.signed_debt.get.status_200.operation_key);
-            expect(response.data.status).to.equal(mockedReqRes.signed_debt.get.status_200.status);
-            expect(response.data.webhook_type).to.equal(mockedReqRes.signed_debt.get.status_200.webhook_type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.operation_key).to.equal(mockedReqRes.signed_debt.get.status_200.operation_key);
+            expect(response.decoded.status).to.equal(mockedReqRes.signed_debt.get.status_200.status);
+            expect(response.decoded.webhook_type).to.equal(mockedReqRes.signed_debt.get.status_200.webhook_type);
         });
     });
 });
@@ -67,12 +67,12 @@ describe("List Signed Debt", () => {
         let query = {};
         return qitech().signed_debt.list(query, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.pagination).not.to.equal(null);
-            expect(response.data.data[0].contract_fee_amount).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].contract_fee_amount);
-            expect(response.data.data[0].operation_key).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].operation_key);
-            expect(response.data.data[0].status).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].status);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.pagination).not.to.equal(null);
+            expect(response.decoded.data[0].contract_fee_amount).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].contract_fee_amount);
+            expect(response.decoded.data[0].operation_key).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].operation_key);
+            expect(response.decoded.data[0].status).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].status);
         });
     });
 });

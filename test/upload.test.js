@@ -20,9 +20,9 @@ describe("POST Upload", () => {
         };
         return qitech().upload.post(filePath, null, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.document_key).to.equal(mockedData.status_201.document_key);
-            expect(response.data.document_md5).to.equal(mockedData.status_201.document_md5);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.document_key).to.equal(mockedData.status_201.document_key);
+            expect(response.decoded.document_md5).to.equal(mockedData.status_201.document_md5);
         });
     });
 });

@@ -22,11 +22,11 @@ describe("POST PDF Bank Slip", () => {
         };
         return qitech().bank_slip_pdf.post(bankSlipKey, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_201.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_201.key);
-            expect(response.data.status).to.equal(mockedData.status_201.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_201.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_201.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.status_201.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_201.event_datetime);
         });
     });
 });
@@ -46,11 +46,11 @@ describe("List PDF Bank Slip", () => {
         };
         return qitech().bank_slip_pdf.list(bankSlipKey, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.operation_key).to.equal(mockedData.status_200.operation_key);
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.operation_key).to.equal(mockedData.status_200.operation_key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
         });
     });
 });

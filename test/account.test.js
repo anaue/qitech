@@ -20,12 +20,12 @@ describe("POST Create Ordinary Account", () => {
         let data = mockedData.company_request;
         return qitech().account.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.event_datetime).to.equal(mockedData.company_status_201.event_datetime);
-            expect(response.data.key).to.equal(mockedData.company_status_201.key);
-            expect(response.data.status).to.equal(mockedData.company_status_201.status);
-            expect(response.data.type).to.equal(mockedData.company_status_201.type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.event_datetime).to.equal(mockedData.company_status_201.event_datetime);
+            expect(response.decoded.key).to.equal(mockedData.company_status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.company_status_201.status);
+            expect(response.decoded.type).to.equal(mockedData.company_status_201.type);
         });
     });
     it("creates Ordinary Personal Account", () => {
@@ -36,12 +36,12 @@ describe("POST Create Ordinary Account", () => {
         let data = mockedData.personal_request;
         return qitech().account.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.event_datetime).to.equal(mockedData.personal_status_201.event_datetime);
-            expect(response.data.key).to.equal(mockedData.personal_status_201.key);
-            expect(response.data.status).to.equal(mockedData.personal_status_201.status);
-            expect(response.data.type).to.equal(mockedData.personal_status_201.type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.event_datetime).to.equal(mockedData.personal_status_201.event_datetime);
+            expect(response.decoded.key).to.equal(mockedData.personal_status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.personal_status_201.status);
+            expect(response.decoded.type).to.equal(mockedData.personal_status_201.type);
         });
     });
     it("creates Simplified Company Account", () => {
@@ -52,12 +52,12 @@ describe("POST Create Ordinary Account", () => {
         let data = mockedData.simplied_company_request;
         return qitech().account.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.event_datetime).to.equal(mockedData.company_status_201.event_datetime);
-            expect(response.data.key).to.equal(mockedData.company_status_201.key);
-            expect(response.data.status).to.equal(mockedData.company_status_201.status);
-            expect(response.data.type).to.equal(mockedData.company_status_201.type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.event_datetime).to.equal(mockedData.company_status_201.event_datetime);
+            expect(response.decoded.key).to.equal(mockedData.company_status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.company_status_201.status);
+            expect(response.decoded.type).to.equal(mockedData.company_status_201.type);
         });
     });
     it("creates Simplified Personal Account", () => {
@@ -68,12 +68,12 @@ describe("POST Create Ordinary Account", () => {
         let data = mockedData.simplied_personal_request;
         return qitech().account.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.event_datetime).to.equal(mockedData.personal_status_201.event_datetime);
-            expect(response.data.key).to.equal(mockedData.personal_status_201.key);
-            expect(response.data.status).to.equal(mockedData.personal_status_201.status);
-            expect(response.data.type).to.equal(mockedData.personal_status_201.type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.event_datetime).to.equal(mockedData.personal_status_201.event_datetime);
+            expect(response.decoded.key).to.equal(mockedData.personal_status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.personal_status_201.status);
+            expect(response.decoded.type).to.equal(mockedData.personal_status_201.type);
         });
     });
 });
@@ -93,9 +93,9 @@ describe("List Ordinary Accounts", () => {
         let query = {};
         return qitech().account.list(query, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.pagination).not.to.equal(null);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.pagination).not.to.equal(null);
         });
     });
 });

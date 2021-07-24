@@ -20,12 +20,12 @@ describe("POST Debt Simulation", () => {
         let data = mockedData.request;
         return qitech().debt_simulation.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.event_datetime).to.equal(mockedData.status_201.event_datetime);
-            expect(response.data.key).to.equal(mockedData.status_201.key);
-            expect(response.data.status).to.equal(mockedData.status_201.status);
-            expect(response.data.type).to.equal(mockedData.status_201.type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_201.event_datetime);
+            expect(response.decoded.key).to.equal(mockedData.status_201.key);
+            expect(response.decoded.status).to.equal(mockedData.status_201.status);
+            expect(response.decoded.type).to.equal(mockedData.status_201.type);
         });
     });
 });
@@ -45,12 +45,12 @@ describe("POST Batch Debt Simulation", () => {
         let data = mockedData.request;
         return qitech().debt_simulation.postBatch(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data[0].event_datetime).to.equal(mockedData.status_200[0].event_datetime);
-            expect(response.data[0].key).to.equal(mockedData.status_200[0].key);
-            expect(response.data[0].status).to.equal(mockedData.status_200[0].status);
-            expect(response.data[0].type).to.equal(mockedData.status_200[0].type);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded[0].event_datetime).to.equal(mockedData.status_200[0].event_datetime);
+            expect(response.decoded[0].key).to.equal(mockedData.status_200[0].key);
+            expect(response.decoded[0].status).to.equal(mockedData.status_200[0].status);
+            expect(response.decoded[0].type).to.equal(mockedData.status_200[0].type);
         });
     });
 });

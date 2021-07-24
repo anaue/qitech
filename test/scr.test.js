@@ -21,11 +21,11 @@ describe("POST SCR", () => {
         let data = mockedData.personal_request;
         return qitech().scr.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_200.key);
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_200.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_200.key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
         });
     });
     it("creates Company SCR", () => {
@@ -35,11 +35,11 @@ describe("POST SCR", () => {
         let data = mockedData.company_request;
         return qitech().scr.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_200.key);
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_200.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_200.key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
         });
     });
 });
@@ -59,14 +59,14 @@ describe("GET SCR", () => {
         };
         return qitech().scr.get(scrKey, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(typeof response.data.signers).to.equal("object");
-            expect(response.data.consent_term).to.equal(mockedData.status_200.consent_term);
-            expect(response.data.origin_key).to.equal(mockedData.status_200.origin_key);
-            expect(response.data.scr_status).to.equal(mockedData.status_200.scr_status);
-            expect(response.data.subject_document_number).to.equal(mockedData.status_200.subject_document_number);
-            expect(response.data.subject_name).to.equal(mockedData.status_200.subject_name);
-            expect(response.data.subject_person_type).to.equal(mockedData.status_200.subject_person_type);
+            expect(response.decoded).not.to.equal(null);
+            expect(typeof response.decoded.signers).to.equal("object");
+            expect(response.decoded.consent_term).to.equal(mockedData.status_200.consent_term);
+            expect(response.decoded.origin_key).to.equal(mockedData.status_200.origin_key);
+            expect(response.decoded.scr_status).to.equal(mockedData.status_200.scr_status);
+            expect(response.decoded.subject_document_number).to.equal(mockedData.status_200.subject_document_number);
+            expect(response.decoded.subject_name).to.equal(mockedData.status_200.subject_name);
+            expect(response.decoded.subject_person_type).to.equal(mockedData.status_200.subject_person_type);
         });
     });
 });
@@ -87,11 +87,11 @@ describe("List SCRs", () => {
         let query = mockedData.query;
         return qitech().scr.list(query, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.data).not.to.equal(null);
-            expect(response.data.pagination).not.to.equal(null);
-            expect(response.data.data[0].origin_key).to.equal(mockedData.status_200.data[0].origin_key);
-            expect(response.data.data[0].scr_status).to.equal(mockedData.status_200.data[0].scr_status);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.data).not.to.equal(null);
+            expect(response.decoded.pagination).not.to.equal(null);
+            expect(response.decoded.data[0].origin_key).to.equal(mockedData.status_200.data[0].origin_key);
+            expect(response.decoded.data[0].scr_status).to.equal(mockedData.status_200.data[0].scr_status);
         });
     });
 });
@@ -111,14 +111,14 @@ describe("Delete SCR", () => {
         let data = mockedData.request;
         return qitech().scr.delete(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(typeof response.data.signers).to.equal("object");
-            expect(response.data.consent_term).to.equal(mockedData.status_200.consent_term);
-            expect(response.data.origin_key).to.equal(mockedData.status_200.origin_key);
-            expect(response.data.scr_status).to.equal(mockedData.status_200.scr_status);
-            expect(response.data.subject_document_number).to.equal(mockedData.status_200.subject_document_number);
-            expect(response.data.subject_name).to.equal(mockedData.status_200.subject_name);
-            expect(response.data.subject_person_type).to.equal(mockedData.status_200.subject_person_type);
+            expect(response.decoded).not.to.equal(null);
+            expect(typeof response.decoded.signers).to.equal("object");
+            expect(response.decoded.consent_term).to.equal(mockedData.status_200.consent_term);
+            expect(response.decoded.origin_key).to.equal(mockedData.status_200.origin_key);
+            expect(response.decoded.scr_status).to.equal(mockedData.status_200.scr_status);
+            expect(response.decoded.subject_document_number).to.equal(mockedData.status_200.subject_document_number);
+            expect(response.decoded.subject_name).to.equal(mockedData.status_200.subject_name);
+            expect(response.decoded.subject_person_type).to.equal(mockedData.status_200.subject_person_type);
         });
     });
 });
@@ -138,11 +138,11 @@ describe("POST REDO SCR", () => {
         let data = mockedData.request;
         return qitech().scr.postRedo(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.webhook_type).to.equal(mockedData.status_200.webhook_type);
-            expect(response.data.key).to.equal(mockedData.status_200.key);
-            expect(response.data.status).to.equal(mockedData.status_200.status);
-            expect(response.data.event_datetime).to.equal(mockedData.status_200.event_datetime);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_200.key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
         });
     });
 });

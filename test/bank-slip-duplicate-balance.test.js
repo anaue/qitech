@@ -20,20 +20,20 @@ describe("Daily Duplicate Balance", () => {
         let data = mockedData.request;
         return qitech().bank_slip_duplicate_balance.get(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(response.data).not.to.equal(null);
-            expect(response.data.paid).to.equal(mockedData.status_200.paid);
-            expect(response.data.unpaid).to.equal(mockedData.status_200.unpaid);
-            expect(response.data.expired).to.equal(mockedData.status_200.expired);
-            expect(response.data.to_expire).to.equal(mockedData.status_200.to_expire);
-            expect(response.data.expire_after_90_days).to.equal(mockedData.status_200.expire_after_90_days);
-            expect(response.data.expire_between_31_and_60_days).to.equal(mockedData.status_200.expire_between_31_and_60_days);
-            expect(response.data.expire_between_61_and_90_days).to.equal(mockedData.status_200.expire_between_61_and_90_days);
-            expect(response.data.expire_in_30_days).to.equal(mockedData.status_200.expire_in_30_days);
-            expect(response.data.expired_in_notary_office).to.equal(mockedData.status_200.expired_in_notary_office);
-            expect(response.data.expired_not_in_notary_office).to.equal(mockedData.status_200.expired_not_in_notary_office);
-            expect(response.data.paid_after_due_date).to.equal(mockedData.status_200.paid_after_due_date);
-            expect(response.data.paid_before_due_date).to.equal(mockedData.status_200.paid_before_due_date);
-            expect(response.data.paid_on_due_date).to.equal(mockedData.status_200.paid_on_due_date);
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.paid).to.equal(mockedData.status_200.paid);
+            expect(response.decoded.unpaid).to.equal(mockedData.status_200.unpaid);
+            expect(response.decoded.expired).to.equal(mockedData.status_200.expired);
+            expect(response.decoded.to_expire).to.equal(mockedData.status_200.to_expire);
+            expect(response.decoded.expire_after_90_days).to.equal(mockedData.status_200.expire_after_90_days);
+            expect(response.decoded.expire_between_31_and_60_days).to.equal(mockedData.status_200.expire_between_31_and_60_days);
+            expect(response.decoded.expire_between_61_and_90_days).to.equal(mockedData.status_200.expire_between_61_and_90_days);
+            expect(response.decoded.expire_in_30_days).to.equal(mockedData.status_200.expire_in_30_days);
+            expect(response.decoded.expired_in_notary_office).to.equal(mockedData.status_200.expired_in_notary_office);
+            expect(response.decoded.expired_not_in_notary_office).to.equal(mockedData.status_200.expired_not_in_notary_office);
+            expect(response.decoded.paid_after_due_date).to.equal(mockedData.status_200.paid_after_due_date);
+            expect(response.decoded.paid_before_due_date).to.equal(mockedData.status_200.paid_before_due_date);
+            expect(response.decoded.paid_on_due_date).to.equal(mockedData.status_200.paid_on_due_date);
         });
     });
 });
@@ -53,7 +53,7 @@ describe("Daily Excel Duplicate Balance", () => {
         let data = mockedData.request;
         return qitech().bank_slip_duplicate_balance.getExcel(data, options).then(response => {
             expect(typeof response).to.equal("object");
-            expect(typeof response.data).to.equal("object");
+            expect(typeof response.decoded).to.equal("object");
         });
     });
 });
