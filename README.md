@@ -43,30 +43,36 @@ API calls return a Promisse and optionally accept http options
 
 ### GET - DEBT 
 
+You can use async/await
 ```
 const QITtech = require('qitech-wrapper');
-let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
-let debt_key = [DEBT_KEY];
-
-qitech_wrapper.debt.get(debt_key)
-   .then(response => {
-    // handle success
-    console.log(response.data);
-  })
-  .catch(error => {
-    // handle error
-    console.error(error.data);
-  })
-  .then(() => {
-    // always executed
-  });
+let qitech_wrapper = QITtech({
+    clientKey: "QI Tech API Client_Key", 
+    privateKey: "user private file path or key", 
+    publicKey: "QITECH public file path or key"
+});
+let debtKey = [DEBT_KEY];
+async function getDebtSimulation(debtKey) {
+    try {
+        const response = await qitech_wrapper.debt.get(debtKey);
+        console.log(response.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+}
 ```
 
 ### POST - DEBT SIMULATION
 
+Or you can use then/catch
+
 ```
 const QITtech = require('qitech-wrapper');
-let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
+let qitech_wrapper = QITtech({
+    clientKey: "QI Tech API Client_Key", 
+    privateKey: "user private file path or key", 
+    publicKey: "QITECH public file path or key"
+});
 let data = {
     "borrower": {
         "person_type": "natural"
@@ -106,13 +112,17 @@ qitech_wrapper.debt_simulation.post(data)
 
 ```
 const QITtech = require('qitech-wrapper');
-let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
+let qitech_wrapper = QITtech({
+    clientKey: "QI Tech API Client_Key", 
+    privateKey: "user private file path or key", 
+    publicKey: "QITECH public file path or key"
+});
 let filePath = [path to file, using fs.readFileSync()];
 let fileContent = [alternatively, pass the content file];
 
 qitech_wrapper.upload.post(filePath)
-    .then(response => console.log(response.data))
-    .catch(error => console.error(error.data));
+    .then(console.log)
+    .catch(console.error);
 ```
 
 
@@ -120,90 +130,90 @@ qitech_wrapper.upload.post(filePath)
 
 ### UPLOAD
 #### POST - UPLOAD
-    qitech_wrapper().upload.post(filePath, fileContent, options);
+    qitech_wrapper.upload.post(filePath, fileContent, options);
 
 ### Debt
 #### POST - Create Debt 
-    qitech_wrapper().debt.post(data, options);
+    qitech_wrapper.debt.post(data, options);
 #### GET - Show Debt 
-    qitech_wrapper().debt.get(debt_key, options);
+    qitech_wrapper.debt.get(debt_key, options);
 #### GET - List Debts 
-    qitech_wrapper().debt.list(query, options);
+    qitech_wrapper.debt.list(query, options);
 
 ### Signed Debt
 #### POST - Create Signed Debt 
-    qitech_wrapper().signed_debt.post(data, options);
+    qitech_wrapper.signed_debt.post(data, options);
 #### GET - Show Signed Debt 
-    qitech_wrapper().signed_debt.get(debt_key, options);
+    qitech_wrapper.signed_debt.get(debt_key, options);
 #### GET - List Signed Debts 
-    qitech_wrapper().signed_debt.list(query, options);
+    qitech_wrapper.signed_debt.list(query, options);
 
 ### Debt Simulation
 #### POST - Debt Simulation
-    qitech_wrapper().debt_simulation.post(data, options);
+    qitech_wrapper.debt_simulation.post(data, options);
 
 ### Account 
 #### POST - Create Account 
-    qitech_wrapper().account.post(data, options);
+    qitech_wrapper.account.post(data, options);
 #### GET - List Accounts 
-    qitech_wrapper().account.list(query, options);
+    qitech_wrapper.account.list(query, options);
 
 ### Escrow Account 
 #### POST - Create Escrow account
-    qitech_wrapper().escrow.post(data, options);
+    qitech_wrapper.escrow.post(data, options);
 
 ### SCR
 #### POST - Request SCR Consultation
-    qitech_wrapper().scr.post(data, options);
+    qitech_wrapper.scr.post(data, options);
 #### POST - Redo SCR Consultation
-    qitech_wrapper().scr.postRedo(data, options);
+    qitech_wrapper.scr.postRedo(data, options);
 #### GET - List Consultations
-    qitech_wrapper().scr.list(query, options);
+    qitech_wrapper.scr.list(query, options);
 #### GET - Show Consultation
-    qitech_wrapper().scr.get(scr_key, options);
+    qitech_wrapper.scr.get(scr_key, options);
 #### DELETE - Cancel Ongoing Consultation
-    qitech_wrapper().scr.delete(data, options);
+    qitech_wrapper.scr.delete(data, options);
 
 ### Bankslip
 #### GET - Show Bankslip
-    qitech_wrapper().bank_slip.get(bank_slip_key, options);
+    qitech_wrapper.bank_slip.get(bank_slip_key, options);
 #### GET - List Bankslips 
-    qitech_wrapper().bank_slip.list(person_key, query, options);
+    qitech_wrapper.bank_slip.list(person_key, query, options);
 #### GET - Get Payments Received Report (Francesinha) 
-    qitech_wrapper().bank_slip.report(requester_profile_code, query, options);
+    qitech_wrapper.bank_slip.report(requester_profile_code, query, options);
 
 ### Bankslip Duplicate Balance
 #### GET - Get Duplicates Balance 
-    qitech_wrapper().bank_slip_duplicate_balance.get(query, options);
+    qitech_wrapper.bank_slip_duplicate_balance.get(query, options);
 #### GET - Get Duplicates Balance - Excel format
-    qitech_wrapper().bank_slip_duplicate_balance.getExcel(query, options);
+    qitech_wrapper.bank_slip_duplicate_balance.getExcel(query, options);
 
 ### Bankslip PDF
 #### POST - Create Bankslip PDF file
-    qitech_wrapper().bank_slip_pdf.post(bank_slip_key, options);
+    qitech_wrapper.bank_slip_pdf.post(bank_slip_key, options);
 #### GET - List Bankslip PDF files
-    qitech_wrapper().bank_slip_pdf.list(bank_slip_key, options);
+    qitech_wrapper.bank_slip_pdf.list(bank_slip_key, options);
 
 ### Multibank
 #### POST - Send Multibank Instructions
-    qitech_wrapper().multibank.postInstruction(data, options);
+    qitech_wrapper.multibank.postInstruction(data, options);
 #### POST - Upload CNAB file
-    qitech_wrapper().multibank.uploadCnab(filePath, fileContent, options);
+    qitech_wrapper.multibank.uploadCnab(filePath, fileContent, options);
 #### GET - List CNAB files
-    qitech_wrapper().multibank.listCnab(person_key, options);
+    qitech_wrapper.multibank.listCnab(person_key, options);
 
 
 ### Transfer
 #### POST - Request Wire Transfer
-    qitech_wrapper().transfer.post(data, options);
+    qitech_wrapper.transfer.post(data, options);
 #### POST - Approve Escrow Account's Wire Transfer
-    qitech_wrapper().transfer.postApproval(data, options);
+    qitech_wrapper.transfer.postApproval(data, options);
 #### GET - List Pending Transactions
-    qitech_wrapper().transfer.listPending(options);
+    qitech_wrapper.transfer.listPending(options);
 #### GET - Get Transaction Receipt
-    qitech_wrapper().transfer.getReceipt(transaction_key, query, options);
+    qitech_wrapper.transfer.getReceipt(transaction_key, query, options);
 
 
 ### Financial Institute
 #### GET - List Financial Institutes
-    qitech_wrapper().financial_institute.list(query, options);
+    qitech_wrapper.financial_institute.list(query, options);

@@ -86,8 +86,8 @@ class Request {
     request(httpVerb, urlPath, _options) {
         this.setup();
         let options = _options || {};
-        let privateKey = this.privateKey;
-        let publicKey = this.publicKey;
+        var privateKey = this.privateKey;
+        var publicKey = this.publicKey;
         let encoder = options.bodyEncoder ? options.bodyEncoder : bodyEncoder;
         let decoder = options.bodyDecoder ? options.bodyDecoder : bodyDecoder;
         let actualBodyContent = null;
