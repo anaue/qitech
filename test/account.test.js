@@ -76,6 +76,14 @@ describe("POST Create Ordinary Account", () => {
             expect(response.decoded.type).to.equal(mockedData.personal_status_201.type);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).account.post().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("List Ordinary Accounts", () => {
@@ -96,6 +104,14 @@ describe("List Ordinary Accounts", () => {
             expect(response.decoded).not.to.equal(null);
             expect(response.decoded.data).not.to.equal(null);
             expect(response.decoded.pagination).not.to.equal(null);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).account.list().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

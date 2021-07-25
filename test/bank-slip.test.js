@@ -31,6 +31,14 @@ describe("Bank Slip", () => {
             expect(response.decoded.amount).to.equal(mockedData.status_200.amount);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).bank_slip.get(bankSlipKey).then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("List Bank Slips", () => {
@@ -59,6 +67,14 @@ describe("List Bank Slips", () => {
             expect(response.decoded.amount).to.equal(mockedData.status_200.amount);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).bank_slip.list(personKey).then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("Bank Slips Report", () => {
@@ -79,6 +95,14 @@ describe("Bank Slips Report", () => {
             expect(typeof response).to.equal("object");
             expect(typeof response.decoded).to.equal("object");
             expect(response.decoded).not.to.equal(null);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).bank_slip.report(requesterProfileCode).then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

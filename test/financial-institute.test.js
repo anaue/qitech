@@ -50,4 +50,12 @@ describe("List Financial Institutes", () => {
             expect(response.decoded.data[0].str_start_date).to.equal(mockedData.pagining_status_200.data[0].str_start_date);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).financial_institute.list().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });

@@ -9,10 +9,8 @@ class Upload {
     }
     _getFilename(filePath) {
         let splitName = [];
-        if (filePath.indexOf("/")) {
+        if (filePath.indexOf("/") > -1) {
             splitName = filePath.split("/");
-        } else if (filePath.indexOf("\\")) {
-            splitName = filePath.split("\\");
         }
         return splitName[splitName.length - 1];
     }

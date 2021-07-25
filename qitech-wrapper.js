@@ -5,9 +5,9 @@ var Request = require("./src/request");
 class QiTech {
     constructor(_opts) {
         let opts = _opts || {};
-        this.clientKey = opts.clientKey || "clientKey";
-        this.privateKey = opts.privateKey || "privateKey";
-        this.publicKey = opts.publicKey || "publicKey";
+        this.clientKey = opts.clientKey;
+        this.privateKey = opts.privateKey;
+        this.publicKey = opts.publicKey;
         this.setupRequest();
     }
     setupRequest() {

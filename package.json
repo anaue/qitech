@@ -35,6 +35,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-eslint": "^23.0.0",
     "grunt-mocha-test": "^0.13.3",
+    "grunt-nyc-mocha": "^0.0.10",
     "grunt-webpack": "^4.0.3",
     "load-grunt-tasks": "^5.1.0",
     "mocha": "^9.0.1",

@@ -5,6 +5,7 @@ const mockedReqRes = require("./request-response");
 const expect = require("chai").expect;
 const nock = require("nock");
 const util = require("util");
+const fs = require("fs");
 
 describe("List MultiBank CNAB", () => {
     let personKey = "personKey";
@@ -26,6 +27,14 @@ describe("List MultiBank CNAB", () => {
             expect(response.decoded.pagination).to.equal(mockedData.status_200.pagination);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).multibank.listCnab(personKey).then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 describe("POST Upload MultiBank CNAB", () => {
     const mockedData = mockedReqRes.multibank.uploadCnab;
@@ -35,8 +44,8 @@ describe("POST Upload MultiBank CNAB", () => {
             .post(qitech().multibank.MULTIBANK_CNAB_PATH)
             .reply(201, {});
     });
+    let filePath = mockedData.request;
     it("upload MultiBank CNAB", () => {
-        let filePath = mockedData.request;
         let options = {
             bodyDecoder: decoder
         };
@@ -54,6 +63,24 @@ describe("POST Upload MultiBank CNAB", () => {
             expect(response.decoded.file_info.beneficiary_code).to.equal(mockedData.status_201.file_info.beneficiary_code);
             expect(response.decoded.file_info.beneficiary_name).to.equal(mockedData.status_201.file_info.beneficiary_name);
             expect(typeof response.decoded.occurrence_list).to.equal("object");
+        });
+    });
+    it("should use direct filename", () => {
+        let filename = "pdfsample.pdf";
+        let content = fs.readFileSync(filePath);
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).multibank.uploadCnab(filename, content).then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).multibank.uploadCnab(filePath).then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });
@@ -77,6 +104,14 @@ describe("POST MultiBank Instruction", () => {
             expect(response.decoded.file_info).to.equal(mockedData.status_201.file_info);
             expect(response.decoded.occurrence_stats).to.equal(mockedData.status_201.occurrence_stats);
             expect(response.decoded.semantic_errors).to.equal(mockedData.status_201.semantic_errors);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).multibank.postInstruction().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

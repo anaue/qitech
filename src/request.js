@@ -19,6 +19,7 @@ function bodyEncoder(body, privateKey) {
     };
     return jwt.sign(body, privateKey, jwtOptions);
 }
+
 function bodyDecoder(jsonBody, publicKey) {
     if (jsonBody.encoded_body === undefined || publicKey === "publicKey") {
         return jsonBody;
@@ -70,18 +71,15 @@ class Request {
         requestOptions.data = multipartBody;
     }
     setup() {
-        if (this.privateKey) {
-            if (fs.existsSync(this.privateKey)) {
-                this.privateKey = fs.readFileSync(this.privateKey);
-            }
-            // else QITECH_API_PRIVATE_KEY is the key itself
+        if (fs.existsSync(this.privateKey)) {
+            this.privateKey = fs.readFileSync(this.privateKey);
         }
-        if (this.publicKey) {
-            if (fs.existsSync(this.publicKey)) {
-                this.publicKey = fs.readFileSync(this.publicKey);
-            }
-            // else QITECH_API_QI_PUBLIC_KEY is the key itself
+        // otherwise QITECH_API_PRIVATE_KEY is the key itself
+
+        if (fs.existsSync(this.publicKey)) {
+            this.publicKey = fs.readFileSync(this.publicKey);
         }
+        // otherwise QITECH_API_QI_PUBLIC_KEY is the key itself
     }
     request(httpVerb, urlPath, _options) {
         this.setup();
@@ -118,13 +116,17 @@ class Request {
             requestOptions.headers = Object.assign(requestOptions.headers, options.headers);
         }
         axios.interceptors.response.use(function success(response) {
-            if (response && response.headers["content-type"] === "application/json") {
+            if (response.headers["content-type"] === "application/json") {
                 response.decoded = decoder(response.data, publicKey);
+            } else {
+                response.decoded = response.data;
             }
             return response;
         }, function fail(error) {
-            if (error && error.response && error.response.headers["content-type"] === "application/json") {
+            if (error.response.headers["content-type"] === "application/json") {
                 error.decoded = decoder(error.response.data, publicKey);
+            } else {
+                error.decoded = error.response.data;
             }
             return Promise.reject(error);
         });

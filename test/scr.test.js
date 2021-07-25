@@ -42,6 +42,14 @@ describe("POST SCR", () => {
             expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).scr.post().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("GET SCR", () => {
@@ -67,6 +75,14 @@ describe("GET SCR", () => {
             expect(response.decoded.subject_document_number).to.equal(mockedData.status_200.subject_document_number);
             expect(response.decoded.subject_name).to.equal(mockedData.status_200.subject_name);
             expect(response.decoded.subject_person_type).to.equal(mockedData.status_200.subject_person_type);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).scr.get(scrKey).then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });
@@ -96,6 +112,22 @@ describe("List SCRs", () => {
     });
 });
 
+describe("List SCRs - without query", () => {
+    beforeEach(() => {
+        nock("https://api-auth.sandbox.qitech.app")
+            .get(qitech().scr.RESOURCES_PATH)
+            .reply(200, {});
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).scr.list().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
+});
+
 describe("Delete SCR", () => {
     const mockedData = mockedReqRes.scr.delete;
     const decoder = () => mockedData.status_200;
@@ -121,6 +153,14 @@ describe("Delete SCR", () => {
             expect(response.decoded.subject_person_type).to.equal(mockedData.status_200.subject_person_type);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).scr.delete().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("POST REDO SCR", () => {
@@ -143,6 +183,14 @@ describe("POST REDO SCR", () => {
             expect(response.decoded.key).to.equal(mockedData.status_200.key);
             expect(response.decoded.status).to.equal(mockedData.status_200.status);
             expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).scr.postRedo().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

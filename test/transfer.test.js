@@ -45,6 +45,14 @@ describe("POST Ordinary Account Wire Transfers", () => {
             expect(response.decoded.event_datetime).to.equal(mockedData.escrow_account_status_200.event_datetime);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).transfer.post().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("POST Wire Transfers Approval", () => {
@@ -69,8 +77,15 @@ describe("POST Wire Transfers Approval", () => {
             expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).transfer.postApproval().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
-
 
 describe("GET a Transaction Receipt", () => {
     const mockedData = mockedReqRes.transfer.getReceipt;
@@ -81,11 +96,11 @@ describe("GET a Transaction Receipt", () => {
             .query(mockedData.query)
             .reply(200, {});
     });
+    let transactionKey = mockedData.request;
     it("gets a Transaction Receipt", () => {
         let options = {
             bodyDecoder: decoder
         };
-        let transactionKey = mockedData.request;
         let query = mockedData.query;
         return qitech().transfer.getReceipt(transactionKey, query, options).then(response => {
             expect(typeof response).to.equal("object");
@@ -94,6 +109,24 @@ describe("GET a Transaction Receipt", () => {
             expect(response.decoded.operation_key).to.equal(mockedData.status_200.operation_key);
             expect(response.decoded.status).to.equal(mockedData.status_200.status);
             expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+        });
+    });
+});
+
+describe("GET a Transaction Receipt without query", () => {
+    const mockedData = mockedReqRes.transfer.getReceipt;
+    beforeEach(() => {
+        nock("https://api-auth.sandbox.qitech.app")
+            .get(util.format(qitech().transfer.TRANSACTION_RECEIPT_PATH, mockedData.request))
+            .reply(200, {});
+    });
+    let transactionKey = mockedData.request;
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).transfer.getReceipt(transactionKey).then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });
@@ -116,6 +149,14 @@ describe("List Pending Movements", () => {
             expect(typeof response.decoded.data.movement_request_list).to.equal("object");
             expect(response.decoded.status).to.equal(mockedData.status_200.status);
             expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).transfer.listPending().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

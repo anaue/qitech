@@ -27,6 +27,14 @@ describe("POST Signed Debt", () => {
             expect(response.decoded.contract.signed).to.equal(mockedReqRes.signed_debt.post.status_201.contract.signed);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).signed_debt.post().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("GET Signed Debt", () => {
@@ -53,6 +61,22 @@ describe("GET Signed Debt", () => {
     });
 });
 
+describe("GET Signed Debt - without query", () => {
+    beforeEach(() => {
+        nock("https://api-auth.sandbox.qitech.app")
+            .get(qitech().signed_debt.RESOURCES_PATH)
+            .reply(200, {});
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).signed_debt.get().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
+});
+
 describe("List Signed Debt", () => {
     const decoder = () => mockedReqRes.signed_debt.list.status_200;
     beforeEach(() => {
@@ -73,6 +97,14 @@ describe("List Signed Debt", () => {
             expect(response.decoded.data[0].contract_fee_amount).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].contract_fee_amount);
             expect(response.decoded.data[0].operation_key).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].operation_key);
             expect(response.decoded.data[0].status).to.equal(mockedReqRes.signed_debt.list.status_200.data[0].status);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).signed_debt.list().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

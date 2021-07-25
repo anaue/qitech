@@ -9,7 +9,7 @@ describe("POST Create Escrow Account", () => {
     const mockedData = mockedReqRes.escrow.post;
     beforeEach(() => {
         nock("https://api-auth.sandbox.qitech.app")
-            .post(qitech().account.RESOURCES_PATH)
+            .post(qitech().escrow.RESOURCES_PATH)
             .reply(201, {});
     });
     it("creates Escrow Company Account", () => {
@@ -18,7 +18,7 @@ describe("POST Create Escrow Account", () => {
             bodyDecoder: decoder
         };
         let data = mockedData.company_request;
-        return qitech().account.post(data, options).then(response => {
+        return qitech().escrow.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
             expect(response.decoded).not.to.equal(null);
             expect(response.decoded.data).not.to.equal(null);
@@ -34,7 +34,7 @@ describe("POST Create Escrow Account", () => {
             bodyDecoder: decoder
         };
         let data = mockedData.personal_request;
-        return qitech().account.post(data, options).then(response => {
+        return qitech().escrow.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
             expect(response.decoded).not.to.equal(null);
             expect(response.decoded.data).not.to.equal(null);
@@ -50,7 +50,7 @@ describe("POST Create Escrow Account", () => {
             bodyDecoder: decoder
         };
         let data = mockedData.simplied_company_request;
-        return qitech().account.post(data, options).then(response => {
+        return qitech().escrow.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
             expect(response.decoded).not.to.equal(null);
             expect(response.decoded.data).not.to.equal(null);
@@ -66,7 +66,7 @@ describe("POST Create Escrow Account", () => {
             bodyDecoder: decoder
         };
         let data = mockedData.simplied_personal_request;
-        return qitech().account.post(data, options).then(response => {
+        return qitech().escrow.post(data, options).then(response => {
             expect(typeof response).to.equal("object");
             expect(response.decoded).not.to.equal(null);
             expect(response.decoded.data).not.to.equal(null);
@@ -74,6 +74,14 @@ describe("POST Create Escrow Account", () => {
             expect(response.decoded.key).to.equal(mockedData.personal_status_201.key);
             expect(response.decoded.status).to.equal(mockedData.personal_status_201.status);
             expect(response.decoded.type).to.equal(mockedData.personal_status_201.type);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).escrow.post().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

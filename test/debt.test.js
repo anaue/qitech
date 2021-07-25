@@ -55,6 +55,14 @@ describe("POST Ordinary Debt", () => {
             expect(response.decoded.event_datetime).to.equal(mockedData.status_201.event_datetime);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).debt.post().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 describe("GET Debt", () => {
     const mockedData = mockedReqRes.debt.get;
@@ -65,11 +73,11 @@ describe("GET Debt", () => {
             .query(mockedData.query)
             .reply(200, {});
     });
+    let debtKey = "debtKey";
     it("gets a Debt", () => {
         let options = {
             bodyDecoder: decoder
         };
-        let debtKey = "debtKey";
         return qitech().debt.get(debtKey, options).then(response => {
             expect(typeof response).to.equal("object");
             expect(response.decoded).not.to.equal(null);
@@ -77,6 +85,14 @@ describe("GET Debt", () => {
             expect(response.decoded.operation_key).to.equal(mockedData.status_200.operation_key);
             expect(response.decoded.status).to.equal(mockedData.status_200.status);
             expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).debt.get(debtKey).then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });
@@ -101,6 +117,14 @@ describe("List Debt", () => {
             expect(response.decoded.data[0].contract_fee_amount).to.equal(mockedData.status_200.data[0].contract_fee_amount);
             expect(response.decoded.data[0].operation_key).to.equal(mockedData.status_200.data[0].operation_key);
             expect(response.decoded.data[0].status).to.equal(mockedData.status_200.data[0].status);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).debt.list().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

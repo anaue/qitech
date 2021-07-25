@@ -29,6 +29,14 @@ describe("POST PDF Bank Slip", () => {
             expect(response.decoded.event_datetime).to.equal(mockedData.status_201.event_datetime);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).bank_slip_pdf.post(bankSlipKey).then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("List PDF Bank Slip", () => {
@@ -51,6 +59,14 @@ describe("List PDF Bank Slip", () => {
             expect(response.decoded.operation_key).to.equal(mockedData.status_200.operation_key);
             expect(response.decoded.status).to.equal(mockedData.status_200.status);
             expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).bank_slip_pdf.list(bankSlipKey).then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

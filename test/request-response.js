@@ -6,6 +6,8 @@ const excelSampleFile = fs.readFileSync(excelSampleFilePath);
 const pdfSampleFilePath = "./test/sample/pdfsample.pdf";
 const pdfSampleFile = fs.readFileSync(pdfSampleFilePath);
 const txtSampleFilePath = "./test/sample/sample.txt";
+const privateKeyFilePath = "./test/sample/jwt_test.key";
+const publicKeyFilePath = "./test/sample/jwt_test.key.pub";
 
 module.exports = {
     upload:
@@ -2976,6 +2978,24 @@ module.exports = {
                 "transaction_amount": 93.84,
                 "transaction_amount_formatted": "R$ 93,84",
                 "transaction_key": "bcebffa1-bab5-45b0-b0a2-894f45fcc004"
+            }
+        }
+    },
+    request:
+    {
+        privateKey: privateKeyFilePath,
+        publicKey: publicKeyFilePath,
+        upload: {
+            request: pdfSampleFilePath,
+            status_201_encoded: {
+                encoded_body: "eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudF9rZXkiOiI1OGMyNmY4NC04N2VmLTRiYzYtYmJlYi1lMGM1NDQ4NDhmZDUiLCJkb2N1bWVudF9tZDUiOiIxMDlkOWUzM2QxYzFjYmI3ZjNjZTA0OGVmZGM3ODExNyJ9.AcYVYC1oBkUqI_PqO5DPliTdJjd9XIqawSFfzO6zPaXO1xY5fkj9YlYB79RCoiABsses9k6fFjFkd-PLh3SrLdoqAJKSaH1h0rNuSiJSTIIvDjOf3T9v_RiYmlkYiOcmhVraiWptssNzp4sHOlZrrdhcmbXh7PMWI_kXltHMIZAD8hbE"
+            },
+            status_201: {
+                document_key: "58c26f84-87ef-4bc6-bbeb-e0c544848fd5",
+                document_md5: "109d9e33d1c1cbb7f3ce048efdc78117"
+            },
+            status_500: {
+                message: "server error"
             }
         }
     }

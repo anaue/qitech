@@ -36,6 +36,14 @@ describe("Daily Duplicate Balance", () => {
             expect(response.decoded.paid_on_due_date).to.equal(mockedData.status_200.paid_on_due_date);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).bank_slip_duplicate_balance.get().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("Daily Excel Duplicate Balance", () => {
@@ -54,6 +62,14 @@ describe("Daily Excel Duplicate Balance", () => {
         return qitech().bank_slip_duplicate_balance.getExcel(data, options).then(response => {
             expect(typeof response).to.equal("object");
             expect(typeof response.decoded).to.equal("object");
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).bank_slip_duplicate_balance.getExcel().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });

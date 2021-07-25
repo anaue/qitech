@@ -28,6 +28,14 @@ describe("POST Debt Simulation", () => {
             expect(response.decoded.type).to.equal(mockedData.status_201.type);
         });
     });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).debt_simulation.post().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
 });
 
 describe("POST Batch Debt Simulation", () => {
@@ -51,6 +59,14 @@ describe("POST Batch Debt Simulation", () => {
             expect(response.decoded[0].key).to.equal(mockedData.status_200[0].key);
             expect(response.decoded[0].status).to.equal(mockedData.status_200[0].status);
             expect(response.decoded[0].type).to.equal(mockedData.status_200[0].type);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).debt_simulation.postBatch().then(response => {
+            expect(typeof response).to.equal("object");
         });
     });
 });
