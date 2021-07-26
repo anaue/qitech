@@ -33,8 +33,8 @@ module.exports = function gruntFile(grunt) {
                 options: {
                     nyc: {
                         coverage: {                                 // report nyc coverage results
-                            dir: "dist/coverage",            // ... to folder
-                            reporter: [ "html", "text-summary" ]  // ... using reporters
+                            dir: "coverage",            // ... to folder
+                            reporter: ["lcov" ]  // ... using reporters
                         },
                         excludes: [ "**/*.spec.js" ],         // exclude test files from instrumentation!
                         requires: [ "grunt-nyc-mocha/scripts/sourcemapsupport" ]

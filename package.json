@@ -6,6 +6,7 @@
   "scripts": {
     "prepublishOnly": "",
     "test": "grunt test",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "build": "NODE_ENV=production grunt build"
   },
   "author": {
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "codecov": "^3.8.3",
     "eslint": "^7.31.0",
     "grunt": "^1.4.1",
     "grunt-cli": "^1.4.3",
