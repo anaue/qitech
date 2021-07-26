@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/anaue/qitech.svg?branch=main)](https://travis-ci.com/anaue/qitech)
+[![codecov](https://codecov.io/gh/anaue/qitech/branch/main/graph/badge.svg?token=L82OW8J1C8)](https://codecov.io/gh/anaue/qitech)
 # QI Tech NodeJs
 
 NodeJs wrapper for QI Tech API.
@@ -8,7 +9,6 @@ NodeJs wrapper for QI Tech API.
 ```
 npm install qitech-wrapper --save
 ```
-
 
 ## Lib Configuration
 

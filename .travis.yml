@@ -12,3 +12,5 @@ deploy:
     repo: anaue/qitech
     branch: main
   skip_cleanup: 'true'
+script:
+  - nyc --reporter=lcov mocha && codecov
