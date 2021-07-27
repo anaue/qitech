@@ -8,13 +8,15 @@ class QiTech {
         this.clientKey = opts.clientKey;
         this.privateKey = opts.privateKey;
         this.publicKey = opts.publicKey;
+        this.environment = opts.environment;
         this.setupRequest();
     }
     setupRequest() {
         this.request = new Request({
             clientKey: this.clientKey,
             privateKey: this.privateKey,
-            publicKey: this.publicKey
+            publicKey: this.publicKey,
+            environment: this.environment
         });
     }
     upload() {

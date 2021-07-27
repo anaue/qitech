@@ -19,7 +19,11 @@ You have two ways to do the configuration:
 1 - Or you can call `qitech_wrapper.setup` method
 ```
 const QITtech = require('qitech-wrapper');
-let qitech_wrapper = QITtech("QI Tech API Client_Key", "user private file path or key","QITECH public file path or key");
+let qitech_wrapper = QITtech({
+    clientKey: "QI Tech API Client_Key", 
+    privateKey: "user private file path or key", 
+    publicKey: "QITECH public file path or key"
+});
 ```
 
 2 - Or you can define env vars directly.
@@ -36,6 +40,14 @@ The sandbox environment is default for any value for QITECH_ENV, except `product
 ```
 ## production environment
 export QITECH_ENV=production
+```
+
+You can either define it in class constructor.
+```
+const QITtech = require('qitech-wrapper');
+let qitech_wrapper = QITtech({
+    environment: "production"
+});
 ```
 
 
