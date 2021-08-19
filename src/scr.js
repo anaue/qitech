@@ -8,6 +8,7 @@ class Scr {
         this.RESOURCES_PATH = "/scr";
         this.RESOURCE_PATH = "/scr/%s";
         this.SCR_REDO_PATH = "/scr/redo";
+        this.SIGNED_SCR_PATH = "/signed_scr";
     }
     list(_query, _options) {
         let query = _query || {};
@@ -35,6 +36,13 @@ class Scr {
             "body": data
         });
         return this.request.request("POST", this.SCR_REDO_PATH, options);
+    }
+    postSigned(data, _options) {
+        let options = _options || {};
+        options = Object.assign(options, {
+            "body": data
+        });
+        return this.request.request("POST", this.SIGNED_SCR_PATH, options);
     }
     delete(data, _options) {
         let options = _options || {};

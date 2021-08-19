@@ -5,6 +5,7 @@ const fs = require("fs");
 var {Buffer} = require("buffer");
 const axios = require("axios");
 const md5 = require("md5");
+const querystring = require("querystring");
 
 const QITECH_PROD_ENDPOINT = "api-auth.qitech.app";
 const QITECH_STAG_ENDPOINT = "api-auth.sandbox.qitech.app";
@@ -89,6 +90,7 @@ class Request {
         let encoder = options.bodyEncoder ? options.bodyEncoder : bodyEncoder;
         let decoder = options.bodyDecoder ? options.bodyDecoder : bodyDecoder;
         let actualBodyContent = null;
+        let querystr = "";
         let requestOptions = {
             baseURL: "https://" + this.endpoint,
             url: urlPath,
@@ -103,7 +105,13 @@ class Request {
         }
         if (options.query) {
             requestOptions.params = options.query;
+            var strQuery =  querystring.stringify(options.query);
+            if (strQuery && strQuery !== "") {
+                querystr = "?" + strQuery;
+            }
         }
+        var queryUrlPath = urlPath + querystr;
+
         if (options.body) {
             actualBodyContent = encoder(options.body, privateKey);
             let body = {
@@ -134,7 +142,7 @@ class Request {
             requestOptions.headers["Content-Length"] = actualBodyContent.length;
         }
         requestOptions.headers["API-CLIENT-KEY"] = this.clientKey;
-        requestOptions.headers.Authorization = this.getAuthorization(httpVerb, urlPath, actualBodyContent, encoder);
+        requestOptions.headers.Authorization = this.getAuthorization(httpVerb, queryUrlPath, actualBodyContent, encoder);
         return axios.request(requestOptions);
     }
 }
