@@ -71,6 +71,12 @@ class QiTech {
         var FinancialInstitute = require("./src/financial-institute");
         return new FinancialInstitute(this.request);
     }
+    requestDecode(_data) {
+        return this.request.decode(_data);
+    }
+    requestEncode(_data) {
+        return this.request.encode(_data);
+    }
 }
 module.exports = function QiTechFn(opts) {
     const _qiTech = new QiTech(opts);

@@ -124,14 +124,14 @@ class Request {
             requestOptions.headers = Object.assign(requestOptions.headers, options.headers);
         }
         axios.interceptors.response.use(function success(response) {
-            if (response.headers["content-type"] === "application/json") {
+            if (response && response.headers["content-type"] === "application/json") {
                 response.decoded = decoder(response.data, publicKey);
             } else {
                 response.decoded = response.data;
             }
             return response;
         }, function fail(error) {
-            if (error.response.headers["content-type"] === "application/json") {
+            if (error && error.response.headers["content-type"] === "application/json") {
                 error.decoded = decoder(error.response.data, publicKey);
             } else {
                 error.decoded = error.response.data;
@@ -144,6 +144,22 @@ class Request {
         requestOptions.headers["API-CLIENT-KEY"] = this.clientKey;
         requestOptions.headers.Authorization = this.getAuthorization(httpVerb, queryUrlPath, actualBodyContent, encoder);
         return axios.request(requestOptions);
+    }
+    decode(data, _options) {
+        this.setup();
+        let options = _options || {};
+        var publicKey = this.publicKey;
+        let decoder = options.bodyDecoder ? options.bodyDecoder : bodyDecoder;
+
+        return decoder(data, publicKey);
+    }
+    encode(data, _options) {
+        this.setup();
+        let options = _options || {};
+        var privateKey = this.privateKey;
+        let encoder = options.bodyEncoder ? options.bodyEncoder : bodyEncoder;
+
+        return encoder(data, privateKey);
     }
 }
 
