@@ -173,10 +173,7 @@ describe("test external encode/decode", () => {
         let raw = {"message": "ok"};
         let encoded = _request.request.encode(raw);
         expect(typeof encoded).to.equal("string");
-        let encodedData = {
-            encoded_body: encoded
-        };
-        let data = _request.request.decode(encodedData);
+        let data = _request.request.decode(encoded);
 
         expect(typeof data).to.equal("object");
         expect(raw.message).to.equal(data.message);

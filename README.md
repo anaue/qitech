@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/anaue/qitech.svg?branch=main)](https://travis-ci.com/anaue/qitech)
+[![Build Status](https://travis-ci.com/anaue/qitech.svg?branch=main)](https://app.travis-ci.com/github/anaue/qitech)
 [![codecov](https://codecov.io/gh/anaue/qitech/branch/main/graph/badge.svg?token=L82OW8J1C8)](https://codecov.io/gh/anaue/qitech)
 [![npm version](https://badge.fury.io/js/qitech-wrapper.svg)](https://badge.fury.io/js/qitech-wrapper)
 

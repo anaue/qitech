@@ -148,7 +148,10 @@ class Request {
     decode(data) {
         this.setup();
         var publicKey = this.publicKey;
-        return bodyDecoder(data, publicKey);
+        let body = {
+            encoded_body: data
+        };
+        return bodyDecoder(body, publicKey);
     }
     encode(data) {
         this.setup();
