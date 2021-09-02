@@ -194,3 +194,35 @@ describe("POST REDO SCR", () => {
         });
     });
 });
+
+describe("POST SIGNED SCR", () => {
+    const mockedData = mockedReqRes.scr.postRedo;
+    const decoder = () => mockedData.status_200;
+    beforeEach(() => {
+        nock("https://api-auth.sandbox.qitech.app")
+            .post(qitech().scr.SIGNED_SCR_PATH)
+            .reply(200, {});
+    });
+    it("Record signed SCR", () => {
+        let options = {
+            bodyDecoder: decoder
+        };
+        let data = mockedData.request;
+        return qitech().scr.postSigned(data, options).then(response => {
+            expect(typeof response).to.equal("object");
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.webhook_type).to.equal(mockedData.status_200.webhook_type);
+            expect(response.decoded.key).to.equal(mockedData.status_200.key);
+            expect(response.decoded.status).to.equal(mockedData.status_200.status);
+            expect(response.decoded.event_datetime).to.equal(mockedData.status_200.event_datetime);
+        });
+    });
+    it("should use default values", () => {
+        return qitech({
+            privateKey: mockedReqRes.request.privateKey,
+            publicKey: mockedReqRes.request.publicKey
+        }).scr.postSigned().then(response => {
+            expect(typeof response).to.equal("object");
+        });
+    });
+});

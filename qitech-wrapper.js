@@ -71,11 +71,8 @@ class QiTech {
         var FinancialInstitute = require("./src/financial-institute");
         return new FinancialInstitute(this.request);
     }
-    requestDecode(_data) {
-        return this.request.decode(_data);
-    }
-    requestEncode(_data) {
-        return this.request.encode(_data);
+    requester() {
+        return this.request;
     }
 }
 module.exports = function QiTechFn(opts) {
@@ -93,6 +90,7 @@ module.exports = function QiTechFn(opts) {
         bank_slip_pdf: _qiTech.bankSlipPdf(),
         multibank: _qiTech.multibank(),
         transfer: _qiTech.transfer(),
-        financial_institute: _qiTech.financialInstitute()
+        financial_institute: _qiTech.financialInstitute(),
+        request: _qiTech.requester()
     };
 };

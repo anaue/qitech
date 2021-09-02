@@ -145,21 +145,15 @@ class Request {
         requestOptions.headers.Authorization = this.getAuthorization(httpVerb, queryUrlPath, actualBodyContent, encoder);
         return axios.request(requestOptions);
     }
-    decode(data, _options) {
+    decode(data) {
         this.setup();
-        let options = _options || {};
         var publicKey = this.publicKey;
-        let decoder = options.bodyDecoder ? options.bodyDecoder : bodyDecoder;
-
-        return decoder(data, publicKey);
+        return bodyDecoder(data, publicKey);
     }
-    encode(data, _options) {
+    encode(data) {
         this.setup();
-        let options = _options || {};
         var privateKey = this.privateKey;
-        let encoder = options.bodyEncoder ? options.bodyEncoder : bodyEncoder;
-
-        return encoder(data, privateKey);
+        return bodyEncoder(data, privateKey);
     }
 }
 

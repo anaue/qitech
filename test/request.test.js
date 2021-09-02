@@ -163,3 +163,23 @@ describe("Empty options", () => {
     });
 });
 
+describe("test external encode/decode", () => {
+    it("it should encode and decode value", () => {
+        let _request = qitech({
+            publicKey: `-----BEGIN PUBLIC KEY-----\nMIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQBMYW2kaNWyI372dYoQIMBPYyd7bJZ\nR+EXFB691RO5gB2ZIQZMUR9wtec6C2S942CxSgXpi4AKrPknic41i82X3GEBcZse\nLGwF5BncvkWWUaPuQctheYEi6EVOwvI7JD4bwerQcR7bHH+Q3WaiRNzJWcwP7kzI\nOEfCnwCKUb6L6TCIra4=\n-----END PUBLIC KEY-----`,
+            privateKey: `-----BEGIN EC PRIVATE KEY-----\nMIHbAgEBBEGOx0wqieUeQSAC4VEcZlwNUOxKJK2tg9zW4p3VJjZFDyCkhCI6AU4B\nrBUOb3HfV1yBJt1qiir1dJHSHU3WxDja4aAHBgUrgQQAI6GBiQOBhgAEATGFtpGj\nVsiN+9nWKECDAT2Mne2yWUfhFxQevdUTuYAdmSEGTFEfcLXnOgtkveNgsUoF6YuA\nCqz5J4nONYvNl9xhAXGbHixsBeQZ3L5FllGj7kHLYXmBIuhFTsLyOyQ+G8Hq0HEe\n2xx/kN1mokTcyVnMD+5MyDhHwp8AilG+i+kwiK2u\n-----END EC PRIVATE KEY-----`
+        });
+
+        let raw = {"message": "ok"};
+        let encoded = _request.request.encode(raw);
+        expect(typeof encoded).to.equal("string");
+        let encodedData = {
+            encoded_body: encoded
+        };
+        let data = _request.request.decode(encodedData);
+
+        expect(typeof data).to.equal("object");
+        expect(raw.message).to.equal(data.message);
+    });
+});
+
