@@ -33,7 +33,7 @@ export QITECH_API_PRIVATE_KEY="client private file path or USER PRIVATE KEY"
 export QITECH_API_QI_PUBLIC_KEY="QITECH public file path or QI TECH PUBLIC KEY"
 ```
 
-## Production Enviroment 
+## Production Environment 
 
 The sandbox environment is default for any value for QITECH_ENV, except `production`
 

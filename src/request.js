@@ -131,7 +131,7 @@ class Request {
             }
             return response;
         }, function fail(error) {
-            if (error && error.response.headers["content-type"] === "application/json") {
+            if (error && error.response && error.response.headers["content-type"] === "application/json") {
                 error.decoded = decoder(error.response.data, publicKey);
             } else {
                 error.decoded = error.response.data;
