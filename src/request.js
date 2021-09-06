@@ -131,10 +131,12 @@ class Request {
             }
             return response;
         }, function fail(error) {
+            // eslint-disable-next-line no-console
+            console.log(publicKey, error);
             if (error && error.response && error.response.headers["content-type"] === "application/json") {
                 error.decoded = decoder(error.response.data, publicKey);
             } else {
-                error.decoded = error.response ? error.response.data : "unknown error";
+                error.decoded = error.response ? error.response.data : "";
             }
             return Promise.reject(error);
         });
