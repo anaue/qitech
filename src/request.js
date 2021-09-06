@@ -123,29 +123,27 @@ class Request {
         if (options.headers) {
             requestOptions.headers = Object.assign(requestOptions.headers, options.headers);
         }
-        axios.interceptors.response.use(function success(response) {
+        if (actualBodyContent) {
+            requestOptions.headers["Content-Length"] = actualBodyContent.length;
+        }
+        requestOptions.headers["API-CLIENT-KEY"] = this.clientKey;
+        requestOptions.headers.Authorization = this.getAuthorization(httpVerb, queryUrlPath, actualBodyContent, encoder);
+
+        return axios.request(requestOptions).then(function success(response) {
             if (response && response.headers["content-type"] === "application/json") {
                 response.decoded = decoder(response.data, publicKey);
             } else {
                 response.decoded = response.data;
             }
             return response;
-        }, function fail(error) {
-            // eslint-disable-next-line no-console
-            console.log(publicKey, error);
-            if (error && error.response && error.response.headers["content-type"] === "application/json") {
+        }).catch(function fail(error) {
+            if (error && error.response && error.response.data && error.response.headers["content-type"] === "application/json" && error.response.data.encoded_body) {
                 error.decoded = decoder(error.response.data, publicKey);
             } else {
                 error.decoded = error.response ? error.response.data : "";
             }
             return Promise.reject(error);
         });
-        if (actualBodyContent) {
-            requestOptions.headers["Content-Length"] = actualBodyContent.length;
-        }
-        requestOptions.headers["API-CLIENT-KEY"] = this.clientKey;
-        requestOptions.headers.Authorization = this.getAuthorization(httpVerb, queryUrlPath, actualBodyContent, encoder);
-        return axios.request(requestOptions);
     }
     decode(data) {
         this.setup();
