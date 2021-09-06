@@ -134,7 +134,7 @@ class Request {
             if (error && error.response && error.response.headers["content-type"] === "application/json") {
                 error.decoded = decoder(error.response.data, publicKey);
             } else {
-                error.decoded = error.response ? error.response.data : error;
+                error.decoded = error.response ? error.response.data : "unknown error";
             }
             return Promise.reject(error);
         });
