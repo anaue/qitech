@@ -1,5 +1,7 @@
 "use strict";
 
+const util = require("util");
+
 const qitech = require("../qitech-wrapper");
 const mockedReqRes = require("./request-response");
 const expect = require("chai").expect;
@@ -125,6 +127,27 @@ describe("List Debt", () => {
             publicKey: mockedReqRes.request.publicKey
         }).debt.list().then(response => {
             expect(typeof response).to.equal("object");
+        });
+    });
+});
+describe("POST Signed Ordinary Debt", () => {
+    let debtKey = "debtKey";
+    const mockedData = mockedReqRes.debt.postSigned;
+    const decoder = () => mockedData.status_201;
+    beforeEach(() => {
+        nock("https://api-auth.sandbox.qitech.app")
+            .post(util.format(qitech().debt.SIGNED_DEBT_PATH, debtKey))
+            .reply(201, {});
+    });
+    it("should record Signed Ordinary Debt", () => {
+        let options = {
+            bodyDecoder: decoder
+        };
+        let data = mockedData.request;
+        return qitech().debt.postSigned(debtKey, data, options).then(response => {
+            expect(typeof response).to.equal("object");
+            expect(response.decoded).not.to.equal(null);
+            expect(response.decoded.message).to.equal(mockedData.status_201.message);
         });
     });
 });

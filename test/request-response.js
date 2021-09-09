@@ -392,6 +392,16 @@ module.exports = {
                     "total_rows": 55
                 }
             }
+        },
+        postSigned: {
+            request: {
+                "type": "pdf-signature",
+                "path-pdf-signed": "url para o pdf valid-exemploassinado.pdf",
+                "signature_zip": "document_key do sign2go.zip enviado via /upload para a QI"
+            },
+            status_201: {
+                "message": "no-doc and unknown"
+            }
         }
     },
     debt_simulation: {
@@ -2751,6 +2761,50 @@ module.exports = {
                 "subject_document_number": "41184562067",
                 "subject_name": "Joao Ninguem",
                 "subject_person_type": "natural"
+            }
+        },
+        postSigned: {
+            request: {
+                "person_type": "natural",
+                "name": "Felipe Marques da Silva",
+                "document_number": "04772395792",
+                "email": "felipe.silva@qitech.com.br",
+                "report_start_date": "2020-01",
+                "report_end_date": "2020-06",
+                "signatures": [
+                    {
+                        "signer": {
+                            "name": "Felipe Marques da Silva",
+                            "email": "felipe.silva@qitech.com.br",
+                            "phone": {
+                                "number": "991722315",
+                                "area_code": "16",
+                                "country_code": "055"
+                            },
+                            "document_number": "04772395792"
+                        },
+                        "authenticity": {
+                            "ip_address": "179.104.42.245",
+                            "session_id": "ddb1d063-4fdf-4330-af9c-3316e9142ff3",
+                            "fingerprint": {
+                                "campo": "livre"
+                            },
+                            "third_party_access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5d",
+                            "third_party_additional_data": {
+                                "campo": "livre"
+                            }
+                        },
+                        "signable_object": {
+                            "raw_text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elementum erat et tempus dapibus. Donec eu sapien tortor. Pellentesque et tortor eget erat pulvinar mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin ornare diam arcu, sit amet auctor lorem varius quis. Ut pretium venenatis magna sed ultrices. Donec quis tortor odi."
+                        }
+                    }
+                ]
+            },
+            status_200: {
+                "webhook_type": "scr",
+                "key": "OPERATION_KEY",
+                "status": "pending_signature",
+                "event_datetime": "EVENT_DATE_TIME"
             }
         }
     },

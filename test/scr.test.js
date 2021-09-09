@@ -196,7 +196,7 @@ describe("POST REDO SCR", () => {
 });
 
 describe("POST SIGNED SCR", () => {
-    const mockedData = mockedReqRes.scr.postRedo;
+    const mockedData = mockedReqRes.scr.postSigned;
     const decoder = () => mockedData.status_200;
     beforeEach(() => {
         nock("https://api-auth.sandbox.qitech.app")

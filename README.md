@@ -153,6 +153,9 @@ qitech_wrapper.upload.post(filePath)
     qitech_wrapper.debt.get(debt_key, options);
 #### GET - List Debts 
     qitech_wrapper.debt.list(query, options);
+#### POST - Create Signed Debt 
+    qitech_wrapper.debt.postSigned(query, options);
+
 
 ### Signed Debt
 #### POST - Create Signed Debt 
@@ -181,6 +184,8 @@ qitech_wrapper.upload.post(filePath)
     qitech_wrapper.scr.post(data, options);
 #### POST - Redo SCR Consultation
     qitech_wrapper.scr.postRedo(data, options);
+#### POST - Record SCR's Signed Authorization
+    qitech_wrapper.scr.postSigned(data, options);
 #### GET - List Consultations
     qitech_wrapper.scr.list(query, options);
 #### GET - Show Consultation
